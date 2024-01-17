@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'PxGrotesk';
+  src: url('./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf');
+}
 
 #root {
   width: 100vw;
@@ -9,4 +15,69 @@
 
 body {
   margin: 0;
+}
+
+.h1-pxgrotesk {
+  font-family: 'PxGrotesk';
+  font-size: 64px;
+  width: 30%;
+}
+
+.h2-pxgrotesk {
+  font-family: 'PxGrotesk';
+  font-size: 40px;
+  width: 50%;
+  color: #ffffff;
+}
+
+.content {
+  font-family: 'Poppins';
+  font-weight: 200;
+  font-size: 24px;
+  width: 50%;
+  color: #ffffff;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  position: sticky;
+  display: flex;
+  padding: 0px 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 73px;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.tab {
+  color: #EDEDED;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.active {
+  font-weight: 900;
 }
