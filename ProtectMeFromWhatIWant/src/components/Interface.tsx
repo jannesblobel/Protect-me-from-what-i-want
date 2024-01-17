@@ -1,4 +1,7 @@
 import logo from '../assets/logo.png';
+// import MediaCompetence from "../pages/digital-reflection";
+// import ActNow from "../pages/digital-reflection";
+// import WhoElse from "../pages/digital-reflection";
 type SectionProps = {
   children: React.ReactNode;
 };
