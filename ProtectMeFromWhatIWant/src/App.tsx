@@ -7,17 +7,18 @@ import Interface from "./components/Interface";
 
 function App() {
   // const [section, setSection] = useState(0);
+  const pages: number = 5;
 
   return (
     <Canvas
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, -3, 40], fov: 12, near: 5, far: 90 }}
+      camera={{ position: [20, -3, 40], fov: 18, near: 5, far: 90 }} //fov 16
     >
-      <ScrollControls pages={5} damping={0.1}>
-        <fog attach="fog" args={["#202020", 5, 90]} />
+      <ScrollControls pages={pages} damping={0.1}>
+        <fog attach="fog" args={["#202020", 1, 120]} />
         <color attach="background" args={["#111"]} />
-        <Experience />
+        <Experience pages={pages - 1} />
         {/* <ScrollManager section={section} onSectionChange={setSection} /> */}
         <Scroll html>
           <Interface />
