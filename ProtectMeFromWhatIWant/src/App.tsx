@@ -21,7 +21,7 @@ function App() {
     <Canvas
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, -3, 40], fov: 18, near: 5, far: 90 }} //fov 16
+      camera={{ position: [20, -3, 40], fov: 18, near: 5, far: 90 }} //fov 18
     >
       <ScrollControls pages={pages} damping={0.1}>
         <fog attach="fog" args={["#202020", 1, 120]} />

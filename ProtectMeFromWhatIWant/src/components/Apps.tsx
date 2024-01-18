@@ -23,31 +23,15 @@ const MovingSpotApp = (props: MovingSpotProps) => {
   } = props;
   const spotRef = useRef<THREE.SpotLight>(null);
   const parentRef = useRef<THREE.Group>(null);
-  const worldPosition = new THREE.Vector3(0, 0, 0);
-  const { scene } = useThree();
 
-  const groupPos = new THREE.Vector3(targetPos[0], targetPos[1], targetPos[2]);
+  const groupPos = new THREE.Vector3(
+    targetPos[0],
+    targetPos[1],
+    targetPos[2] + 8
+  );
   useFrame(() => {
     spotRef.current?.target.position.set(groupPos.x, groupPos.y, groupPos.z);
   });
-  // useEffect(() => {
-  //   if (parentRef.current && spotRef.current) {
-  //     // Convert world position to local position
-  //     const worldPos = new THREE.Vector3(...worldPosition);
-  //     const parentWorldPos = new THREE.Vector3();
-  //     parentRef.current.updateWorldMatrix(true, true);
-  //     parentRef.current.getWorldPosition(parentWorldPos);
-  //     const localPos = worldPos
-  //       .sub(parentWorldPos)
-  //       .applyQuaternion(
-  //         parentRef.current
-  //           .getWorldQuaternion(parentRef.current.quaternion)
-  //           .invert()
-  //       );
-  //     spotRef.current.position.set(localPos.x, localPos.y, localPos.z);
-  //     console.log(localPos);
-  //   }
-  // }, [worldPosition]);
   return (
     <group
       ref={parentRef}
@@ -56,19 +40,20 @@ const MovingSpotApp = (props: MovingSpotProps) => {
       scale={rectScale}
     >
       <SpotLight
-        ref={spotRef} // old one {[0, -1, 7]}
-        position={[3, 0, 0]}
+        ref={spotRef}
+        position={[-40, 0, 50]}
         rotation={[0, 0, 0]}
+        debug={true}
         intensity={100}
         color="#B499FF"
         castShadow
         penumbra={1.0}
-        distance={120}
-        angle={4}
-        attenuation={10}
-        anglePower={10}
+        distance={200}
+        angle={10}
+        attenuation={70}
+        anglePower={2}
       />
-
+      {/* <pointLight intensity={3} position={[0, 0, 8]} /> */}
       <mesh geometry={geometry} material={materialFill} />
       <mesh geometry={geometryFill} material={material} />
     </group>
@@ -115,11 +100,9 @@ type AppsProps = {
 const rectScale = new THREE.Vector3(0.75, 0.75, 0.1);
 
 export function Apps(props: AppsProps) {
-  const { isVisible } = props;
-  console.log(isVisible);
   const { nodes, materials } = useGLTF("models/AppIcons.glb") as GLTFResult;
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} rotation={[0, 2, 0]}>
       <MovingSpotApp
         targetPos={[-0.024, 0, 15.661]}
         meshRotation={new THREE.Euler(Math.PI, 0, Math.PI)}
