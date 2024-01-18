@@ -278,7 +278,7 @@ const MovingSpotApp = (props: MovingSpotProps) => {
   const spotRef = useRef<THREE.SpotLight>(null);
   const parentRef = useRef<THREE.Group>(null);
   // Variables for movement
-  const speed = 0.005; // Base speed of movement
+  const speed = 0.01; // Base speed of movement
   const amplitude = 0.25; // Amplitude of the wave movement
   const frame = useRef(0);
   const initialPos = new THREE.Vector3(
@@ -294,7 +294,6 @@ const MovingSpotApp = (props: MovingSpotProps) => {
 
   useFrame(() => {
     if (parentRef.current === null || spotRef.current === null) return;
-
     // Increment the frame
     frame.current += speed;
     // Compute new position
@@ -309,11 +308,12 @@ const MovingSpotApp = (props: MovingSpotProps) => {
 
     const r3Visible = scroll.range(1.95 / pages, 0.2 / pages);
     if (r3Visible > 0) {
-      console.log("r3Visible", r3Visible);
+      // console.log("r3Visible", r3Visible);
       materialFill.opacity = r3Visible * 0.6;
       material.opacity = r3Visible * 0.6;
       spotRef.current.intensity = r3Visible * 1.0;
       spotRef.current.attenuation = r3Visible * 1.0;
+      parentRef.current.position.x = initialPos.x + 3 - r3Visible * 3;
     }
   });
   return (

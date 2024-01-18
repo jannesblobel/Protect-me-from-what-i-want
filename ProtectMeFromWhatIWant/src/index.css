@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'PxGrotesk';
-  src: url('./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf');
+  font-family: "PxGrotesk";
+  src: url("./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf");
 }
 
 #root {
@@ -14,4 +14,5 @@
 
 body {
   margin: 0;
+  background-color: #111;
 }
