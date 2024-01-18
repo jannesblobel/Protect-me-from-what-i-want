@@ -33,6 +33,41 @@ type GLTFResult = GLTF & {
   };
 };
 
+type GLTFAppResult = GLTF & {
+  nodes: {
+    Cube001_1: THREE.Mesh;
+    Cube001_2: THREE.Mesh;
+    Cube002_1: THREE.Mesh;
+    Cube002_2: THREE.Mesh;
+    Cube004_1: THREE.Mesh;
+    Cube004_2: THREE.Mesh;
+    Cube008_1: THREE.Mesh;
+    Cube008_2: THREE.Mesh;
+    Cube010_1: THREE.Mesh;
+    Cube010_2: THREE.Mesh;
+    Cube011_1: THREE.Mesh;
+    Cube011_2: THREE.Mesh;
+    Cube012_1: THREE.Mesh;
+    Cube012_2: THREE.Mesh;
+  };
+  materials: {
+    InstagramFill: THREE.MeshStandardMaterial;
+    Instagram: THREE.MeshStandardMaterial;
+    TikTok: THREE.MeshStandardMaterial;
+    TikTokFill: THREE.MeshStandardMaterial;
+    Tinder: THREE.MeshStandardMaterial;
+    TinderFill: THREE.MeshStandardMaterial;
+    X: THREE.MeshStandardMaterial;
+    XFill: THREE.MeshStandardMaterial;
+    Snap: THREE.MeshStandardMaterial;
+    SnapFill: THREE.MeshStandardMaterial;
+    OneSec: THREE.MeshStandardMaterial;
+    OneSecFill: THREE.MeshStandardMaterial;
+    Youtube: THREE.MeshStandardMaterial;
+    YoutubeFill: THREE.MeshStandardMaterial;
+  };
+};
+
 export function Head(props: headProps) {
   const { pages } = props;
   const { nodes, materials } = useGLTF(
@@ -40,8 +75,8 @@ export function Head(props: headProps) {
   ) as GLTFResult;
 
   const { nodes: appNodes, materials: appMaterials } = useGLTF(
-    "models/AppIcons.glb"
-  );
+    "models/AppIcons2.glb"
+  ) as GLTFAppResult;
 
   const scroll = useScroll();
   const head = useRef<THREE.Mesh>(null);
@@ -80,14 +115,6 @@ export function Head(props: headProps) {
       apps.current.visible = false;
     }
   });
-
-  //emmisive screen
-  // Create an emissive material
-  // const emissiveMaterial = new THREE.MeshStandardMaterial({
-  //   color: "white", // base color of the material
-  //   emissive: new THREE.Color(0xffffff), // emissive color
-  //   emissiveIntensity: 100.0, // emissive intensity
-  // });
 
   return (
     <>
@@ -147,50 +174,58 @@ export function Head(props: headProps) {
         {/* Apps go here */}
         <MovingSpotApp
           targetPos={[12, 0, -1]}
-          meshRotation={new THREE.Euler(degToRad(5), Math.PI / 1.5, 0)}
-          geometry={appNodes.Cube001_1.geometry}
-          geometryFill={appNodes.Cube001_2.geometry}
+          meshRotation={
+            new THREE.Euler(degToRad(0), degToRad(-230), degToRad(10))
+          }
+          geometry={appNodes.Cube001_2.geometry}
+          geometryFill={appNodes.Cube001_1.geometry}
           materialFill={appMaterials.InstagramFill}
           material={appMaterials.Instagram}
           pages={pages}
         />
         <MovingSpotApp
           targetPos={[12, -2.5, 0]}
-          meshRotation={new THREE.Euler(degToRad(-20), Math.PI / 1.5, 0)}
-          geometry={appNodes.Cube001_1.geometry}
-          geometryFill={appNodes.Cube001_2.geometry}
-          materialFill={appMaterials.InstagramFill}
-          material={appMaterials.Instagram}
+          meshRotation={new THREE.Euler(degToRad(-20), degToRad(-50), 0)}
+          geometry={appNodes.Cube002_1.geometry}
+          geometryFill={appNodes.Cube002_2.geometry}
+          materialFill={appMaterials.TikTokFill}
+          material={appMaterials.TikTok}
           pages={pages}
         />
         <MovingSpotApp
           targetPos={[10, 3, 0]}
-          meshRotation={new THREE.Euler(degToRad(40), Math.PI / 1.5, 0)}
-          geometry={appNodes.Cube001_1.geometry}
-          geometryFill={appNodes.Cube001_2.geometry}
-          materialFill={appMaterials.InstagramFill}
-          material={appMaterials.Instagram}
+          meshRotation={new THREE.Euler(degToRad(40), degToRad(-40), 0)}
+          geometry={appNodes.Cube004_1.geometry}
+          geometryFill={appNodes.Cube004_2.geometry}
+          materialFill={appMaterials.TinderFill}
+          material={appMaterials.Tinder}
           pages={pages}
         />
         <MovingSpotApp
           targetPos={[10, 2, -5]}
-          meshRotation={new THREE.Euler(degToRad(10), Math.PI / 1.5, 0)}
-          geometry={appNodes.Cube001_1.geometry}
-          geometryFill={appNodes.Cube001_2.geometry}
-          materialFill={appMaterials.InstagramFill}
-          material={appMaterials.Instagram}
+          meshRotation={new THREE.Euler(degToRad(30), degToRad(-55), 0)}
+          geometry={appNodes.Cube008_1.geometry}
+          geometryFill={appNodes.Cube008_2.geometry}
+          materialFill={appMaterials.XFill}
+          material={appMaterials.X}
           pages={pages}
         />
         <MovingSpotApp
           targetPos={[10, -4.5, -2]}
-          meshRotation={new THREE.Euler(degToRad(-30), Math.PI / 1.4, 0)}
-          geometry={appNodes.Cube001_1.geometry}
-          geometryFill={appNodes.Cube001_2.geometry}
-          materialFill={appMaterials.InstagramFill}
-          material={appMaterials.Instagram}
+          meshRotation={new THREE.Euler(degToRad(-40), degToRad(-50), 0)}
+          geometry={appNodes.Cube010_1.geometry}
+          geometryFill={appNodes.Cube010_2.geometry}
+          materialFill={appMaterials.SnapFill}
+          material={appMaterials.Snap}
           pages={pages}
         />
-        {/* <Apps isVisible={false} /> */}
+        <OneSec
+          material={appMaterials.OneSec}
+          materialFill={appMaterials.OneSecFill}
+          geometry={appNodes.Cube011_1.geometry}
+          geometryFill={appNodes.Cube011_2.geometry}
+          pages={pages}
+        />
       </group>
     </>
   );
@@ -310,7 +345,7 @@ function MovingSpotApp(props: MovingSpotProps) {
     const r3Visible = scroll.range(1.95 / pages, 0.2 / pages);
     if (r3Visible > 0) {
       materialFill.opacity = r3Visible * 0.6;
-      material.opacity = r3Visible * 0.6;
+      material.opacity = r3Visible * 0.75;
       setSpotDistance(r3Visible * 14.0);
       parentRef.current.position.x = initialPos.x + 3 - r3Visible * 3;
     }
@@ -333,9 +368,9 @@ function MovingSpotApp(props: MovingSpotProps) {
         rotation={meshRotation}
         scale={rectScale}
       >
-        <pointLight intensity={1} position={[0, 0, -8]} decay={0.3} />
-        <mesh geometry={geometry} material={materialFill} />
-        <mesh geometry={geometryFill} material={material} />
+        <pointLight intensity={2} position={[0, 0, -8]} decay={0.3} />
+        <mesh geometry={geometryFill} material={materialFill} />
+        <mesh geometry={geometry} material={material} />
       </group>
     </>
   );
@@ -344,12 +379,47 @@ function MovingSpotApp(props: MovingSpotProps) {
 type oneSecProps = {
   material: THREE.Material;
   materialFill: THREE.Material;
+  geometry: THREE.BufferGeometry;
+  geometryFill: THREE.BufferGeometry;
   pages: number;
 };
-function oneSec(props: oneSecProps) {
+function OneSec(props: oneSecProps) {
+  const { material, materialFill, pages, geometry, geometryFill } = props;
+  const scroll = useScroll();
+  const group = useRef<THREE.Group>(null);
+
+  //different material will fix the problem
+  material.transparent = true;
+  material.opacity = 1;
+  materialFill.transparent = true;
+  materialFill.opacity = 1;
+  console.log("oneSec");
+  useFrame(() => {
+    const r4 = scroll.range(2.15 / pages, 0.9 / pages);
+
+    if (r4 > 0) {
+      //adjust material opacity
+      materialFill.opacity = r4 * 0.6;
+      material.opacity = r4 * 0.75;
+
+      //move in group from the bottom
+      if (group.current !== null) {
+        group.current.position.z = 4 * r4 * 1;
+      }
+    }
+  });
   return (
     <>
-      <group></group>
+      <group
+        ref={group}
+        position={[5, 0, 0]}
+        scale={rectScale}
+        rotation={[degToRad(0), degToRad(0), degToRad(0)]}
+      >
+        <pointLight intensity={1} position={[0, 0, 5]} decay={0.3} />
+        <mesh geometry={geometryFill} material={materialFill} />
+        <mesh geometry={geometry} material={material} />
+      </group>
     </>
   );
 }
