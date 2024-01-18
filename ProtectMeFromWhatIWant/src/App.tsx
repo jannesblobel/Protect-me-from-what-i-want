@@ -5,6 +5,14 @@ import Experience from "./components/Experience";
 import Interface from "./components/Interface";
 // import ScrollManager from "./components/ScrollManager";
 
+// import React from "react";
+// import MediaCompetence from "../pages/digital-reflection";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
+
 function App() {
   // const [section, setSection] = useState(0);
   const pages: number = 5;

@@ -1,7 +1,5 @@
-import logo from '../assets/logo.png';
-// import MediaCompetence from "../pages/digital-reflection";
-// import ActNow from "../pages/digital-reflection";
-// import WhoElse from "../pages/digital-reflection";
+import "./styles/Interface.css";
+
 type SectionProps = {
   children: React.ReactNode;
 };
@@ -21,15 +19,6 @@ const Section = (props: SectionProps) => {
 export default function Interface() {
   return (
     <>
-      <div className="navbar">
-        <a href=''><img src={logo} className="logo"/></a>
-        <div className='nav-tabs'>
-          <a href='/digital-reflection' className="tab">Digital Reflection</a>
-          <a  href='/media-competence' className="tab">MEDIA COMPETENCE</a>
-          <a  href='/act-now' className="tab">ACT NOW</a>
-          <a  href='/who-else' className="tab">WHO ELSE?</a>
-        </div>
-      </div>
       <Section>
         <h1 className="h1-pxgrotesk">Protect me from what I want</h1>
       </Section>
@@ -43,7 +32,6 @@ export default function Interface() {
         <div className="column">
           <h1 className="h2-pxgrotesk">Hook Model explains how the app industry keeps us hooked.</h1>
           <div className="content">The Hook Model explains a cycle employed by smartphone apps to captivate users. By triggering actions, delivering variable rewards, and encouraging user investment, a loop is created, fostering a deep connection between the user and the app.</div>
-          <image></image>
         </div>
       </Section>
       <Section>

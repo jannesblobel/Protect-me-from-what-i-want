@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.h1-pxgrotesk {
+    font-family: 'PxGrotesk';
+    font-size: 64px;
+    width: 30%;
+  }
+  
+  .h2-pxgrotesk {
+    font-family: 'PxGrotesk';
+    font-size: 40px;
+    width: 50%;
+    color: #ffffff;
+  }
+  
+  .content {
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 24px;
+    width: 50%;
+    color: #ffffff;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  

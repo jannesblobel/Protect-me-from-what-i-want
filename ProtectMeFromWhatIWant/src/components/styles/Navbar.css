@@ -1,0 +1,35 @@
+.navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    position: sticky;
+    display: flex;
+    padding: 0px 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.logo {
+    width: 73px;
+}
+  
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+  
+.tab {
+    color: #EDEDED;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+  
+.active {
+    font-weight: 900;
+}
