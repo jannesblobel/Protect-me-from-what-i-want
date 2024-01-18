@@ -72,7 +72,7 @@ export function Head(props: headProps) {
       group.current.rotation.y = rsqw(r1) + rsqw(r2) * 1;
       phone.current.position.z = 6.591 + r1 * 12 - r2 * 13;
       group.current.position.x = r1 - r2 * 2;
-      amLight.current.intensity = 0;
+      amLight.current.intensity = 1 - r2;
     }
     if (r2 >= 0.975 && apps.current !== null) {
       apps.current.visible = true;
@@ -260,7 +260,7 @@ type MovingSpotProps = {
 };
 
 const rectScale = new THREE.Vector3(0.75, 0.75, 0.1);
-const MovingSpotApp = (props: MovingSpotProps) => {
+function MovingSpotApp(props: MovingSpotProps) {
   const {
     targetPos,
     meshRotation,
@@ -289,8 +289,9 @@ const MovingSpotApp = (props: MovingSpotProps) => {
   const [groupPos, setGroupPos] = useState(
     new THREE.Vector3(targetPos[0], targetPos[1], targetPos[2] + 8)
   );
+  const [spotDistance, setSpotDistance] = useState(1);
   const scroll = useScroll();
-  spotRef.current?.target.position.set(groupPos.x, groupPos.y, groupPos.z);
+  // spotRef.current?.target.position.set(groupPos.x, groupPos.y, groupPos.z);
 
   useFrame(() => {
     if (parentRef.current === null || spotRef.current === null) return;
@@ -308,11 +309,9 @@ const MovingSpotApp = (props: MovingSpotProps) => {
 
     const r3Visible = scroll.range(1.95 / pages, 0.2 / pages);
     if (r3Visible > 0) {
-      // console.log("r3Visible", r3Visible);
       materialFill.opacity = r3Visible * 0.6;
       material.opacity = r3Visible * 0.6;
-      spotRef.current.intensity = r3Visible * 1.0;
-      spotRef.current.attenuation = r3Visible * 1.0;
+      setSpotDistance(r3Visible * 14.0);
       parentRef.current.position.x = initialPos.x + 3 - r3Visible * 3;
     }
   });
@@ -322,9 +321,10 @@ const MovingSpotApp = (props: MovingSpotProps) => {
         ref={spotRef}
         position={[-0.1, -0.55, 0]}
         color="#B499FF"
-        distance={18}
+        distance={spotDistance}
         angle={0.14}
-        attenuation={14}
+        penumbra={1.0}
+        attenuation={spotDistance}
         anglePower={1}
       />
       <group
@@ -339,4 +339,17 @@ const MovingSpotApp = (props: MovingSpotProps) => {
       </group>
     </>
   );
+}
+
+type oneSecProps = {
+  material: THREE.Material;
+  materialFill: THREE.Material;
+  pages: number;
 };
+function oneSec(props: oneSecProps) {
+  return (
+    <>
+      <group></group>
+    </>
+  );
+}
