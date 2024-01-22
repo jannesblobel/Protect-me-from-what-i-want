@@ -1,31 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+body {
+    background-color: color(srgb 0.0667 0.0667 0.0667);
+}
+
 .h1-pxgrotesk {
     font-family: 'PxGrotesk';
     font-size: 64px;
     width: 30%;
-  }
+}
   
-  .h2-pxgrotesk {
+.h2-pxgrotesk {
     font-family: 'PxGrotesk';
     font-size: 40px;
-    width: 50%;
+    width: 50% !important;
     color: #ffffff;
-  }
+}
   
-  .content {
+.content {
     font-family: 'Poppins';
     font-weight: 200;
     font-size: 24px;
-    width: 50%;
+    width: 50% !important;
     color: #ffffff;
-  }
+}
   
-  .column {
+.column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 32px;
-  }
+}
   
+.p-8 {
+    padding: 0px;
+}
+
+.mx-24 {
+    margin-inline: 80px !important;
+}
+
+.hook-model {
+    width: 448px;
+}
