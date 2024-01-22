@@ -1,3 +1,5 @@
+import image2 from "../assets/OneSecFriction.png";
+import image1 from "../assets/hookmodel.png";
 import "./styles/Interface.css";
 
 type SectionProps = {
@@ -39,6 +41,20 @@ export default function Interface() {
       <Section>
         <div className="column">
           <h1 className="h2-pxgrotesk">
+            In the digital realm, information is power. Information with a
+            personal touch is especially exciting for our reward systems.
+          </h1>
+          <div className="content">
+            The feeling that everything concerns us personally becomes
+            overwhelming. The challenge lies not just in the sheer volume of
+            information but in the perception that everything is tailored to us,
+            leaving us feeling inundated and mentally cluttered.
+          </div>
+        </div>
+      </Section>
+      <Section>
+        <div className="column">
+          <h1 className="h2-pxgrotesk">
             Hook Model explains how the app industry keeps us hooked.
           </h1>
           <div className="content">
@@ -47,13 +63,18 @@ export default function Interface() {
             and encouraging user investment, a loop is created, fostering a deep
             connection between the user and the app.
           </div>
+          <img src={image1} className="hook-model" />
         </div>
       </Section>
       <Section>
-        <h1 className="text-4xl font-bold">Fokus Modus</h1>
-      </Section>
-      <Section>
-        <h1 className="text-4xl font-bold">OneSec ref</h1>
+        <div className="column">
+          <h1 className="h2-pxgrotesk">
+            One Sec enhances awareness and intentional usage by introducing a
+            10-second delay/friction, disrupting the instant gratification
+            associated with social media apps.
+          </h1>
+          <img src={image2} className="hook-model" />
+        </div>
       </Section>
     </>
   );

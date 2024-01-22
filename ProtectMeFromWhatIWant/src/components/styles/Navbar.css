@@ -11,7 +11,8 @@
 }
   
 .logo {
-    width: 73px;
+    width: 100px;
+    padding-block: 8px;
 }
   
 .nav-tabs {
@@ -23,7 +24,7 @@
   
 .tab {
     color: #EDEDED;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -41,4 +42,8 @@
 .tab.active {
     color: #b3a1ff;
     font-weight: 900;
+}
+
+.language {
+    text-transform: uppercase;
 }

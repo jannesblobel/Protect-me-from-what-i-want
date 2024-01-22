@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 import "./styles/Navbar.css";
-// import DigitalReflection from '../pages/digital-reflection';
+
+import { useLanguage } from '../language/LanguageContext';
 
 export default function Navbar() {
+  const { language, changeLanguage, translations } = useLanguage();
+  const toggleLanguage = () => {
+    const newLanguage = language === 'de' ? 'en' : 'de';
+    changeLanguage(newLanguage);
+  };
+
   return (
     <nav className="navbar">
       <a href="/">
@@ -11,17 +18,18 @@ export default function Navbar() {
       </a>
       <div className="nav-tabs">
         <NavLink to="/digital-reflection" className={({ isActive }) => (isActive ? "tab active" : "tab")}>
-          digital reflection
+            {translations['navTab1']}
         </NavLink>
         <NavLink to="/media-competence" className={({ isActive }) => (isActive ? "tab active" : "tab")}>
-            media competence
+            {translations['navTab2']}
         </NavLink>
         <NavLink to="/act-now" className={({ isActive }) => (isActive ? "tab active" : "tab")}>
-            act now
+            {translations['navTab3']}
         </NavLink>
         <NavLink to="/who-else" className={({ isActive }) => (isActive ? "tab active" : "tab")}>
-            who else?
+            {translations['navTab4']}
         </NavLink>
+        <button className="tab language" onClick={toggleLanguage}>{language}</button>
       </div>
     </nav>
   );

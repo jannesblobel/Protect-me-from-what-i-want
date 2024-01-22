@@ -23,6 +23,13 @@
     height: 100vh;
 }
 
+.section-2 {
+    padding-block: 250px 250px;
+    scroll-snap-align: start;
+    height: 100vh;
+    background: radial-gradient(80% 45% at 50% 40%, #9A5DFF 0%, #121212 50%);
+}
+
 .content {
     font-style: normal;
     font-weight: 300;
@@ -36,13 +43,11 @@
     top: 700px;
 }
 
-.y.mandatory-scroll-snapping {
+.scroll-container {
     scroll-snap-type: y mandatory;
-}
-
-.question-shuffle-section {
-    display: flex;
-    justify-content: center;
+    overflow-y: scroll;
+    height: 100vh;
+    background-color: color(srgb 0.0667 0.0667 0.0667);
 }
 
 .question-section {
@@ -62,11 +67,12 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    margin-top: 100px;
 }
 
 .svg-position {
-    position: absolute;
-    top: 1030px;
+    /* top: 400px; */
+    overflow: hidden;
 }
   
 .cta-section {
@@ -89,6 +95,18 @@
     gap: 8px;
     border-radius: 54px;
     border: 2px solid #FFF;
+    cursor: pointer;
+}
+
+.button-outline:active {
+    /* background-color: #E87686; */
+    background-color: #B3A1FF !important;
+    color: black !important;
+    /* border: 2px solid #B3A1FF; */
+}
+
+.button-outline-text:active {
+    color: black !important;
 }
 
 .button-outline-text {
@@ -101,20 +119,3 @@
     letter-spacing: 1.68px;
     text-transform: uppercase;
 }
-
-.section-2 {
-    padding-block: 250px 250px;
-    scroll-snap-align: center;
-    height: 100vh;
-}
-
-/* .container > div {
-    scroll-snap-align: center;
-}
-  
-.x.container > div {
-    /* line-height: 128px;
-    font-size: 64px; 
-    width: 100%;
-    height: 128px;
-} */
