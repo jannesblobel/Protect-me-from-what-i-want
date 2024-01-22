@@ -1,3 +1,4 @@
+import { Physics } from "@react-three/cannon";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Head } from "./Head.tsx";
@@ -21,7 +22,11 @@ export default function Experience(props: experienceProps) {
           {/* <OrbitControls /> */}
           {/* <fog attach="fog" args={["#202020", 5, 20]} /> */}
           <ambientLight intensity={0.1} />
-          <Head pages={pages - 1} />
+          <Physics>
+            {/* <Debug scale={1.1} color="black"> */}
+            <Head pages={pages - 1} />
+            {/* </Debug> */}
+          </Physics>
           <Scroll html>
             <Interface />
           </Scroll>

@@ -13,7 +13,7 @@ import { LanguageProvider } from "./language/LanguageContext";
 
 function App() {
   // const [section, setSection] = useState(0);
-  const pages: number = 5;
+  const pages: number = 6;
 
   return (
     <Router>

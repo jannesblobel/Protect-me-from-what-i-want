@@ -1,6 +1,6 @@
-import "./styles/Interface.css";
-import image1 from "../assets/hookmodel.png";
 import image2 from "../assets/OneSecFriction.png";
+import image1 from "../assets/hookmodel.png";
+import "./styles/Interface.css";
 
 type SectionProps = {
   children: React.ReactNode;
@@ -26,26 +26,53 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">Our love for consuming media is an evolution masterpiece, seamlessly connected with the primal reward circuit of our brains.</h1>
-          <div className="content">The simple expectation of personal information triggers a dopamine rush that sparks our passion for new and exciting things. And precisely this is what all the big players in the app industry capitalize on, keeping us hooked and engaged in the game. </div>
+          <h1 className="h2-pxgrotesk">
+            Our love for consuming media is an evolution masterpiece, seamlessly
+            connected with the primal reward circuit of our brains.
+          </h1>
+          <div className="content">
+            The simple expectation of personal information triggers a dopamine
+            rush that sparks our passion for new and exciting things. And
+            precisely this is what all the big players in the app industry
+            capitalize on, keeping us hooked and engaged in the game.{" "}
+          </div>
         </div>
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">In the digital realm, information is power. Information with a personal touch is especially exciting for our reward systems.</h1>
-          <div className="content">The feeling that everything concerns us personally becomes overwhelming. The challenge lies not just in the sheer volume of information but in the perception that everything is tailored to us, leaving us feeling inundated and mentally cluttered.</div>
+          <h1 className="h2-pxgrotesk">
+            In the digital realm, information is power. Information with a
+            personal touch is especially exciting for our reward systems.
+          </h1>
+          <div className="content">
+            The feeling that everything concerns us personally becomes
+            overwhelming. The challenge lies not just in the sheer volume of
+            information but in the perception that everything is tailored to us,
+            leaving us feeling inundated and mentally cluttered.
+          </div>
         </div>
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">Hook Model explains how the app industry keeps us hooked.</h1>
-          <div className="content">The Hook Model explains a cycle employed by smartphone apps to captivate users. By triggering actions, delivering variable rewards, and encouraging user investment, a loop is created, fostering a deep connection between the user and the app.</div>
+          <h1 className="h2-pxgrotesk">
+            Hook Model explains how the app industry keeps us hooked.
+          </h1>
+          <div className="content">
+            The Hook Model explains a cycle employed by smartphone apps to
+            captivate users. By triggering actions, delivering variable rewards,
+            and encouraging user investment, a loop is created, fostering a deep
+            connection between the user and the app.
+          </div>
           <img src={image1} className="hook-model" />
         </div>
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">One Sec enhances awareness and intentional usage by introducing a 10-second delay/friction, disrupting the instant gratification associated with social media apps.</h1>
+          <h1 className="h2-pxgrotesk">
+            One Sec enhances awareness and intentional usage by introducing a
+            10-second delay/friction, disrupting the instant gratification
+            associated with social media apps.
+          </h1>
           <img src={image2} className="hook-model" />
         </div>
       </Section>
