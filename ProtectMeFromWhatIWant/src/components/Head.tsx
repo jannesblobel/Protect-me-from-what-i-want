@@ -1,6 +1,8 @@
-import { SpotLight, useGLTF, useScroll } from "@react-three/drei";
+import { useBox } from "@react-three/cannon";
+import { SpotLight, Text, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 
@@ -67,6 +69,11 @@ type GLTFAppResult = GLTF & {
     YoutubeFill: THREE.MeshStandardMaterial;
   };
 };
+type Notification = {
+  id: number;
+  position: [number, number, number];
+  velocity: [number, number, number];
+};
 
 export function Head(props: headProps) {
   const { pages } = props;
@@ -75,15 +82,31 @@ export function Head(props: headProps) {
   ) as GLTFResult;
 
   const { nodes: appNodes, materials: appMaterials } = useGLTF(
-    "models/AppIcons2.glb"
+    "models/AppIcons3.glb"
   ) as GLTFAppResult;
 
   const scroll = useScroll();
   const head = useRef<THREE.Mesh>(null);
   const phone = useRef<THREE.Group>(null);
+  const [phonePlane] = useBox<THREE.Mesh>(() => ({
+    mass: 0,
+    rotation: [degToRad(-15), degToRad(-12), 0],
+    position: [2, -0.8, 4.6],
+    type: "Static",
+    args: [1.6, 3, 0.2],
+  }));
+
   const group = useRef<THREE.Group>(null);
   const amLight = useRef<THREE.AmbientLight>(null);
   const apps = useRef<THREE.Group>(null);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  let frameCount = 0;
+  const addNotificationInterval = 30;
+
+  // Function to remove a notification
+  const removeNotification = (id: number) => {
+    setNotifications((prev) => prev.filter((notif) => notif.id !== id));
+  };
 
   useFrame(() => {
     if (
@@ -95,6 +118,7 @@ export function Head(props: headProps) {
       return;
     const r1 = scroll.range(0 / pages, 1 / pages);
     const r2 = scroll.range(1 / pages, 1 / pages);
+    const r4 = scroll.range(2.1 / pages, 1 / pages);
     group.current.rotation.y = rsqw(r1);
     group.current.position.z = r1 * 9;
     group.current.position.x = r1;
@@ -114,12 +138,41 @@ export function Head(props: headProps) {
     } else if (apps.current !== null && r2 < 0.975) {
       apps.current.visible = false;
     }
+    if (r4 > 0 && apps.current !== null) {
+      // console.log(apps.current.position);
+      group.current.position.x += r4 * 2;
+      apps.current.position.x = r4 * -2;
+      apps.current.position.z = r4 * -3;
+
+      group.current.rotation.y += rsqw(r4) * 1;
+      apps.current.rotation.y = degToRad(110) * r4;
+
+      amLight.current.intensity = 1 * r4;
+
+      if (frameCount >= addNotificationInterval && r4 !== 1) {
+        amLight.current.intensity = 2 * r4;
+        if (notifications.length < 10) {
+          setNotifications((prev) => {
+            return [
+              ...prev,
+              {
+                id: Math.random(), // Unique ID for key prop
+                position: [Math.random() * 1 + 1, 7, Math.random() * 4 + 3], // Random position near the top
+                velocity: [0, -0.3, 0], // Initial falling velocity
+              },
+            ];
+          });
+        }
+        frameCount = Math.random() * 50;
+      }
+      frameCount++;
+    }
   });
 
   return (
     <>
       <group {...props} dispose={null} ref={group}>
-        <ambientLight ref={amLight} intensity={0} position={[0, 1, 1]} />
+        <ambientLight ref={amLight} intensity={0} position={[0, -1, -1]} />
         <mesh
           ref={head}
           receiveShadow
@@ -137,6 +190,7 @@ export function Head(props: headProps) {
               distance={5} // adjust as needed
               decay={2} // adjust for a realistic falloff
             />
+            <mesh ref={phonePlane} visible={false} />
             <mesh
               castShadow
               receiveShadow
@@ -175,7 +229,7 @@ export function Head(props: headProps) {
         <MovingSpotApp
           targetPos={[12, 0, -1]}
           meshRotation={
-            new THREE.Euler(degToRad(0), degToRad(-230), degToRad(10))
+            new THREE.Euler(degToRad(0), degToRad(-60), degToRad(10))
           }
           geometry={appNodes.Cube001_2.geometry}
           geometryFill={appNodes.Cube001_1.geometry}
@@ -193,7 +247,7 @@ export function Head(props: headProps) {
           pages={pages}
         />
         <MovingSpotApp
-          targetPos={[10, 3, 0]}
+          targetPos={[10, 3.7, 0]}
           meshRotation={new THREE.Euler(degToRad(40), degToRad(-40), 0)}
           geometry={appNodes.Cube004_1.geometry}
           geometryFill={appNodes.Cube004_2.geometry}
@@ -202,7 +256,7 @@ export function Head(props: headProps) {
           pages={pages}
         />
         <MovingSpotApp
-          targetPos={[10, 2, -5]}
+          targetPos={[11, 1.8, -1]}
           meshRotation={new THREE.Euler(degToRad(30), degToRad(-55), 0)}
           geometry={appNodes.Cube008_1.geometry}
           geometryFill={appNodes.Cube008_2.geometry}
@@ -219,13 +273,27 @@ export function Head(props: headProps) {
           material={appMaterials.Snap}
           pages={pages}
         />
-        <OneSec
-          material={appMaterials.OneSec}
-          materialFill={appMaterials.OneSecFill}
-          geometry={appNodes.Cube011_1.geometry}
-          geometryFill={appNodes.Cube011_2.geometry}
-          pages={pages}
-        />
+        {/* Only Render one Sec if last part of Site is visible */}
+        {scroll.range(3.15 / pages, 1 / pages) > 0 && (
+          <OneSec
+            material={appMaterials.OneSec}
+            materialFill={appMaterials.OneSecFill}
+            geometry={appNodes.Cube011_1.geometry}
+            geometryFill={appNodes.Cube011_2.geometry}
+            pages={pages}
+          />
+        )}
+      </group>
+      <group>
+        {notifications.map((note) => (
+          <NotificationIcon
+            key={note.id}
+            id={note.id}
+            position={note.position}
+            velocity={note.velocity}
+            removeNotification={() => removeNotification(note.id)}
+          />
+        ))}
       </group>
     </>
   );
@@ -239,7 +307,9 @@ function PhoneSpotLight(spotProps: PhoneSpotLightProps) {
   //remove props
   const lightRef = useRef<THREE.SpotLight>(null);
   const [targetIntensity, setTargetIntensity] = useState(300);
-  const [targetAttenuation, setTargetAttenuation] = useState(10);
+  // const [targetAttenuation, setTargetAttenuation] = useState(10);
+
+  const [attenuation] = useState(8);
 
   useFrame((state, delta) => {
     lightRef.current?.target.position.set(spotProps.x, spotProps.y, groupZPos);
@@ -247,20 +317,26 @@ function PhoneSpotLight(spotProps: PhoneSpotLightProps) {
     if (Math.random() < 0.5) {
       // 10% chance to change the target
       setTargetIntensity(Math.random() * (100 - 30) + 100); // Range: 200 to 400
-      setTargetAttenuation(Math.random() * (20 - 2) + 10); // Range: 10 to 20
+      // setTargetAttenuation(Math.random() * (30 - 20)); // Range: 10 to 20
     }
 
     // Adjust the interpolation speed (make it faster or slower)
     const interpolationSpeed = 30; // Increase this value to make the effect faster
-    if (lightRef.current) {
+    if (lightRef.current && state) {
       lightRef.current.intensity +=
         (targetIntensity - lightRef.current.intensity) *
         delta *
         interpolationSpeed;
-      lightRef.current.attenuation +=
-        (targetAttenuation - lightRef.current.attenuation) *
-        delta *
-        interpolationSpeed;
+
+      // attenuation removed for now
+      // setAttenuation((prev) => {
+      //   return (prev += (targetAttenuation - prev) * delta);
+      // });
+      //old version:
+      // lightRef.current.attenuation +=
+      //   (targetAttenuation - lightRef.current.attenuation) *
+      //   delta *
+      //   interpolationSpeed;
     }
   });
 
@@ -277,7 +353,7 @@ function PhoneSpotLight(spotProps: PhoneSpotLightProps) {
         penumbra={1.0}
         distance={120}
         angle={10}
-        attenuation={10}
+        attenuation={attenuation}
         anglePower={2}
       />
     </>
@@ -313,54 +389,67 @@ function MovingSpotApp(props: MovingSpotProps) {
   const spotRef = useRef<THREE.SpotLight>(null);
   const parentRef = useRef<THREE.Group>(null);
   // Variables for movement
-  const speed = 0.01; // Base speed of movement
-  const amplitude = 0.25; // Amplitude of the wave movement
-  const frame = useRef(0);
-  const initialPos = new THREE.Vector3(
-    targetPos[0],
-    targetPos[1],
-    targetPos[2] + 8
+  const speed = 0.0075; // Base speed of movement
+  const amplitude = 0.15; // Amplitude of the wave movement
+  const frame = useRef(Math.random() * 2000);
+  const initialPos = useMemo(
+    () => new THREE.Vector3(targetPos[0], targetPos[1], targetPos[2] + 8),
+    [targetPos]
   );
-  const [groupPos, setGroupPos] = useState(
+  const newPosition = useMemo(() => new THREE.Vector3(), []);
+
+  const [groupPos] = useState(
     new THREE.Vector3(targetPos[0], targetPos[1], targetPos[2] + 8)
   );
   const [spotDistance, setSpotDistance] = useState(1);
   const scroll = useScroll();
-  // spotRef.current?.target.position.set(groupPos.x, groupPos.y, groupPos.z);
 
   useFrame(() => {
     if (parentRef.current === null || spotRef.current === null) return;
     // Increment the frame
     frame.current += speed;
     // Compute new position
+    const newX = initialPos.x + Math.sin(frame.current) * amplitude * 0.3;
     const newY = initialPos.y + Math.sin(frame.current) * amplitude;
     const newZ = initialPos.z + Math.cos(frame.current) * amplitude;
-    // Update the state with the new position
-    setGroupPos(new THREE.Vector3(initialPos.x, newY, newZ));
-    // Update the ref position
-    parentRef.current.position.set(initialPos.x, newY, newZ);
-    // Update the spotlight target position
-    spotRef.current.target.position.set(initialPos.x, newY, newZ);
+    //compute new rotation
+    newPosition.set(newX, newY, newZ);
+    // newRotation.set(
+    //   meshRotation.x,
+    //   meshRotation.y + Math.sin(frame.current) * amplitude * 0.4,
+    //   meshRotation.z + Math.sin(frame.current) * amplitude * 0.4
+    // );
 
-    const r3Visible = scroll.range(1.95 / pages, 0.2 / pages);
+    parentRef.current.position.copy(newPosition);
+    // parentRef.current.rotation.copy(newRotation);
+
+    const r3Visible = scroll.range(1.95 / pages, 0.1 / pages);
+
+    const r4 = scroll.range(2.1 / pages, 1 / pages);
+
+    spotRef.current.target.position.set(newX, newY, newZ);
     if (r3Visible > 0) {
       materialFill.opacity = r3Visible * 0.6;
       material.opacity = r3Visible * 0.75;
       setSpotDistance(r3Visible * 14.0);
       parentRef.current.position.x = initialPos.x + 3 - r3Visible * 3;
     }
+    if (r4 > 0) {
+      parentRef.current.rotation.y = meshRotation.y + degToRad(-80) * r4;
+    }
   });
   return (
     <>
       <SpotLight
         ref={spotRef}
+        intensity={0}
         position={[-0.1, -0.55, 0]}
         color="#B499FF"
         distance={spotDistance}
         angle={0.14}
         penumbra={1.0}
         attenuation={spotDistance}
-        anglePower={1}
+        anglePower={2}
       />
       <group
         ref={parentRef}
@@ -368,7 +457,7 @@ function MovingSpotApp(props: MovingSpotProps) {
         rotation={meshRotation}
         scale={rectScale}
       >
-        <pointLight intensity={2} position={[0, 0, -8]} decay={0.3} />
+        <pointLight intensity={0.8} position={[0, 0, 7]} decay={3} />
         <mesh geometry={geometryFill} material={materialFill} />
         <mesh geometry={geometry} material={material} />
       </group>
@@ -387,39 +476,98 @@ function OneSec(props: oneSecProps) {
   const { material, materialFill, pages, geometry, geometryFill } = props;
   const scroll = useScroll();
   const group = useRef<THREE.Group>(null);
+  const [pointLightIntensity, setPointLightIntensity] = useState(1);
+  const [opacity, setOpacity] = useState(0);
 
   //different material will fix the problem
   material.transparent = true;
-  material.opacity = 1;
+  material.opacity = 0;
   materialFill.transparent = true;
-  materialFill.opacity = 1;
-  console.log("oneSec");
+  materialFill.opacity = 0;
   useFrame(() => {
-    const r4 = scroll.range(2.15 / pages, 0.9 / pages);
-
-    if (r4 > 0) {
-      //adjust material opacity
-      materialFill.opacity = r4 * 0.6;
-      material.opacity = r4 * 0.75;
-
-      //move in group from the bottom
-      if (group.current !== null) {
-        group.current.position.z = 4 * r4 * 1;
-      }
+    const r5 = scroll.range(3.15 / pages, 1 / pages);
+    if (r5 > 0 && group.current !== null) {
+      materialFill.opacity = r5 * 0.6;
+      material.opacity = r5 * 0.75;
+      group.current.position.z = 3 * r5;
+      group.current.rotation.y = degToRad(-50) + degToRad(-80) * r5;
+      setPointLightIntensity(1 + r5 * 2);
+      setOpacity(r5 * 0.8);
     }
   });
   return (
     <>
       <group
         ref={group}
-        position={[5, 0, 0]}
-        scale={rectScale}
+        position={[0, 0, 0]}
+        scale={[1, 1, 0.1]}
         rotation={[degToRad(0), degToRad(0), degToRad(0)]}
       >
-        <pointLight intensity={1} position={[0, 0, 5]} decay={0.3} />
+        <pointLight
+          intensity={pointLightIntensity}
+          position={[0, 0, 5]}
+          decay={0.3}
+        />
+        <mesh position={[0, 0, -7]}>
+          <circleGeometry args={[8, 32]} />
+          <meshStandardMaterial
+            color="#202020"
+            side={THREE.FrontSide}
+            transparent
+            opacity={opacity}
+          />
+        </mesh>
         <mesh geometry={geometryFill} material={materialFill} />
         <mesh geometry={geometry} material={material} />
       </group>
     </>
   );
 }
+type NotificationIconProps = {
+  id: number;
+  position: [number, number, number];
+  velocity: [number, number, number];
+  removeNotification: (id: number) => void;
+};
+
+function NotificationIcon(props: NotificationIconProps) {
+  const { id, position, velocity, removeNotification } = props;
+  const [ref, api] = useBox(() => ({
+    mass: 0.01,
+    position: position,
+    velocity: velocity,
+    rotation: [0, degToRad(110), degToRad(90)],
+  }));
+  // Cast the ref to the correct type
+  const meshRef = ref as React.MutableRefObject<THREE.Mesh>;
+  useEffect(() => {
+    const unsubscribe = api.position.subscribe((pos) => {
+      if (pos[1] < -11) {
+        removeNotification(id);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [api.position, removeNotification, id]);
+  const randomNum = useMemo(() => Math.floor(Math.random() * 10), []); // Generates a random number between 0 and 9
+
+  return (
+    <mesh ref={meshRef} castShadow>
+      <cylinderGeometry args={[0.3, 0.3, 0.12, 32]} />
+      <meshStandardMaterial color="#FF0000" side={THREE.DoubleSide} />
+      <mesh rotation={[-Math.PI / 2, 0, degToRad(-90)]}>
+        <Text
+          position={[0, 0, 0.11]}
+          fontSize={0.3}
+          color="#ffffff"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {randomNum}
+        </Text>
+      </mesh>
+    </mesh>
+  );
+}
+
+useGLTF.preload("models/AppIcons3.glb");
