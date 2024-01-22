@@ -43,3 +43,7 @@
     color: #b3a1ff;
     font-weight: 900;
 }
+
+.language {
+    text-transform: uppercase;
+}

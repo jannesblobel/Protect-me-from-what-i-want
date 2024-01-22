@@ -100,12 +100,13 @@
 
 .button-outline:active {
     /* background-color: #E87686; */
-    background-color: black;
-    border: 2px solid #B3A1FF;
+    background-color: #B3A1FF !important;
+    color: black !important;
+    /* border: 2px solid #B3A1FF; */
 }
 
 .button-outline-text:active {
-    color: #B3A1FF;
+    color: black !important;
 }
 
 .button-outline-text {

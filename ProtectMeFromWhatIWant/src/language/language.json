@@ -1,0 +1,15 @@
+{ 
+  "de": {
+    "navTab1": "Digitale Reflexion",
+    "navTab2": "Medienmündigkeit",
+    "navTab3": "Tu es jetzt",
+    "navTab4": "Wer noch?"
+  },
+
+  "en": {
+    "navTab1": "Digital reflection",
+    "navTab2": "Spotlight",
+    "navTab3": "Act now",
+    "navTab4": "Who else?"
+  }
+}
