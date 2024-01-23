@@ -17,6 +17,17 @@ body {
   color: #ffffff;
 }
 
+.h3-pxgrotesk {
+  color: #ffffff;
+  font-family: "Poppins";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  width: 50%;
+}
+
 .content {
   font-family: "Poppins";
   font-weight: 200;

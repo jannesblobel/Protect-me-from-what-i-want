@@ -1,5 +1,5 @@
-import image2 from "../assets/OneSecFriction.png";
-import image1 from "../assets/hookmodel.png";
+// import image2 from "../assets/OneSecFriction.png";
+// import image1 from "../assets/hookmodel.png";
 import "./styles/Interface.css";
 
 type SectionProps = {
@@ -19,7 +19,7 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">
+          <h1 className="h3-pxgrotesk">
             Our love for consuming media is an evolution masterpiece, seamlessly
             connected with the primal reward circuit of our brains.
           </h1>
@@ -33,7 +33,7 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">
+          <h1 className="h3-pxgrotesk">
             In the digital realm, information is power. Information with a
             personal touch is especially exciting for our reward systems.
           </h1>
@@ -47,7 +47,7 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">
+          <h1 className="h3-pxgrotesk">
             Hook Model explains how the app industry keeps us hooked.
           </h1>
           <div className="content">
@@ -56,17 +56,17 @@ export default function Interface() {
             and encouraging user investment, a loop is created, fostering a deep
             connection between the user and the app.
           </div>
-          <img src={image1} className="hook-model" />
+          {/* <img src={image1} className="hook-model" /> */}
         </div>
       </Section>
       <Section>
         <div className="column">
-          <h1 className="h2-pxgrotesk">
+          <h1 className="h3-pxgrotesk">
             One Sec enhances awareness and intentional usage by introducing a
             10-second delay/friction, disrupting the instant gratification
             associated with social media apps.
           </h1>
-          <img src={image2} className="hook-model" />
+          {/* <img src={image2} className="hook-model" /> */}
         </div>
       </Section>
     </div>
