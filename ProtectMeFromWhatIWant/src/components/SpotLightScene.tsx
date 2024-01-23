@@ -4,7 +4,15 @@ import { useState } from "react";
 import * as THREE from "three";
 import "./styles/SpotLight.css";
 
-function ControlledSpotLight({ intensity, angle, penumbra, distance }) {
+type ControlledSpotLightProps = {
+  intensity: number;
+  angle: number;
+  penumbra: number;
+  distance: number;
+};
+
+function ControlledSpotLight(props: ControlledSpotLightProps) {
+  const { intensity, angle, penumbra, distance } = props;
   return (
     <SpotLight
       intensity={intensity}
@@ -92,7 +100,7 @@ export default function SpotLightScene() {
             max="300"
             step="10"
             value={intensity}
-            onChange={(e) => setIntensity(e.target.value)}
+            onChange={(e) => setIntensity(Number(e.target.value))}
           />
         </div>
         <div>
@@ -103,7 +111,7 @@ export default function SpotLightScene() {
             max={Math.PI / 2}
             step="0.01"
             value={angle}
-            onChange={(e) => setAngle(e.target.value)}
+            onChange={(e) => setAngle(Number(e.target.value))}
           />
         </div>
         <div>
@@ -114,7 +122,7 @@ export default function SpotLightScene() {
             max="1"
             step="0.1"
             value={penumbra}
-            onChange={(e) => setPenumbra(e.target.value)}
+            onChange={(e) => setPenumbra(Number(e.target.value))}
           />
         </div>
         <div>
@@ -125,7 +133,7 @@ export default function SpotLightScene() {
             max="20"
             step="0.5"
             value={distance}
-            onChange={(e) => setDistance(e.target.value)}
+            onChange={(e) => setDistance(Number(e.target.value))}
           />
         </div>
       </div>
