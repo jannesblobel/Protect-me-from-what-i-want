@@ -157,8 +157,8 @@ export function Head(props: headProps) {
               ...prev,
               {
                 id: Math.random(), // Unique ID for key prop
-                position: [Math.random() * 1 + 1, 7, Math.random() * 4 + 3], // Random position near the top
-                velocity: [0, -0.3, 0], // Initial falling velocity
+                position: [Math.random() * 2 + 1, 7, Math.random() * 4 + 3], // Random position near the top
+                velocity: [0, 0.3, 0], // Initial falling velocity
               },
             ];
           });
@@ -492,7 +492,7 @@ function OneSec(props: oneSecProps) {
       group.current.position.z = 3 * r5;
       group.current.rotation.y = degToRad(-50) + degToRad(-80) * r5;
       setPointLightIntensity(1 + r5 * 2);
-      setOpacity(r5 * 0.8);
+      setOpacity(r5 * 0.85);
     }
   });
   return (

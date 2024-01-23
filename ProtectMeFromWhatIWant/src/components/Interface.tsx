@@ -8,19 +8,12 @@ type SectionProps = {
 
 const Section = (props: SectionProps) => {
   const { children } = props;
-  return (
-    <section
-      className={`h-screen w-screen p-8 max-w-screen-2xl mx-24
-    flex flex-col items-start justify-center text-white`}
-    >
-      {children}
-    </section>
-  );
+  return <section className="section">{children}</section>;
 };
 
 export default function Interface() {
   return (
-    <>
+    <div className="section-container">
       <Section>
         <h1 className="h1-pxgrotesk">Protect me from what I want</h1>
       </Section>
@@ -76,6 +69,6 @@ export default function Interface() {
           <img src={image2} className="hook-model" />
         </div>
       </Section>
-    </>
+    </div>
   );
 }

@@ -10,6 +10,7 @@ import MediaCompetence from "./pages/MediaCompetence";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { LanguageProvider } from "./language/LanguageContext";
+import ActNow from "./pages/ActNow";
 
 function App() {
   // const [section, setSection] = useState(0);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Experience pages={pages} />} />
           <Route path="/digital-reflection" element={<DigitalReflection />} />
           <Route path="/media-competence" element={<MediaCompetence />} />
+          <Route path="/act-now" element={<ActNow />} />
         </Routes>
       </LanguageProvider>
     </Router>

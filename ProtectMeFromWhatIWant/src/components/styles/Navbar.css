@@ -1,49 +1,57 @@
 .navbar {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    position: sticky;
-    display: flex;
-    padding: 0px 80px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: color(srgb 0.0667 0.0667 0.0667);
+  position: fixed;
+  top: 0;
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  padding: 0px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(
+    17,
+    17,
+    17,
+    0.7
+  ); /* Adjust the alpha value for desired transparency */
+  backdrop-filter: blur(10px); /* Adjust the px value for desired blur amount */
+
+  /* width: calc(100vw - 160px); Adjust width considering the padding */
+  z-index: 10;
 }
-  
 .logo {
-    width: 100px;
-    padding-block: 8px;
+  width: 100px;
+  padding-block: 8px;
 }
-  
+
 .nav-tabs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
-  
+
 .tab {
-    color: #EDEDED;
-    font-family: 'Poppins';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-transform: lowercase;
-    letter-spacing: 0.8px;
+  color: #ededed;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: lowercase;
+  letter-spacing: 0.8px;
 }
 
 .tab:hover {
-    text-decoration: underline;
-    text-underline-offset: 8px;
-    letter-spacing: 0.8px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  letter-spacing: 0.8px;
 }
-  
+
 .tab.active {
-    color: #b3a1ff;
-    font-weight: 900;
+  color: #b3a1ff;
+  font-weight: 900;
 }
 
 .language {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
