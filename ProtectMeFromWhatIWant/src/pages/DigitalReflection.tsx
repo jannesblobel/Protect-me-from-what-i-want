@@ -1,7 +1,11 @@
 import "../components/styles/DigitalReflection.css";
 import { useState } from 'react';
+import { useLanguage } from '../language/LanguageContext';
+
+import { LanguageProvider } from "../language/LanguageContext";
 
 export default function DigitalReflection() {
+  const { translations } = useLanguage();
 
   const [questions] = useState([
     'Welche digitalen Gewohnheiten möchtest du beibehalten, weil sie positive Auswirkungen auf dein Leben haben?',
@@ -21,17 +25,22 @@ export default function DigitalReflection() {
   };
 
   return (
+    <LanguageProvider>
     <div>
       <div className="scroll-container" dir="ltr">
         <div className="section-1">
-          <h1 className="h2-pxgrotesk">Step into the Digital Detox Reflection Zone</h1>
-          <div className="content">
-          A space where we navigate the art of conscious living in a digital world. Join us on this mindful journey as we unplug and reflect on the tapestry of our digital experiences. It's a movement to amidst the noise of screen time, sharing insights and creating a collective atmosphere of mindful connection and balance. 
-          Take a pause, reflect, and let's flow with the positive energy.
-          <br/><br/>
-          <b>Never stop questioning!</b>
+          <h1 className="h2-pxgrotesk">{translations['digitalReflectionH1']}</h1>
+          <div className="digital-content">
+            {translations['digitalReflectionP1']}
           </div>
-          {/* <img src="../assets/digitalreflection.png" className="image" /> */}
+          <div className="learn-more-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 51 50" fill="none">
+              <path d="M1 0.999998L50 49M50 49H8M50 49V5.8" stroke="#E7E7E7" stroke-width="2"/>
+            </svg>
+            <div className="digital-content">
+              Never stop questioning                    
+            </div>
+          </div>
         </div>
 
         <div className="section-2">
@@ -57,5 +66,6 @@ export default function DigitalReflection() {
         </div>
       </div>
     </div>
+    </LanguageProvider>
   );
 }

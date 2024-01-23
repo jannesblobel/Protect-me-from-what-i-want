@@ -3,13 +3,27 @@
     "navTab1": "Digitale Reflexion",
     "navTab2": "Medienmündigkeit",
     "navTab3": "Tu es jetzt",
-    "navTab4": "Wer noch?"
+    "navTab4": "Wer noch?",
+
+    "interfaceSection1h1": "Unsere Vorliebe für den Medienkonsum ist ein Meisterwerk der Evolution, das nahtlos mit dem ursprünglichen Belohnungskreislauf unseres Gehirns verbunden ist.",
+    "interfaceSection1content": "Die einfache Erwartung persönlicher Informationen löst einen Dopaminschub aus, der unsere Leidenschaft für neue und aufregende Dinge entfacht. Und genau das machen sich die großen Player der App-Branche zunutze, um uns zu fesseln und im Spiel zu halten.",
+
+    "digitalReflectionH1": "Betrete die Digitale Detox Reflektions Zone",
+    "digitalReflectionP1": "Ein Raum, in dem wir uns mit der Kunst des bewussten Lebens in einer digitalen Welt beschäftigen. Begleiten Sie uns auf dieser achtsamen Reise, bei der wir den Stecker ziehen und über das Geflecht unserer digitalen Erfahrungen nachdenken. Es ist eine Bewegung inmitten des Lärms der Bildschirmzeit, die Erkenntnisse austauscht und eine kollektive Atmosphäre der achtsamen Verbindung und des Gleichgewichts schafft. Halten Sie inne, denken Sie nach, und lassen Sie sich von der positiven Energie mitreißen. Hören Sie nie auf zu hinterfragen!",
+    "digitalReflectionP2": "Hör niemals auf Fragen zu stellen!"
   },
 
   "en": {
     "navTab1": "Digital reflection",
     "navTab2": "Spotlight",
     "navTab3": "Act now",
-    "navTab4": "Who else?"
+    "navTab4": "Who else?",
+
+    "interfaceSection1h1": "Our love for consuming media is an evolution masterpiece, seamlessly connected with the primal reward circuit of our brains.",
+    "interfaceSection1content": "The simple expectation of personal information triggers a dopamine rush that sparks our passion for new and exciting things. And precisely this is what all the big players in the app industry capitalize on, keeping us hooked and engaged in the game.",
+
+    "digitalReflectionH1": "Step into the Digital Detox Reflection Zone",
+    "digitalReflectionP1": "A space where we navigate the art of conscious living in a digital world. Join us on this mindful journey as we unplug and reflect on the tapestry of our digital experiences. It's a movement to amidst the noise of screen time, sharing insights and creating a collective atmosphere of mindful connection and balance. Take a pause, reflect, and let's flow with the positive energy. Never stop questioning!",
+    "digitalReflectionP2": "Never stop questioning!"
   }
 }

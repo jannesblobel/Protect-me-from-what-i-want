@@ -6,7 +6,7 @@
   
 .h2-pxgrotesk {
     font-family: 'PxGrotesk';
-    font-size: 40px;
+    font-size: 56px;
     width: 30%;
     color: #ffffff;
 }
@@ -14,10 +14,10 @@
 .section-1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 32px;
-    padding: 120px 80px 50px 80px;
+    gap: 80px;
+    padding: 250px 80px 50px 80px;
     scroll-snap-align: center;
     padding-block-end: 250px;
     height: 100vh;
@@ -30,10 +30,14 @@
     background: radial-gradient(80% 45% at 50% 40%, #9A5DFF 0%, #121212 50%);
 }
 
-.content {
+.digital-content {
     font-style: normal;
     font-weight: 300;
-    width: 80%;
+    width: 70%;
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 24px;
+    color: #ffffff;
 }
 
 .background-blur {
