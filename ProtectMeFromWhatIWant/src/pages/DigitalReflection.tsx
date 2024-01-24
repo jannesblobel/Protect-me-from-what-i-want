@@ -1,23 +1,21 @@
 import { useState } from "react";
 import "../components/styles/DigitalReflection.css";
-import { useLanguage } from "../language/LanguageContext";
-
-import { LanguageProvider } from "../language/LanguageContext";
+import { useTranslation } from 'react-i18next';
 
 export default function DigitalReflection() {
-  const { translations } = useLanguage();
+  const { t } = useTranslation();
 
   const [questions] = useState([
-    "Welche digitalen Gewohnheiten möchtest du beibehalten, weil sie positive Auswirkungen auf dein Leben haben?",
-    "Wie fühlst du dich nach einer Stunde ununterbrochener Bildschirmzeit im Vergleich zu einer Stunde ohne digitale Ablenkungen?",
-    "Welche positiven Veränderungen hast du in deinem Leben bemerkt, seit du versuchst, deine Bildschirmzeit zu reduzieren?",
-    "Welche Aktivitäten oder Hobbys hast du wiederentdeckt oder intensiver erlebt, seit du bewusster mit deiner Online-Zeit umgehst?",
-    "Wie gehst du mit digitalen Ablenkungen um, wenn du versuchst, dich auf eine bestimmte Aufgabe zu konzentrieren?",
-    "Hast du festgestellt, dass du produktiver oder weniger gestresst bist, wenn du bewusster mit deiner Online-Zeit umgehst?",
+    t('question1'),
+    t('question2'),
+    t('question3'),
+    t('question4'),
+    t('question5'),
+    t('question6'),
   ]);
 
   const [currentQuestion, setCurrentQuestion] = useState(
-    "Welche digitalen Gewohnheiten möchtest du beibehalten, weil sie positive Auswirkungen auf dein Leben haben?"
+    t('question1')
   );
 
   const getRandomQuestion = () => {
@@ -27,15 +25,15 @@ export default function DigitalReflection() {
   };
 
   return (
-    <LanguageProvider>
-      <div>
+    <div>
+      <h1>{t('welcome')}</h1>;
         <div className="scroll-container" dir="ltr">
           <div className="section-1">
             <h1 className="h2-pxgrotesk">
-              {translations["digitalReflectionH1"]}
+              {t('digitalReflectionH1')}
             </h1>
             <div className="digital-content">
-              {translations["digitalReflectionP1"]}
+              {t('digitalReflectionP1')}
             </div>
             <div className="learn-more-cta">
               <svg
@@ -51,7 +49,7 @@ export default function DigitalReflection() {
                   strokeWidth="2"
                 />
               </svg>
-              <div className="digital-content">Never stop questioning</div>
+              <div className="digital-content">{t('digitalReflectionP2')}</div>
             </div>
           </div>
 
@@ -82,7 +80,6 @@ export default function DigitalReflection() {
             </div>
           </div>
         </div>
-      </div>
-    </LanguageProvider>
+    </div>
   );
 }

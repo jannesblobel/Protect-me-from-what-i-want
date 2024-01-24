@@ -4,39 +4,19 @@ body {
   background-color: color(srgb 0.0667 0.0667 0.0667);
 }
 
-.h1-pxgrotesk {
-  font-family: "PxGrotesk";
-  font-size: 64px;
+.container-section {
+  background-color: transparent;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  padding: 0px 80px;
+}
+
+.headline-section {
   width: 30%;
 }
 
-.h2-pxgrotesk {
-  font-family: "PxGrotesk";
-  font-size: 40px;
-  width: 50% !important;
-  color: #ffffff;
-}
-
-.h3-pxgrotesk {
-  color: #ffffff;
-  font-family: "Poppins";
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.2px;
+.landingpage-column {
   width: 50%;
-}
-
-.content {
-  font-family: "Poppins";
-  font-weight: 200;
-  font-size: 24px;
-  width: 50% !important;
-  color: #ffffff;
-}
-
-.column {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,17 +24,13 @@ body {
   gap: 32px;
 }
 
-.hook-model {
-  width: 448px;
-}
 /* For each section of the page */
 .section {
   height: 100vh;
-  padding: 8px;
   max-width: calc(
     100% - 48px
   ); /* Adjust the width taking into account the mx-24 */
-  margin: 0 24px; /* Assuming mx-24 means margin on both sides */
+  /* margin: 0 24px; Assuming mx-24 means margin on both sides */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -62,10 +38,4 @@ body {
   text-align: left;
   color: white;
   scroll-snap-align: center;
-}
-/* funktioniert nicht */
-.section-container {
-  background-color: transparent;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
 }

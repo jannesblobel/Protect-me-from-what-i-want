@@ -3,8 +3,10 @@ import spotlight from "../assets/spotlight.png";
 import spotlightMinimal from "../assets/spotlightMinimal.png";
 import SpotLightScene from "../components/SpotLightScene";
 import "../components/styles/MediaCompetence.css";
+import { useTranslation } from 'react-i18next';
 
 export default function MediaCompetence() {
+  const { t } = useTranslation();
   const [selectedButton, setSelectedButton] = useState("konzentration");
 
   const handleButtonClick = (
@@ -18,18 +20,13 @@ export default function MediaCompetence() {
       <div className="scroll-container" dir="ltr">
         <div className="section-1">
           <h1 className="h2-pxgrotesk">
-            Discover the spotlight theory to gain media- literacy
+            {t('mediaCompetenceH1')}
           </h1>
           <div className="digital-content">
-            Let's rethink and redefine our approach to technologies and digital
-            media. Being media-literacy (1) means mastering media while letting
-            them have minimal control over us.
+            {t('mediaCompetenceContent1')}
             <br />
             <br />
-            In order to cultivate media literacy, it is crucial to raise
-            awareness of our actions, sharpen our inner and outer perceptions
-            and develop strong self-management skills. This requires time,
-            patience and occasional quiet moments in these fast-paced times.
+            {t('mediaCompetenceContent2')}
           </div>
           <div className="learn-more-cta">
             <svg
@@ -45,7 +42,7 @@ export default function MediaCompetence() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="digital-content">Werde Medienmündig</div>
+            <div className="digital-content">{t('cta1')}</div>
           </div>
         </div>
         <div className="section-2-center">

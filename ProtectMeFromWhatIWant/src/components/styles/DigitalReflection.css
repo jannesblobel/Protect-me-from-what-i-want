@@ -5,7 +5,7 @@
 }
   
 .h2-pxgrotesk {
-    font-family: 'PxGrotesk';
+    font-family: 'NeueHaas-bold';
     font-size: 56px;
     width: 30%;
     color: #ffffff;
@@ -33,8 +33,9 @@
 .digital-content {
     font-style: normal;
     font-weight: 300;
-    width: 70%;
-    font-family: 'Poppins';
+    width: 70% !important;
+    font-family: 'NeueHaas-light';
+    letter-spacing: 2px;
     font-weight: 200;
     font-size: 24px;
     color: #ffffff;
@@ -66,7 +67,8 @@
     width: 1024px;
     color: white;
     text-align: center;
-    font-family: Poppins;
+    font-family: "NeueHaas-light";
+    letter-spacing: 2px;
     font-size: 40px;
     font-style: normal;
     font-weight: 800;
@@ -115,7 +117,7 @@
 
 .button-outline-text {
     color: #FFF;
-    font-family: Poppins;
+    font-family: "NeueHaas-light";
     font-size: 24px;
     font-style: normal;
     font-weight: 500;

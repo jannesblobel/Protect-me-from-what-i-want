@@ -1,0 +1,27 @@
+h1 {
+    font-family: 'PxGrotesk-screen';
+    font-size: 64px !important;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 1.92px;
+    color: #FFF;
+}
+
+h2 {
+    font-family: "PxGrotesk-bold";
+    font-size: 40px !important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.2px;
+}
+
+p {
+    font-family: "NeueHaas-light";
+    font-size: 24px;
+    color: #ffffff;
+    letter-spacing: 2.4px;
+}
+
+

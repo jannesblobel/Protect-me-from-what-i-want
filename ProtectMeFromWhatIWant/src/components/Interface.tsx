@@ -1,6 +1,6 @@
-// import image2 from "../assets/OneSecFriction.png";
-// import image1 from "../assets/hookmodel.png";
 import "./styles/Interface.css";
+import "./styles/gloabl.css";
+import { useTranslation } from 'react-i18next';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -12,61 +12,36 @@ const Section = (props: SectionProps) => {
 };
 
 export default function Interface() {
+  const { t } = useTranslation();
+
   return (
-    <div className="section-container">
+    <div className="container-section">
       <Section>
-        <h1 className="h1-pxgrotesk">Protect me from what I want</h1>
-      </Section>
-      <Section>
-        <div className="column">
-          <h1 className="h3-pxgrotesk">
-            Our love for consuming media is an evolution masterpiece, seamlessly
-            connected with the primal reward circuit of our brains.
-          </h1>
-          <div className="content">
-            The simple expectation of personal information triggers a dopamine
-            rush that sparks our passion for new and exciting things. And
-            precisely this is what all the big players in the app industry
-            capitalize on, keeping us hooked and engaged in the game.{" "}
-          </div>
+        <div className="headline-section">
+          <h1>Protect me from what I want</h1>
         </div>
       </Section>
       <Section>
-        <div className="column">
-          <h1 className="h3-pxgrotesk">
-            In the digital realm, information is power. Information with a
-            personal touch is especially exciting for our reward systems.
-          </h1>
-          <div className="content">
-            The feeling that everything concerns us personally becomes
-            overwhelming. The challenge lies not just in the sheer volume of
-            information but in the perception that everything is tailored to us,
-            leaving us feeling inundated and mentally cluttered.
-          </div>
+        <div className="landingpage-column">
+          <h2>{t('consuming-media-h2')}</h2>
+          <p>{t('consuming-media-p')}</p>
         </div>
       </Section>
       <Section>
-        <div className="column">
-          <h1 className="h3-pxgrotesk">
-            Hook Model explains how the app industry keeps us hooked.
-          </h1>
-          <div className="content">
-            The Hook Model explains a cycle employed by smartphone apps to
-            captivate users. By triggering actions, delivering variable rewards,
-            and encouraging user investment, a loop is created, fostering a deep
-            connection between the user and the app.
-          </div>
-          {/* <img src={image1} className="hook-model" /> */}
+        <div className="landingpage-column">
+          <h2>{t('information-realm-h2')}</h2>
+          <p>{t('information-realm-p')}</p>
         </div>
       </Section>
       <Section>
-        <div className="column">
-          <h1 className="h3-pxgrotesk">
-            One Sec enhances awareness and intentional usage by introducing a
-            10-second delay/friction, disrupting the instant gratification
-            associated with social media apps.
-          </h1>
-          {/* <img src={image2} className="hook-model" /> */}
+        <div className="landingpage-column">
+          <h2>{t('hook-model-h2')}</h2>
+          <p>{t('hook-model-p')}</p>
+        </div>
+      </Section>
+      <Section>
+        <div className="landingpage-column">
+          <h2>{t('one-sec-h2')}</h2>
         </div>
       </Section>
     </div>
