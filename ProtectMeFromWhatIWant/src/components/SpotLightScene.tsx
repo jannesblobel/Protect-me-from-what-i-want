@@ -1,6 +1,6 @@
 import { Plane, SpotLight } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
 import "./styles/SpotLight.css";
 
@@ -24,19 +24,18 @@ type ControlledSpotLightProps = {
 function ControlledSpotLight(props: ControlledSpotLightProps) {
   const { intensity, angle, penumbra, distance } = props;
   const spotLightRef = useRef<THREE.SpotLight>(null);
-  const viewport = useThree((state) => state.viewport);
-  const vec = new THREE.Vector3();
+  const { camera, raycaster, scene } = useThree();
+
   useFrame((state) => {
     if (!spotLightRef.current) return;
-    spotLightRef.current.target.position.lerp(
-      vec.set(
-        (state.mouse.x * viewport.width) / 2,
-        (state.mouse.y * viewport.height) / 2,
-        0
-      ),
-      0.1
-    );
-    spotLightRef.current.target.updateMatrixWorld();
+
+    raycaster.setFromCamera(state.pointer, camera);
+    const intersects = raycaster.intersectObjects(scene.children, true);
+
+    if (intersects.length > 0) {
+      const intersection = intersects[0];
+      spotLightRef.current.target.position.lerp(intersection.point, 0.1);
+    }
   });
 
   return (
@@ -93,7 +92,7 @@ export default function SpotLightScene() {
   const [distance, setDistance] = useState(7);
 
   const cameraPosition = new THREE.Vector3(5, 5, 5);
-  const cameraZoom = 90; // Increase or decrease this value to adjust the size of the view
+  const cameraZoom = 80; // Increase or decrease this value to adjust the size of the view
 
   return (
     <div className="spotlight-container">
@@ -104,6 +103,7 @@ export default function SpotLightScene() {
           camera={{
             position: cameraPosition,
             zoom: cameraZoom,
+            fov: 50,
             near: 0.1,
             far: 1000,
           }}

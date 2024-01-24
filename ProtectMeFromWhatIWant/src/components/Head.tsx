@@ -171,129 +171,131 @@ export function Head(props: headProps) {
 
   return (
     <>
-      <group {...props} dispose={null} ref={group}>
-        <ambientLight ref={amLight} intensity={0} position={[0, -1, -1]} />
-        <mesh
-          ref={head}
-          receiveShadow
-          geometry={nodes.head.geometry}
-          material={materials.HeadMat}
-          position={[0, -0.148, -0.92]}
-        >
-          <group position={[0, -0.852, 6.951]} scale={2.176} ref={phone}>
-            <PhoneSpotLight x={0} y={0} z={groupZPos} />
-            {/* corner lighting */}
-            <pointLight
-              position={[-1, 0.5, 1]}
-              color={"white"}
-              intensity={20.0}
-              distance={5} // adjust as needed
-              decay={2} // adjust for a realistic falloff
-            />
-            <mesh ref={phonePlane} visible={false} />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.model.geometry}
-              material={materials.OuterMaterial}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.model_1.geometry}
-              material={materials.nudge}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.model_2.geometry}
-              material={materials.Screen}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.model_3.geometry}
-              material={materials.ButtonMute}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.model_4.geometry}
-              material={materials.CamLight}
-            />
-          </group>
-        </mesh>
-      </group>
-      <group ref={apps} visible={false}>
-        {/* Apps go here */}
-        <MovingSpotApp
-          targetPos={[12, 0, -1]}
-          meshRotation={
-            new THREE.Euler(degToRad(0), degToRad(-60), degToRad(10))
-          }
-          geometry={appNodes.Cube001_2.geometry}
-          geometryFill={appNodes.Cube001_1.geometry}
-          materialFill={appMaterials.InstagramFill}
-          material={appMaterials.Instagram}
-          pages={pages}
-        />
-        <MovingSpotApp
-          targetPos={[12, -2.5, 0]}
-          meshRotation={new THREE.Euler(degToRad(-20), degToRad(-50), 0)}
-          geometry={appNodes.Cube002_1.geometry}
-          geometryFill={appNodes.Cube002_2.geometry}
-          materialFill={appMaterials.TikTokFill}
-          material={appMaterials.TikTok}
-          pages={pages}
-        />
-        <MovingSpotApp
-          targetPos={[10, 3.7, 0]}
-          meshRotation={new THREE.Euler(degToRad(40), degToRad(-40), 0)}
-          geometry={appNodes.Cube004_1.geometry}
-          geometryFill={appNodes.Cube004_2.geometry}
-          materialFill={appMaterials.TinderFill}
-          material={appMaterials.Tinder}
-          pages={pages}
-        />
-        <MovingSpotApp
-          targetPos={[11, 1.8, -1]}
-          meshRotation={new THREE.Euler(degToRad(30), degToRad(-55), 0)}
-          geometry={appNodes.Cube008_1.geometry}
-          geometryFill={appNodes.Cube008_2.geometry}
-          materialFill={appMaterials.XFill}
-          material={appMaterials.X}
-          pages={pages}
-        />
-        <MovingSpotApp
-          targetPos={[10, -4.5, -2]}
-          meshRotation={new THREE.Euler(degToRad(-40), degToRad(-50), 0)}
-          geometry={appNodes.Cube010_1.geometry}
-          geometryFill={appNodes.Cube010_2.geometry}
-          materialFill={appMaterials.SnapFill}
-          material={appMaterials.Snap}
-          pages={pages}
-        />
-        {/* Only Render one Sec if last part of Site is visible */}
-        {scroll.range(3.15 / pages, 1 / pages) > 0 && (
-          <OneSec
-            material={appMaterials.OneSec}
-            materialFill={appMaterials.OneSecFill}
-            geometry={appNodes.Cube011_1.geometry}
-            geometryFill={appNodes.Cube011_2.geometry}
+      <group position={[0, 0, 0]}>
+        <group {...props} dispose={null} ref={group}>
+          <ambientLight ref={amLight} intensity={0} position={[0, -1, -1]} />
+          <mesh
+            ref={head}
+            receiveShadow
+            geometry={nodes.head.geometry}
+            material={materials.HeadMat}
+            position={[0, -0.148, -0.92]}
+          >
+            <group position={[0, -0.852, 6.951]} scale={2.176} ref={phone}>
+              <PhoneSpotLight x={0} y={0} z={groupZPos} />
+              {/* corner lighting */}
+              <pointLight
+                position={[-1, 0.5, 1]}
+                color={"white"}
+                intensity={20.0}
+                distance={5} // adjust as needed
+                decay={2} // adjust for a realistic falloff
+              />
+              <mesh ref={phonePlane} visible={false} />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.model.geometry}
+                material={materials.OuterMaterial}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.model_1.geometry}
+                material={materials.nudge}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.model_2.geometry}
+                material={materials.Screen}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.model_3.geometry}
+                material={materials.ButtonMute}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.model_4.geometry}
+                material={materials.CamLight}
+              />
+            </group>
+          </mesh>
+        </group>
+        <group ref={apps} visible={false}>
+          {/* Apps go here */}
+          <MovingSpotApp
+            targetPos={[12, 0, -1]}
+            meshRotation={
+              new THREE.Euler(degToRad(0), degToRad(-60), degToRad(10))
+            }
+            geometry={appNodes.Cube001_2.geometry}
+            geometryFill={appNodes.Cube001_1.geometry}
+            materialFill={appMaterials.InstagramFill}
+            material={appMaterials.Instagram}
             pages={pages}
           />
-        )}
-      </group>
-      <group>
-        {notifications.map((note) => (
-          <NotificationIcon
-            key={note.id}
-            id={note.id}
-            position={note.position}
-            velocity={note.velocity}
-            removeNotification={() => removeNotification(note.id)}
+          <MovingSpotApp
+            targetPos={[12, -2.5, 0]}
+            meshRotation={new THREE.Euler(degToRad(-20), degToRad(-50), 0)}
+            geometry={appNodes.Cube002_1.geometry}
+            geometryFill={appNodes.Cube002_2.geometry}
+            materialFill={appMaterials.TikTokFill}
+            material={appMaterials.TikTok}
+            pages={pages}
           />
-        ))}
+          <MovingSpotApp
+            targetPos={[10, 3.7, 0]}
+            meshRotation={new THREE.Euler(degToRad(40), degToRad(-40), 0)}
+            geometry={appNodes.Cube004_1.geometry}
+            geometryFill={appNodes.Cube004_2.geometry}
+            materialFill={appMaterials.TinderFill}
+            material={appMaterials.Tinder}
+            pages={pages}
+          />
+          <MovingSpotApp
+            targetPos={[11, 1.8, -1]}
+            meshRotation={new THREE.Euler(degToRad(30), degToRad(-55), 0)}
+            geometry={appNodes.Cube008_1.geometry}
+            geometryFill={appNodes.Cube008_2.geometry}
+            materialFill={appMaterials.XFill}
+            material={appMaterials.X}
+            pages={pages}
+          />
+          <MovingSpotApp
+            targetPos={[10, -4.5, -2]}
+            meshRotation={new THREE.Euler(degToRad(-40), degToRad(-50), 0)}
+            geometry={appNodes.Cube010_1.geometry}
+            geometryFill={appNodes.Cube010_2.geometry}
+            materialFill={appMaterials.SnapFill}
+            material={appMaterials.Snap}
+            pages={pages}
+          />
+          {/* Only Render one Sec if last part of Site is visible */}
+          {scroll.range(3.15 / pages, 1 / pages) > 0 && (
+            <OneSec
+              material={appMaterials.OneSec}
+              materialFill={appMaterials.OneSecFill}
+              geometry={appNodes.Cube011_1.geometry}
+              geometryFill={appNodes.Cube011_2.geometry}
+              pages={pages}
+            />
+          )}
+        </group>
+        <group>
+          {notifications.map((note) => (
+            <NotificationIcon
+              key={note.id}
+              id={note.id}
+              position={note.position}
+              velocity={note.velocity}
+              removeNotification={() => removeNotification(note.id)}
+            />
+          ))}
+        </group>
       </group>
     </>
   );
