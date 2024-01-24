@@ -1,8 +1,11 @@
 import { useState } from "react";
 import spotlight from "../assets/spotlight.png";
 import spotlightMinimal from "../assets/spotlightMinimal.png";
+import creativityMinimal from "../assets/kreativität.png";
+import clearityMinimal from "../assets/klarheit.png";
 import SpotLightScene from "../components/SpotLightScene";
 import "../components/styles/MediaCompetence.css";
+import "../components/styles/gloabl.css";
 import { useTranslation } from 'react-i18next';
 
 export default function MediaCompetence() {
@@ -18,17 +21,16 @@ export default function MediaCompetence() {
   return (
     <div>
       <div className="scroll-container" dir="ltr">
-        <div className="section-1">
-          <h1 className="h2-pxgrotesk">
-            {t('mediaCompetenceH1')}
-          </h1>
-          <div className="digital-content">
-            {t('mediaCompetenceContent1')}
-            <br />
-            <br />
-            {t('mediaCompetenceContent2')}
+        <div className="hero-section">
+          <div className="hero-section-headline">
+            <h2>{t('mediaCompetenceH1')}</h2>
           </div>
-          <div className="learn-more-cta">
+          <div className="hero-section-content">
+            <p>{t('mediaCompetenceContent1')}</p>
+            <br /><br />
+            <p>{t('mediaCompetenceContent2')}</p>
+          </div>
+          <div className="scroll-down-cta">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="51"
@@ -42,49 +44,21 @@ export default function MediaCompetence() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="digital-content">{t('cta1')}</div>
+            <div className="scroll-down-cta-text">
+              <p>{t('cta1')}</p>
+            </div>
           </div>
         </div>
         <div className="section-2-center">
           <div className="quote">
-            <div className="quote-text">
-              "Die Steuerung der Aufmerksamkeit ist daher eine der wertvollsten
-              geistigen Fähigkeiten, die Sie entwickeln, pflegen und trainieren
-              können"
-            </div>
-            <div className="quote-author">- Volker Busch</div>
+            <h3>{t('quoteText')}</h3>
+            <p>{t('quoteAuthor')}</p>
           </div>
-          <div className="column-section">
-            <div className="column-title">Aufmerksamkeit</div>
-            <div className="column-title">Selbstmanagement</div>
-            <div className="column">
-              To direct attention to something means to take mental possession
-              of it, be it our own perception, our thoughts, feelings or
-              actions. Attention is a form of inward and outward mental
-              engagement that allows us to sift through the multitude of
-              information, analyze it or organize our thoughts and feelings.
-              Controlling our attention is crucial to becoming media literate.
-              In a world dominated by information overload and distractions, we
-              often forget how to direct our own attention. The ability to
-              direct attention is invaluable and should be developed, nurtured
-              and practiced. Self-regulation can help to reduce everyday stress
-              in a world full of stimuli. However, this is a process that
-              requires mature judgment.
-            </div>
-            <div className="column">
-              Attention is a valuable resource in modern capitalist society. We
-              "pay" for services and offers with our attention, and in return we
-              receive information. However, this attention resource is limited.
-              Although we can divide it up and switch it around, there is an
-              upper limit. Because of this limit, attention has a high value. In
-              order to hold our attention for as long as possible, strategies
-              become louder and more extreme in order to gain at least a few
-              seconds of our limited attention. As a result, our brains become
-              more susceptible to disruptions caused by technology and
-              information overload, known as "technoference". Effective
-              self-management is of great importance in order to withstand this
-              hectic world and manage attention in a self-determined way.{" "}
-            </div>
+          <div className="text-column-section">
+            <h4>{t('column1Title')}</h4>
+            <h4>{t('column2Title')}</h4>
+            <text>{t('column1Text')}</text>
+            <text>{t('column2Text')}</text>
           </div>
           <div className="arrow-block">
             <svg
@@ -114,30 +88,20 @@ export default function MediaCompetence() {
               />
             </svg>
           </div>
-          <div className="highlight-block">Medienmündigkeit</div>
+          <h3>Medienmündigkeit</h3>
         </div>
         <div className="section-3">
           <div className="content-block">
-            <div className="column-title">Spotlight</div>
-            <div className="digital-content">
-              Das Zusammenspiel zwischen Aufmerksamkeit und Selbstregulierung
-              kann wie das Funktionieren eines Scheinwerfers verstanden werden.
-              Die Aufmerksamkeit entspricht dem Lichtkegel des Scheinwerfers.
-              Sie ermöglicht es, Personen oder Objekte auszuwählen, indem sie
-              aus der Fülle von Informationen das auswählt, was gerade
-              interessant oder relevant erscheint (Selektion). Der Scheinwerfer
-              kann auch seinen Lichtkegel um 180° auf die inneren Prozesse
-              richten.
+            <h4>{t('section3Headline')}</h4>
+            <div className="thin">
+              <text>{t('section3Text')}</text>
             </div>
           </div>
           <div className="spotlight-section">
-            <div className="column-block">
-              <img width={"250px"} src={spotlight} />
-              <div className="digital-content-2">
-                Der Mehrwert aus den gewonnenen Informationen entsteht durch
-                kreatives Verknüpfen mit bestehenden Inhalten, Erfahrungen und
-                Gefühlen. Kreativität eröffnet Lösungsmöglichkeiten und schafft
-                Raum für neue I
+            <div className="image-column-section">
+              <img width={"280px"} src={spotlight}/>
+              <div className="small">
+                <text>{t('imageColumnSectionText')}</text>
               </div>
             </div>
           </div>
@@ -147,75 +111,56 @@ export default function MediaCompetence() {
         </div>
         <div className="section-3">
           <div className="cta-sec-2">
-            <div
-              className={`button-outline ${
-                selectedButton === "konzentration" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("konzentration")}
-              >
-                Konzentration
+            <div className={`button-outline ${selectedButton === "konzentration" ? "active-button" : ""}`}>
+              <div className="button-outline-text" onClick={() => handleButtonClick("konzentration")}>
+                {t('tab1Title')}
               </div>
             </div>
-            <div
-              className={`button-outline ${
-                selectedButton === "kreativität" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("kreativität")}
-              >
-                Kreativität
+            <div className={`button-outline ${selectedButton === "kreativität" ? "active-button" : ""}`}>
+              <div className="button-outline-text" onClick={() => handleButtonClick("kreativität")}>
+                {t('tab2Title')}
               </div>
             </div>
-            <div
-              className={`button-outline ${
-                selectedButton === "klarheit" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("klarheit")}
-              >
-                Klarheit
+            <div className={`button-outline ${selectedButton === "klarheit" ? "active-button" : ""}`}>
+              <div className="button-outline-text" onClick={() => handleButtonClick("klarheit")}>
+                {t('tab3Title')}
               </div>
             </div>
           </div>
           {selectedButton === "konzentration" && (
             <div className="column-block-2">
               <div className="content-block-2">
-                <div className="column-title">Konzentration</div>
-                <div className="digital-content">
-                  Der Fokus, also die Konzentration ist ein vorübergehender
-                  geistiger Zustand und die Basis dafür, dass man kritisch
-                  reflektieren, logisch denken und Gedankengängen folgen kann.
-                  Stell dir deine Konzentration wie einen Lichtkegel vor: Je
-                  präziser und intensiver dieser Lichtkegel ist, desto tiefer
-                  kannst du geistig in einen Gedanken eindringen. Wenn man sich
-                  voll und ganz auf eine Aufgabe einlässt, steigt die
-                  Verarbeitungstiefe, was zu einer besseren Speicherung von
-                  Informationen führt. Konzentrierte Aufmerksamkeit ist
-                  entscheidend für präzises Denken und Handeln in nahezu allen
-                  Lebensbereichen. Konzentration funktioniert, wenn ein gutes
-                  Selbstmanagement Störreize reduziert und den Lichtkegel der
-                  Aufmerksamkeit intensiv und eng erleuchten lässt. Die
-                  Leistungssteigerung durch aufmerksame Konzentration entsteht
-                  durch die Synchronisierung der neurologischen
-                  Hirnstromfrequenzen in verschiedenen Hirnarealen auf ein
-                  einheitliches Maß oder dieselbe Wellenlänge. Wenn diese
-                  Frequenzbereiche auf eine gemeinsame Wellenlänge kommen, wird
-                  vermehrt der Neurotransmitter Acetylcholin freigesetzt. Dies
-                  fördert die Kommunikation und den Informationsaustausch
-                  zwischen den Nervenbahnen. Während wir konzentriert sind oder
-                  in eine tiefere Denkphase während einer Aufgabe eintauchen,
-                  steigert dies unsere Fähigkeiten in Bereichen wie logischem
-                  Denken, Abstraktionsvermögen und Gedächtnis
-                </div>
+                <h4>{t('tab1Title')}</h4>
+                <text>
+                  {t('tab1Content1')}
+                  <br/>{t('tab1Content2')}
+                </text>
               </div>
               <img width={"500px"} src={spotlightMinimal} />
+            </div>
+          )}
+          {selectedButton === "kreativität" && (
+            <div className="column-block-2">
+              <div className="content-block-2">
+                <h4>{t('tab2Title')}</h4>
+                <text>
+                  {t('tab2Content')}
+                  <br/>{t('tab2Content')}
+                </text>
+              </div>
+              <img width={"500px"} src={creativityMinimal} />
+            </div>
+          )}
+          {selectedButton === "klarheit" && (
+            <div className="column-block-2">
+              <div className="content-block-2">
+                <h4>{t('tab3Title')}</h4>
+                <text>
+                  {t('tab3Content')}
+                  <br/>{t('tab3Content')}
+                </text>
+              </div>
+              <img width={"500px"} src={clearityMinimal} />
             </div>
           )}
         </div>
