@@ -10,18 +10,20 @@
     padding: 50px 80px 150px 80px;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 50px;
     scroll-snap-align: start;
     height: 100vh;
+    background: radial-gradient(10% 4% at 50% 91%, #9A5DFF 0%, #121212 100%);
 }
 
 .section-3 {
     scroll-snap-align: start;
     height: 100vh;
+    padding-block-start: 100px;
 }
 
 .quote {
-    padding-block-start: 120px;
+    padding-block-start: 100px;
     color: var(--white, #FFF);
     text-align: center;
     /* Headline H2 */
@@ -43,22 +45,23 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.72px;
-    margin-block-start: 24px;
+    margin-block-start: 16px;
 }
 
 .column-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: flex-start;
-    row-gap: 60px;
+    row-gap: 30px;
     column-gap: 100px;
+    margin-block-end: 24px;
 }
 
 .column-title {
     color: var(--focus-color, #B3A1FF);
     /* Headline H2 */
     font-family: "Poppins";
-    font-size: 40px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -80,11 +83,9 @@
     justify-content: center;
     align-items: flex-end;
     gap: 80px;
-    padding-block-start: 200px;
 }
 
 .highlight-block {
-    margin-block: 60px;
     display: flex;
     justify-content: center;
     font-style: normal;
@@ -93,5 +94,12 @@
     font-weight: 200;
     font-size: 24px;
     color: #ffffff;
-    background: radial-gradient(10% 90% at 50% 47.17%, #9A5DFF 0%, #121212 100%);
+}
+
+.content-block {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
 }

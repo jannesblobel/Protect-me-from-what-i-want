@@ -1,4 +1,6 @@
 import "../components/styles/MediaCompetence.css";
+import spotlight from "../assets/spotlight.png";
+import SpotLightScene from "../components/SpotLightScene";
 
 export default function MediaCompetence() {
     return (
@@ -39,8 +41,6 @@ export default function MediaCompetence() {
                             In order to hold our attention for as long as possible, strategies become louder and more extreme in order to gain at least a few seconds of our limited attention. As a result, our brains become more susceptible to disruptions caused by technology and information overload, known as "technoference".
                             Effective self-management is of great importance in order to withstand this hectic world and manage attention in a self-determined way.                        </div>
                     </div>
-                </div>
-                <div className="section-3">
                     <div className="arrow-block">
                         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="50" viewBox="0 0 52 50" fill="none">
                             <path d="M1.5 0.999998L50.5 49M50.5 49H8.5M50.5 49V5.8" stroke="#E7E7E7" stroke-width="2"/>
@@ -51,6 +51,19 @@ export default function MediaCompetence() {
                     </div>
                     <div className="highlight-block">Medienmündigkeit</div>
                 </div>
+                <div className="section-3">
+                    <div className="content-block">
+                        <div className="column-title">Spotlight</div>
+                        <div className="digital-content">
+                            Das Zusammenspiel zwischen Aufmerksamkeit und Selbstregulierung kann wie das Funktionieren eines Scheinwerfers verstanden werden. Die Aufmerksamkeit entspricht dem Lichtkegel des Scheinwerfers. Sie ermöglicht es, Personen oder Objekte auszuwählen, indem sie aus der Fülle von Informationen das auswählt, was gerade interessant oder relevant erscheint (Selektion). Der Scheinwerfer kann auch seinen Lichtkegel um 180° auf die inneren Prozesse richten.
+                        </div>
+                        <SpotLightScene />
+                    </div>
+                </div>
+                {/* <div className="section-3">
+                    <img width={"327.66px"} src={spotlight}/>
+                    Der Mehrwert aus den gewonnenen Informationen entsteht durch kreatives Verknüpfen mit bestehenden Inhalten, Erfahrungen und Gefühlen. Kreativität eröffnet Lösungsmöglichkeiten und schafft Raum für neue I
+                </div> */}
             </div>
         </div>
     );
