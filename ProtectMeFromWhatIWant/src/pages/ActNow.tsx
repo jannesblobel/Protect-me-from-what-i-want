@@ -4,9 +4,15 @@ import { useState } from 'react';
 
 export default function ActNow() {
     const [selectedTip, setSelectedTip] = useState('shortterm'); 
+    const [selectedTab, setSelectedTab] = useState('apps'); 
 
     const handleTipButtonClick = (tipType: 'longterm' | 'shortterm') => {
         setSelectedTip(tipType);
+        setSelectedTab(tipType === 'shortterm' ? 'apps' : 'pauses');
+    };
+
+    const handleTabButtonClick = (tabType: 'apps' | 'books' | 'podcasts' | 'theories' | 'pauses' | 'mindfulness' | 'stimuli' ) => {
+        setSelectedTab(tabType);
     };
 
     return (
@@ -39,50 +45,129 @@ export default function ActNow() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Shortterm */}
                     {selectedTip === 'shortterm' && (
                         <div className="tab-sec">
-                            <div className="button-underline active-underline-button">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'apps' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('apps')}>
                                     Apps
                                 </div>
                             </div>
-                            <div className="button-underline">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'books' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('books')}>
                                     Bücher
                                 </div>
                             </div>
-                            <div className="button-underline">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'podcasts' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('podcasts')}>
                                     Podcasts
                                 </div>
                             </div>
-                            <div className="button-underline">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'theories' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('theories')}>
                                     Theorien
                                 </div>
                             </div>
                         </div>
                     )}
+
+                    {/* Longterm */}
                     {selectedTip === 'longterm' && (
                         <div className="tab-sec">
-                            <div className="button-underline active-underline-button">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'pauses' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('pauses')}>
                                     Pausen
                                 </div>
                             </div>
-                            <div className="button-underline">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'mindfulness' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('mindfulness')}>
                                     Achtsamkeit
                                 </div>
                             </div>
-                            <div className="button-underline">
-                                <div className="button-underline-text">
+                            <div className={`button-underline ${selectedTab === 'stimuli' ? ' active-underline-button' : ''}`}>
+                                <div className="button-underline-text" onClick={() => handleTabButtonClick('stimuli')}>
                                     Störreize
                                 </div>
                             </div>
                         </div>
                     )}
-                
+
+                    {/* Apps */}
+                    {selectedTab === 'apps' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">OneSec</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">Forest</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+
+                    {/* Books */}
+                    {selectedTab === 'books' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">Gehirn gehört - Volker Busch</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">1% Methode</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">Atomic Habits</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+
+                    {/* Podcasts */}
+                    {selectedTab === 'podcasts' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">Gehirn gehört - Volker Busch</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+
+                    {/* Theorien */}
+                    {selectedTab === 'theories' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">1% Methode</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+
+                    {/* Pauses */}
+                    {selectedTab === 'pauses' && (
                     <div className="column-tips">
                         <div className="tip-box">
                             <div className="tip-box-content">
@@ -93,19 +178,46 @@ export default function ActNow() {
                         </div>
                         <div className="tip-box">
                             <div className="tip-box-content">
-                                <div className="tip-box-title">Innehalten</div>
+                                <div className="tip-box-title">Kreativität</div>
                                 {/* <img width="139px;" src={doodle}/> */}
                                 <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
                             </div>
                         </div>
                         <div className="tip-box">
                             <div className="tip-box-content">
-                                <div className="tip-box-title">Innehalten</div>
+                                <div className="tip-box-title">Nixxen</div>
                                 {/* <img width="139px;" src={doodle}/> */}
                                 <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
                             </div>
                         </div>
                     </div>
+                    )}
+
+                    {/* mindfulness */}
+                    {selectedTab === 'mindfulness' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">...</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+
+                    {/* Stimuli */}
+                    {selectedTab === 'stimuli' && (
+                    <div className="column-tips">
+                        <div className="tip-box">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">...</div>
+                                {/* <img width="139px;" src={doodle}/> */}
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                        </div>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>
