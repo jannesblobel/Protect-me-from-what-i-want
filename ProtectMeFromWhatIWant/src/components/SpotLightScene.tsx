@@ -125,9 +125,8 @@ export default function SpotLightScene() {
         </Canvas>
       </div>
       {/* Sliders rendered outside of Canvas */}
-      <div>
-        <div>
-          <label>Fokus: </label>
+      <div className="slider-section">
+        <div className="slider-block">
           <input
             type="range"
             min="0.10"
@@ -147,9 +146,11 @@ export default function SpotLightScene() {
               );
             }}
           />
+           <label>Fokus </label>
+           <div className="label-improvement">Konzentration</div>
         </div>
-        <div>
-          <label>Streulicht: </label>
+        <div className="slider-block">
+          
           <input
             type="range"
             min="0"
@@ -158,9 +159,11 @@ export default function SpotLightScene() {
             value={penumbra}
             onChange={(e) => setPenumbra(Number(e.target.value))}
           />
+          <label>Streulicht </label>
+          <div className="label-improvement">Selbstmanagement</div>
         </div>
-        <div>
-          <label>Aufmerksamkeit: </label>
+        <div className="slider-block">
+          
           <input
             type="range"
             min="6"
@@ -169,6 +172,8 @@ export default function SpotLightScene() {
             value={distance}
             onChange={(e) => setDistance(Number(e.target.value))}
           />
+          <label>Aufmerksamkeit </label>
+          <div className="label-improvement">Klarheit</div>
         </div>
       </div>
     </div>

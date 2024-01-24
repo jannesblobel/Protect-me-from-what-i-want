@@ -1,8 +1,16 @@
 import "../components/styles/MediaCompetence.css";
 import spotlight from "../assets/spotlight.png";
 import SpotLightScene from "../components/SpotLightScene";
+import { useState } from 'react';
+import spotlightMinimal from "../assets/spotlightMinimal.png";
 
 export default function MediaCompetence() {
+    const [selectedButton, setSelectedButton] = useState('konzentration'); 
+
+    const handleButtonClick = (buttonType: 'konzentration' | 'kreativität' | 'klarheit') => {
+        setSelectedButton(buttonType);
+    };
+
     return (
         <div>
             <div className="scroll-container" dir="ltr">
@@ -57,13 +65,51 @@ export default function MediaCompetence() {
                         <div className="digital-content">
                             Das Zusammenspiel zwischen Aufmerksamkeit und Selbstregulierung kann wie das Funktionieren eines Scheinwerfers verstanden werden. Die Aufmerksamkeit entspricht dem Lichtkegel des Scheinwerfers. Sie ermöglicht es, Personen oder Objekte auszuwählen, indem sie aus der Fülle von Informationen das auswählt, was gerade interessant oder relevant erscheint (Selektion). Der Scheinwerfer kann auch seinen Lichtkegel um 180° auf die inneren Prozesse richten.
                         </div>
-                        <SpotLightScene />
+                    </div>
+                    <div className="spotlight-section">
+                        <div className="column-block">
+                            <img width={"250px"} src={spotlight}/>
+                            <div className="digital-content-2">
+                                Der Mehrwert aus den gewonnenen Informationen entsteht durch kreatives Verknüpfen mit bestehenden Inhalten, Erfahrungen und Gefühlen. Kreativität eröffnet Lösungsmöglichkeiten und schafft Raum für neue I
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {/* <div className="section-3">
-                    <img width={"327.66px"} src={spotlight}/>
-                    Der Mehrwert aus den gewonnenen Informationen entsteht durch kreatives Verknüpfen mit bestehenden Inhalten, Erfahrungen und Gefühlen. Kreativität eröffnet Lösungsmöglichkeiten und schafft Raum für neue I
-                </div> */}
+                <div className="section-3">
+                    <SpotLightScene />
+                </div>
+                <div className="section-3">
+                    <div className="cta-sec-2">
+                        <div className={`button-outline ${selectedButton === 'konzentration' ? 'active-button' : ''}`}>
+                            <div className="button-outline-text" onClick={() => handleButtonClick('konzentration')}>
+                                Konzentration
+                            </div>
+                        </div>
+                        <div className={`button-outline ${selectedButton === 'kreativität' ? 'active-button' : ''}`}>
+                            <div className="button-outline-text" onClick={() => handleButtonClick('kreativität')}> 
+                                Kreativität
+                            </div>
+                        </div>
+                        <div className={`button-outline ${selectedButton === 'klarheit' ? 'active-button' : ''}`}>
+                            <div className="button-outline-text" onClick={() => handleButtonClick('klarheit')}> 
+                                Klarheit
+                            </div>
+                        </div>
+                    </div>
+                    {selectedButton === 'konzentration' && (
+                        <div className="column-block-2">
+                            <div className="content-block-2">
+                                <div className="column-title">Konzentration</div>
+                                <div className="digital-content">
+                                    Der Fokus, also die Konzentration ist ein vorübergehender geistiger Zustand und die Basis dafür, dass man kritisch reflektieren, logisch denken und Gedankengängen folgen kann. Stell dir deine Konzentration wie einen Lichtkegel vor: Je präziser und intensiver dieser Lichtkegel ist, desto tiefer kannst du geistig in einen Gedanken eindringen. Wenn man sich voll und ganz auf eine Aufgabe einlässt, steigt die Verarbeitungstiefe, was zu einer besseren Speicherung von Informationen führt. Konzentrierte Aufmerksamkeit ist entscheidend für präzises Denken und Handeln in nahezu allen Lebensbereichen. 
+                                    Konzentration funktioniert, wenn ein gutes Selbstmanagement Störreize reduziert und den Lichtkegel der Aufmerksamkeit intensiv und eng erleuchten lässt.
+                                    Die Leistungssteigerung durch aufmerksame Konzentration entsteht durch die Synchronisierung der neurologischen Hirnstromfrequenzen in verschiedenen Hirnarealen auf ein einheitliches Maß oder dieselbe Wellenlänge. Wenn diese Frequenzbereiche auf eine gemeinsame Wellenlänge kommen, wird vermehrt der Neurotransmitter Acetylcholin freigesetzt. Dies fördert die Kommunikation und den Informationsaustausch zwischen den Nervenbahnen. Während wir konzentriert sind oder in eine tiefere Denkphase während einer Aufgabe eintauchen, steigert dies unsere Fähigkeiten in Bereichen wie logischem Denken, Abstraktionsvermögen und Gedächtnis        
+                                </div>
+                            </div>
+                            <img width={"500px"} src={spotlightMinimal}/>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
