@@ -3,8 +3,25 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "PxGrotesk";
+  font-family: "PxGrotesk-screen";
   src: url("./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf");
+}
+
+@font-face {
+  font-family: "PxGrotesk-bold";
+  src: url("./fonts/Px-Grotesk/Px-Grotesk-Bold/Px-Grotesk-Bold.otf");
+}
+
+@font-face {
+  font-family: "NeueHaas-light";
+  font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Light/NeueHaasDisplay-Light.woff");
+}
+
+@font-face {
+  font-family: "NeueHaas-bold";
+  font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Bold/NeueHaasDisplay-Bold.woff");
 }
 
 #root {

@@ -6,6 +6,7 @@ export default {
       fontFamily :{ 
         PxGrotesk: ["PxGrotesk","screen"],
         poppins: ['Poppins', 'sans-serif'],
+        NeueHaas: ["NeueHaas", 'roman'],
       } 
     },
   },
