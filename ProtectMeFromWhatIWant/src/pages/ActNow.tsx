@@ -1,8 +1,12 @@
 import "../components/styles/ActNow.css";
+import "../components/styles/gloabl.css";
 import { useState } from 'react';
-// import doodle from "../assets/doodle.png";
+import { useTranslation } from 'react-i18next';
+
+import focusMode from "../assets/focusModePreview.png";
 
 export default function ActNow() {
+    const { t } = useTranslation();
     const [selectedTip, setSelectedTip] = useState('shortterm'); 
     const [selectedTab, setSelectedTab] = useState('apps'); 
 
@@ -18,17 +22,17 @@ export default function ActNow() {
     return (
         <div>
             <div className="scroll-container" dir="ltr">
-                <div className="section-1">
-                    <h1 className="h2-pxgrotesk">Let’s get on that journey of improvement</h1>
-                    <div className="digital-content">
-                        Entdecke Methoden, Gedankenmodelle, die dich nicht nur im Hier und Jetzt unterstützen, sondern auch langfristig deine Beziehung zu digitalen Medien verbessern.
+                <div className="hero-section">
+                    <h2>{t('actNowH2')}</h2>
+                    <div className="hero-section-content">
+                        <p>{t('actNowP1')}</p>
                     </div>
-                    <div className="learn-more-cta">
+                    <div className="scroll-down-cta">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 51 50" fill="none">
                         <path d="M1 0.999998L50 49M50 49H8M50 49V5.8" stroke="#E7E7E7" stroke-width="2"/>
                         </svg>
-                        <div className="digital-content">
-                        Improve your relationship with digital media                
+                        <div className="scroll-down-cta-text">
+                        <p>{t('actNowP2')}</p>
                         </div>
                     </div>
                 </div>
@@ -109,6 +113,15 @@ export default function ActNow() {
                                 {/* <img width="139px;" src={doodle}/> */}
                                 <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
                             </div>
+                        </div>
+                        <div className="tip-box">
+                            <a href="/focus-mode">
+                            <div className="tip-box-content">
+                                <div className="tip-box-title">Fokusmodus</div>
+                                <img width="139px;" src={focusMode}/>
+                                <div className="tip-box-text">Digital Overload: Wie exzessives Scrollen die Fähigkeit zum Inne-halten hemmt und Problem-lösungen auf Standby setzt</div>
+                            </div>
+                            </a>
                         </div>
                     </div>
                     )}
