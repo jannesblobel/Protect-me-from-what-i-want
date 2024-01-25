@@ -23,7 +23,7 @@ export default function Experience(props: experienceProps) {
           {/* <fog attach="fog" args={["#202020", 5, 20]} /> */}
           <ambientLight intensity={0.1} />
           <Physics>
-            {/* <Debug scale={1.1} color="black"> */}
+            {/* <Debug scale={1.1} color="white"> */}
             <Head pages={pages - 1} />
             {/* </Debug> */}
           </Physics>
