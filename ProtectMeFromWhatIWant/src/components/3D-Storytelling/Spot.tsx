@@ -50,7 +50,7 @@ export default function Spot() {
     <div>
       <Canvas
         shadows
-        style={{ width: "600px", height: "800px" }}
+        style={{ width: "600px", height: "700px" }}
         camera={{
           position: [0, 2.5, -2.5],
           fov: 100,
