@@ -1,10 +1,11 @@
 import "../../components/styles/gloabl.css";
 import "../../components/styles/FocusMode.css";
-import focusMode1 from "../../assets/focusMode1.png";
+import focusMode1 from "../../assets/focusModeGIF1.gif";
 // import { useState } from 'react';
 // import { useTranslation } from 'react-i18next';
 
 import focusMode from "../../assets/focusMode.gif";
+import focusMode2 from "../../assets/focusModeGIF2.gif";
 
 export default function FocusMode() {
     return (
@@ -32,7 +33,7 @@ export default function FocusMode() {
                     <div className="column-block-subpage">
                         <div className="content-block-subpage">
                             <h2 style={{"color": "#B3A1FF"}}>Step by Step</h2>
-                            <h3>1 - Bestehenden Fokus Modus aktivieren</h3>
+                            <h3>Bestehenden Fokus Modus aktivieren</h3>
                             <text>
                                 1 - <a className="link" href="https://support.apple.com/de-de/guide/iphone/aside/iph7c412b4db/17.0/ios/17.0" target="_blank">Öffne das Kontrollzentrum</a>, tippe auf „Fokus“ und anschließend auf den Fokus, der aktiviert werden soll (beispielsweise „Nicht stören“).
                                 <br/><br/>
@@ -40,6 +41,23 @@ export default function FocusMode() {
                             </text>
                         </div>
                         <img width={"400px"} src={focusMode1} />
+                    </div>
+                </div>
+                <div className="section-2">
+                    <div className="column-block-subpage">
+                        <div className="content-block-subpage">
+                            {/* <h2 style={{"color": "#B3A1FF"}}>Step by Step</h2> */}
+                            <h3>Neuen Fokus Modus erstellen</h3>
+                            <text>
+                                Wenn du dich auf eine Aktivität konzentrieren möchtest, die keiner der bereitgestellten Fokus-Optionen entspricht, kannst du einen eigenen Fokus erstellen. <br/><br/><br/><br/>
+                                1 - Wähle „Einstellungen“ & dann „Fokus“.<br/><br/>
+                                2 - Tippe auf die Taste „Hinzufügen“ oben rechts und anschließend auf „Eigener“.<br/><br/>
+                                3 - Gib einen Namen für deinen Fokus ein und tippe auf den Zeilenschalter.<br/><br/>
+                                4 - Wähle eine Farbe und ein passendes Symbol aus und tippe auf „Weiter“.<br/><br/>
+                                5 - Tippe auf „Fokus anpassen“ und lege die Optionen für deinen eigenen Fokus fest.<br/><br/>
+                            </text>
+                        </div>
+                        <img width={"400px"} src={focusMode2} />
                     </div>
                 </div>
             </div>

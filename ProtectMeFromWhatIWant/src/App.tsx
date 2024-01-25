@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
 import DigitalReflection from "./pages/DigitalReflection";
 import MediaCompetence from "./pages/MediaCompetence";
-import WhoElse from "./pages/WhoElse";
+// import WhoElse from "./pages/WhoElse";
 import ActNow from "./pages/ActNow";
 import FocusMode from "./pages/shorttermtips/FocusMode"
 
@@ -27,7 +27,7 @@ function App() {
           <Route path="/digital-reflection" element={<DigitalReflection />} />
           <Route path="/media-competence" element={<MediaCompetence />} />
           <Route path="/act-now" element={<ActNow />} />
-          <Route path="/who-else" element={<WhoElse />} />
+          {/* <Route path="/who-else" element={<WhoElse />} /> */}
           <Route path="/focus-mode" element={<FocusMode />} />
         </Routes>
       </I18nextProvider>

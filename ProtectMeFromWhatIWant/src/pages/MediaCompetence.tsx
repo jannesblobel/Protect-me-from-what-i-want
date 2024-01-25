@@ -136,7 +136,7 @@ export default function MediaCompetence() {
                   <br/>{t('tab1Content2')}
                 </text>
               </div>
-              <img width={"500px"} src={spotlightMinimal} />
+              <img width={"350px"} src={spotlightMinimal} />
             </div>
           )}
           {selectedButton === "kreativität" && (

@@ -38,12 +38,12 @@ export default function Navbar() {
         >
           {t('navTab3')}
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/who-else"
           className={({ isActive }) => (isActive ? "tab active" : "tab")}
         >
           {t('navTab4')}
-        </NavLink>
+        </NavLink> */}
         <div className="tab language">
           <button className="tab language" onClick={changeLanguage}>
             {i18n.language === 'en' ? 'EN' : 'DE'}
