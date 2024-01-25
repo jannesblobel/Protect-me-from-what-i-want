@@ -22,7 +22,7 @@ export default function Interface() {
   return (
     <>
       <Section>
-        <h1 className="h1-pxgrotesk">Protect me from what I want</h1>
+        <h1 className="h1-pxgrotesk"></h1>
       </Section>
       <Section>
         <div className="column">
