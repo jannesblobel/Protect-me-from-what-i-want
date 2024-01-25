@@ -12,23 +12,40 @@ export default function FocusMode() {
     <div>
       <div className="scroll-container" dir="ltr">
         <div className="hero-section">
-          <h1 style={{ color: "#B3A1FF" }}>Fokus Modus</h1>
-          <div className="hero-section-column">
-            <div className="hero-section-column-gap">
-              <h2>
-                Der Fokus-Modus für ungestörte Produktivität und Kontrolle
-              </h2>
-              <text style={{ width: "90%" }}>
-                Dein persönliches Werkzeug für ungestörte Produktivität und
-                wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-                arbeiten, dich entspannen oder einfach den digitalen Trubel
-                ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
-                Hier erfährst du, wie du ihn direkt im Kontrollzentrum
-                aktivierst oder clever planst, damit er sich automatisch zu den
-                Zeiten einschaltet, die für dich am besten passen.
-              </text>
-            </div>
+          <div className="hero-section-headline">
+            <h1 style={{ color: "#B3A1FF" }}>Fokus Modus</h1>
+          </div>
+          <div
+            className="hero-section-visual"
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              gridRow: "2 / span 1",
+              gridColumn: "2 / span 1",
+            }}
+          >
             <img width="300px;" src={focusMode} />
+          </div>
+          <div
+            className="hero-section-content"
+            style={{
+              gridColumn: "1 / 2",
+              maxWidth: "800px",
+            }}
+          >
+            <h2 style={{ paddingBlockEnd: "24px" }}>
+              Der Fokus-Modus für ungestörte Produktivität und Kontrolle
+            </h2>
+
+            <p className="text" style={{ width: "100%" }}>
+              Dein persönliches Werkzeug für ungestörte Produktivität und
+              wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
+              arbeiten, dich entspannen oder einfach den digitalen Trubel
+              ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
+              Hier erfährst du, wie du ihn direkt im Kontrollzentrum aktivierst
+              oder clever planst, damit er sich automatisch zu den Zeiten
+              einschaltet, die für dich am besten passen.
+            </p>
           </div>
           <div className="scroll-down-cta">
             <svg
@@ -54,7 +71,7 @@ export default function FocusMode() {
             <div className="content-block-subpage">
               <h2 style={{ color: "#B3A1FF" }}>Step by Step</h2>
               <h3>Bestehenden Fokus Modus aktivieren</h3>
-              <text>
+              <p className="text">
                 1 -{" "}
                 <a
                   className="link"
@@ -69,7 +86,7 @@ export default function FocusMode() {
                 <br />
                 Hinweis: Ist bereits ein anderer Fokus aktiv, wird dieser
                 deaktiviert, wenn du auf den neuen Fokus tippst.
-              </text>
+              </p>
             </div>
             <img width={"400px"} src={focusMode1} />
           </div>
@@ -79,7 +96,7 @@ export default function FocusMode() {
             <div className="content-block-subpage">
               {/* <h2 style={{"color": "#B3A1FF"}}>Step by Step</h2> */}
               <h3>Neuen Fokus Modus erstellen</h3>
-              <text>
+              <p className="text">
                 Wenn du dich auf eine Aktivität konzentrieren möchtest, die
                 keiner der bereitgestellten Fokus-Optionen entspricht, kannst du
                 einen eigenen Fokus erstellen. <br />
@@ -105,7 +122,7 @@ export default function FocusMode() {
                 eigenen Fokus fest.
                 <br />
                 <br />
-              </text>
+              </p>
             </div>
             <img width={"400px"} src={focusMode2} />
           </div>

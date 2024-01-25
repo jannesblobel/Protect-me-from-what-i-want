@@ -33,6 +33,9 @@ export default function ActNow() {
       <div className="scroll-container" dir="ltr">
         <div className="hero-section">
           <h2>{t("actNowH2")}</h2>
+          <div className="hero-section-visual">
+            {/* <DigitalMirrorPortal /> */}
+          </div>
           <div className="hero-section-content">
             <p>{t("actNowP1")}</p>
           </div>

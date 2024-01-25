@@ -82,7 +82,12 @@ p {
 }
 
 .scroll-down-cta-text {
-  width: 60%;
+  line-height: 2em; /* Line height */
+  height: 4em; /* Twice the line height for two lines */
+  /* overflow: hidden; */
+  width: 300px;
+  word-wrap: break-word;
+  /* display: -webkit-box; */
 }
 
 /* button */
