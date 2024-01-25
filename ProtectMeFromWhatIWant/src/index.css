@@ -3,15 +3,53 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'PxGrotesk';
-  src: url('./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf');
+  font-family: "PxGrotesk-screen";
+  src: url("./fonts/Px-Grotesk/Px-Grotesk-Screen/Px-Grotesk-Screen.otf");
+}
+
+@font-face {
+  font-family: "PxGrotesk-bold";
+  src: url("./fonts/Px-Grotesk/Px-Grotesk-Bold/Px-Grotesk-Bold.otf");
+}
+
+@font-face {
+  font-family: "NeueHaas-light";
+  font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Light/NeueHaasDisplay-Light.woff");
+}
+
+@font-face {
+  font-family: "NeueHaas-bold";
+  font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Bold/NeueHaasDisplay-Bold.woff");
 }
 
 #root {
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   height: 100vh;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  color: #3d5373;
 }
 
-body {
-  margin: 0;
+/* Scrollbar styling */
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b3a1ff #202020;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #202020;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #b3a1ff;
+  border-radius: 20px;
+  border: 3px solid #202020;
 }

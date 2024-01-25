@@ -1,88 +1,17 @@
-.h1-pxgrotesk {
-    font-family: 'PxGrotesk';
-    font-size: 64px;
-    width: 30%;
-}
-  
-.h2-pxgrotesk {
-    font-family: 'PxGrotesk';
-    font-size: 40px;
-    width: 30%;
-    color: #ffffff;
-}
-  
-.section-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 32px;
-    padding: 120px 80px 50px 80px;
-    scroll-snap-align: center;
-    padding-block-end: 250px;
-    height: 100vh;
-}
-
-.section-2 {
-    padding-block: 250px 250px;
-    scroll-snap-align: start;
-    height: 100vh;
-    background: radial-gradient(80% 45% at 50% 40%, #9A5DFF 0%, #121212 50%);
-}
-
-.content {
-    font-style: normal;
-    font-weight: 300;
-    width: 80%;
-}
-
-.background-blur {
-    fill: #8c6bc1;
-    filter: blur(84.05000305175781px);
-    position: absolute;
-    top: 700px;
-}
-
-.scroll-container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    background-color: color(srgb 0.0667 0.0667 0.0667);
-}
-
 .question-section {
+    width: 1024px;
+    height: 162px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.question {
-    display: flex;
-    justify-content: center;
-    width: 1024px;
-    color: white;
+    margin-top: 130px;
     text-align: center;
-    font-family: Poppins;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    margin-top: 100px;
 }
 
-.svg-position {
-    /* top: 400px; */
-    overflow: hidden;
-}
-  
 .cta-section {
-    display: inline-flex;
+    display: flex;
     align-items: flex-start;
     gap: 32px;
-    display: flex;
-    justify-content: center;
-    margin-block-start: 80px;
-    margin-block-end: 80px;
 }
 
 .button-outline {
@@ -99,10 +28,8 @@
 }
 
 .button-outline:active {
-    /* background-color: #E87686; */
     background-color: #B3A1FF !important;
     color: black !important;
-    /* border: 2px solid #B3A1FF; */
 }
 
 .button-outline-text:active {
@@ -111,7 +38,7 @@
 
 .button-outline-text {
     color: #FFF;
-    font-family: Poppins;
+    font-family: "NeueHaas-light";
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
