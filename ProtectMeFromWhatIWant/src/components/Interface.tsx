@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./styles/Interface.css";
-import "./styles/gloabl.css";
+import "./styles/global.css";
 
 type SectionProps = {
   children: React.ReactNode;

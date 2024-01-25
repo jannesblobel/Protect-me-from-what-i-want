@@ -1,23 +1,23 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import DigitalMirrorPortal from "../components/3D-Storytelling/DigitalMirrorPortal";
 import "../components/styles/DigitalReflection.css";
-import "../components/styles/gloabl.css";
-import { useTranslation } from 'react-i18next';
+import "../components/styles/global.css";
 
 export default function DigitalReflection() {
   const { t } = useTranslation();
 
   const [questions] = useState([
-    t('question1'),
-    t('question2'),
-    t('question3'),
-    t('question4'),
-    t('question5'),
-    t('question6'),
+    t("question1"),
+    t("question2"),
+
+    t("question3"),
+    t("question4"),
+    t("question5"),
+    t("question6"),
   ]);
 
-  const [currentQuestion, setCurrentQuestion] = useState(
-    t('question1')
-  );
+  const [currentQuestion, setCurrentQuestion] = useState(t("question1"));
 
   const getRandomQuestion = () => {
     const randomIndex = Math.floor(Math.random() * questions.length);
@@ -29,9 +29,14 @@ export default function DigitalReflection() {
     <div>
       <div className="scroll-container" dir="ltr">
         <div className="hero-section">
-          <h2>{t('digitalReflectionH1')}</h2>
+          <div className="hero-section-headline">
+            <h2>{t("digitalReflectionH1")}</h2>
+          </div>
+          <div className="hero-section-visual">
+            <DigitalMirrorPortal />
+          </div>
           <div className="hero-section-content">
-            <p>{t('digitalReflectionP1')}</p>
+            <p>{t("digitalReflectionP1")}</p>
           </div>
           <div className="scroll-down-cta">
             <svg
@@ -48,7 +53,7 @@ export default function DigitalReflection() {
               />
             </svg>
             <div className="scroll-down-cta-text">
-              <p>{t('digitalReflectionP2')}</p>
+              <p>{t("digitalReflectionP2")}</p>
             </div>
           </div>
         </div>
