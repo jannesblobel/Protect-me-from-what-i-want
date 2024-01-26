@@ -1,7 +1,7 @@
 import {
-  CameraControls,
   Float,
   MeshPortalMaterial,
+  OrbitControls,
   Sparkles,
   useGLTF,
 } from "@react-three/drei";
@@ -36,9 +36,9 @@ function DigitalMirrorPortal() {
   return (
     <Canvas
       shadows
-      style={{ width: "100%", height: "800px" }}
+      style={{ width: "600px", height: "800px" }}
       camera={{
-        position: [0, 0, 1],
+        position: [0, 0, 0.9],
         fov: 100,
         near: 0.1,
         far: 1000,
@@ -54,7 +54,9 @@ function DigitalMirrorPortal() {
             <Model />
           </Float>
         </Mirror>
-        <CameraControls
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
           makeDefault
           minAzimuthAngle={-Math.PI / 2.5}
           maxAzimuthAngle={Math.PI / 2.5}

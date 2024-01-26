@@ -4,6 +4,7 @@ import "../components/styles/ActNow.css";
 import "../components/styles/global.css";
 
 import focusMode from "../assets/focusModePreview.png";
+import LegoBricks from "../components/3D-Storytelling/LegoBricks";
 
 export default function ActNow() {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ export default function ActNow() {
         <div className="hero-section">
           <h2>{t("actNowH2")}</h2>
           <div className="hero-section-visual">
-            {/* <DigitalMirrorPortal /> */}
+            <LegoBricks />
           </div>
           <div className="hero-section-content">
             <p>{t("actNowP1")}</p>
