@@ -10,7 +10,6 @@ export default function DigitalReflection() {
   const [questions] = useState([
     t("question1"),
     t("question2"),
-
     t("question3"),
     t("question4"),
     t("question5"),

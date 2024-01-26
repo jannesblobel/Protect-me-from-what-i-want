@@ -1,29 +1,27 @@
-import { Debug, Physics, useBox, usePlane } from "@react-three/cannon";
-import { OrbitControls, Plane, useGLTF } from "@react-three/drei";
+import { Physics, useBox, usePlane } from "@react-three/cannon";
+import { Plane, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
+import { Cursor, useDragConstraint } from "./helpers/drag.js";
 
 export default function LegoBricks() {
   return (
     <Canvas
-      shadows
+      dpr={[1, 2]}
       style={{ width: "600px", height: "800px" }}
-      camera={{
-        position: [0, 1, 1],
-        fov: 100,
-        near: 0.1,
-        far: 1000,
-      }}
+      shadows
+      camera={{ position: [-20, 20, 20], fov: 25, near: 1, far: 100 }}
     >
       <Physics>
-        <Debug scale={1.1} color="black">
-          <ambientLight intensity={1} />
-          <Ground />
-          <LegoBrick4x2 />
-          <LegoBrick2x2 />
-          <OrbitControls />
-        </Debug>
+        {/* <Debug scale={1} color="black"> */}
+        <Cursor />
+        <ambientLight intensity={1} />
+        <Ground />
+        <LegoBrick4x2 />
+        <LegoBrick2x2 />
+        {/* <OrbitControls /> */}
+        {/* </Debug> */}
       </Physics>
     </Canvas>
   );
@@ -34,6 +32,7 @@ const Ground = () => {
   }));
   const [wallRef] = usePlane<THREE.Mesh>(() => ({
     rotation: [0, 0, 0],
+    position: [0, 0, -2],
   }));
 
   return (
@@ -83,19 +82,25 @@ type GLTFResult2 = GLTF & {
     mat12: THREE.MeshStandardMaterial;
   };
 };
+
 function LegoBrick2x2() {
   const { nodes, materials } = useGLTF(
     "models/LegoBrick2x2.glb"
   ) as GLTFResult2;
-  const [ref] = useBox<THREE.Mesh>(() => ({
-    mass: 1,
-    position: [2, 1, 1.2],
-    args: [0.57, 0.48, 0.55],
+
+  const [ref] = useBox<THREE.Group>(() => ({
+    mass: 3,
+    args: [0.57, 0.8, 0.55],
+    position: [0, 3, 2],
+    linearDamping: 0.25,
+    angularDamping: 0.25,
   }));
+  const bind = useDragConstraint(ref);
+  console.log(bind);
   return (
-    <group dispose={null} position={[0, 0.18, 0]}>
+    <group ref={ref} {...bind} dispose={null}>
       <mesh
-        ref={ref}
+        name="LegoBrick2x2"
         castShadow
         receiveShadow
         geometry={nodes.group1822638002.geometry}
@@ -104,5 +109,4 @@ function LegoBrick2x2() {
     </group>
   );
 }
-useGLTF.preload("models/LegoBrick2x2.glb");
 useGLTF.preload("models/LegoBrick4x2.glb");
