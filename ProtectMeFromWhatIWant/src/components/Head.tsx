@@ -457,8 +457,44 @@ function MovingSpotApp(props: MovingSpotProps) {
     }
     if (r4 > 0) {
       setPointIntensity(1 - r4);
-      // parentRef.current.position.x = initialPos.x + 4 - r4 * -20;
-      // parentRef.current.position.z = initialPos.z + r4;
+
+      console.log(material.name);
+      if (material.name === "Tinder") {
+        parentRef.current.position.x = initialPos.x + 1 - r4 * 2;
+        parentRef.current.position.y = initialPos.y - r4 * 3;
+        parentRef.current.rotation.y = meshRotation.y + r4 * degToRad(-25);
+        parentRef.current.rotation.z = meshRotation.z + r4 * degToRad(5);
+        parentRef.current.rotation.x = meshRotation.x + r4 * degToRad(-35);
+        // parentRef.current.lookAt(-8, 0, 0);
+      } else if (material.name === "X") {
+        parentRef.current.position.x = initialPos.x + 1 - r4 * -0.1;
+        parentRef.current.position.y = initialPos.y - r4 * 0.9;
+
+        parentRef.current.rotation.y = meshRotation.y + r4 * degToRad(-15);
+        parentRef.current.rotation.z = meshRotation.z + r4 * degToRad(5);
+        parentRef.current.rotation.x = meshRotation.x + r4 * degToRad(-35);
+      } else if (material.name === "Instagram") {
+        parentRef.current.position.x = initialPos.x + 1 - r4 * 3.7;
+        parentRef.current.position.y = initialPos.y - r4 * 1.5;
+
+        parentRef.current.rotation.y = meshRotation.y + r4 * degToRad(-5);
+        parentRef.current.rotation.z = meshRotation.z + r4 * degToRad(-40);
+        parentRef.current.rotation.x = meshRotation.x + r4 * degToRad(-35);
+      } else if (material.name === "TikTok") {
+        parentRef.current.position.x = initialPos.x + 1 - r4 * 1.7;
+        parentRef.current.position.y = initialPos.y - r4 * -1.1;
+
+        parentRef.current.rotation.y = meshRotation.y + r4 * degToRad(-25);
+        parentRef.current.rotation.z = meshRotation.z + r4 * degToRad(-40);
+        parentRef.current.rotation.x = meshRotation.x + r4 * degToRad(-35);
+      } else if (material.name === "Snap") {
+        parentRef.current.position.x = initialPos.x + 1 - r4 * 1.3;
+        parentRef.current.position.y = initialPos.y - r4 * -0.8;
+
+        parentRef.current.rotation.y = meshRotation.y + r4 * degToRad(-15);
+        parentRef.current.rotation.z = meshRotation.z + r4 * degToRad(-70);
+        parentRef.current.rotation.x = meshRotation.x + r4 * degToRad(-45);
+      }
     }
   });
   return (
