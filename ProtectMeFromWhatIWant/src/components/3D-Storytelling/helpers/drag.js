@@ -9,24 +9,35 @@ function useDragConstraint(child) {
     pivotA: [0, 0, 0],
     pivotB: [0, 0, 0],
   });
-  useEffect(() => void api.disable(), []);
-  const onPointerUp = useCallback((e) => {
-    document.body.style.cursor = "grab";
-    e.target.releasePointerCapture(e.pointerId);
-    api.disable();
-  }, []);
-  const onPointerDown = useCallback((e) => {
-    document.body.style.cursor = "grabbing";
-    e.stopPropagation();
-    e.target.setPointerCapture(e.pointerId);
-    api.enable();
-  }, []);
+  useEffect(() => void api.disable(), [api]);
+  const onPointerUp = useCallback(
+    (e) => {
+      document.body.style.cursor = "grab";
+      e.target.releasePointerCapture(e.pointerId);
+      api.disable();
+    },
+    [api]
+  );
+  const onPointerDown = useCallback(
+    (e) => {
+      document.body.style.cursor = "grabbing";
+      e.stopPropagation();
+      e.target.setPointerCapture(e.pointerId);
+      api.enable();
+    },
+    [api]
+  );
   return { onPointerUp, onPointerDown };
 }
 
 function Cursor() {
   const [, api] = useSphere(
-    () => ({ collisionFilterMask: 0, type: "Kinematic", mass: 0, args: [0.5] }),
+    () => ({
+      collisionFilterMask: 0,
+      type: "Kinematic",
+      mass: 0,
+      args: [0.25],
+    }),
     cursor
   );
   return useFrame((state) => {
