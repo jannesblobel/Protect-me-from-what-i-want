@@ -9,5 +9,4 @@ export default defineConfig({
       '@': '/src', // This maps "@" to the "src" directory
     },
   },
-  base: '/protect-me-from-what-i-want/'
 })
