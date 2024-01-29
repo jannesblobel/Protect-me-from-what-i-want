@@ -1,22 +1,22 @@
+import clearityMinimal from "@/assets/klarheit.png";
+import creativityMinimal from "@/assets/kreativität.png";
+import spotlight from "@/assets/spotlight.png";
+import spotlightMinimal from "@/assets/spotlightMinimal.png";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import clearityMinimal from "../assets/klarheit.png";
-import creativityMinimal from "../assets/kreativität.png";
-import spotlight from "../assets/spotlight.png";
-import spotlightMinimal from "../assets/spotlightMinimal.png";
 import Spot from "../components/3D-Storytelling/Spot";
 import SpotLightScene from "../components/SpotLightScene";
 import "../components/styles/MediaCompetence.css";
 import "../components/styles/global.css";
 
-import aufmerksamkeitImage from "../assets/aufmerksamkeit.png";
-import selbstManagementImage from "../assets/selbstManagement.png";
+import aufmerksamkeitImage from "@/assets/aufmerksamkeit.png";
+import selbstManagementImage from "@/assets/selbstManagement.png";
 
 export default function MediaCompetence() {
   const { t } = useTranslation();
   const [selectedButton1, setSelectedButton1] = useState("aufmerksamkeit");
   const [selectedButton2, setSelectedButton2] = useState("konzentration");
- 
+
   const handleButtonClick1 = (
     buttonType1: "aufmerksamkeit" | "selbstmanagement"
   ) => {
@@ -24,11 +24,10 @@ export default function MediaCompetence() {
   };
 
   const handleButtonClick2 = (
-    buttonType2: "konzentration" | "kreativität" | "klarheit" 
+    buttonType2: "konzentration" | "kreativität" | "klarheit"
   ) => {
     setSelectedButton2(buttonType2);
   };
-
 
   return (
     <div>
@@ -60,7 +59,7 @@ export default function MediaCompetence() {
                 strokeWidth="2"
               />
             </svg>
-            <div style={{width: "250px;"}} className="scroll-down-cta-text">
+            <div style={{ width: "250px;" }} className="scroll-down-cta-text">
               <p>{t("cta1")}</p>
             </div>
           </div>
@@ -72,30 +71,40 @@ export default function MediaCompetence() {
           </div>
           <h4>{t("mediaLiteracy")}</h4>
           <div className="cta-sec-1">
-            <div className={`button ${selectedButton1 === "aufmerksamkeit" ? "active-button" : ""}`} onClick={() => handleButtonClick1("aufmerksamkeit")}>
+            <div
+              className={`button ${
+                selectedButton1 === "aufmerksamkeit" ? "active-button" : ""
+              }`}
+              onClick={() => handleButtonClick1("aufmerksamkeit")}
+            >
               {t("column1Title")}
             </div>
-            <div className={`button ${selectedButton1 === "selbstmanagement" ? "active-button" : ""}`} onClick={() => handleButtonClick1("selbstmanagement")}>
+            <div
+              className={`button ${
+                selectedButton1 === "selbstmanagement" ? "active-button" : ""
+              }`}
+              onClick={() => handleButtonClick1("selbstmanagement")}
+            >
               {t("column2Title")}
             </div>
           </div>
           {selectedButton1 === "aufmerksamkeit" && (
             <div className="text-column-section">
-            <div className="tab-content-column">
-              <h4>{t("column1Title")}</h4>
-              <p className="text">{t("column1Text")}</p>
+              <div className="tab-content-column">
+                <h4>{t("column1Title")}</h4>
+                <p className="text">{t("column1Text")}</p>
+              </div>
+              <img src={aufmerksamkeitImage} style={{ width: "200px" }} />
             </div>
-            <img src={aufmerksamkeitImage} style={{"width":"200px"}}/>
-          </div>
           )}
           {selectedButton1 === "selbstmanagement" && (
             <div className="text-column-section">
-            <div className="tab-content-column">
-              <h4>{t("column2Title")}</h4>
-              <p className="text">{t("column2Text")}</p>
+              <div className="tab-content-column">
+                <h4>{t("column2Title")}</h4>
+                <p className="text">{t("column2Text")}</p>
+              </div>
+              <img src={selbstManagementImage} style={{ width: "200px" }} />
             </div>
-            <img src={selbstManagementImage} style={{"width":"200px"}}/>
-          </div>
           )}
         </div>
         <div className="section-3">
@@ -119,13 +128,28 @@ export default function MediaCompetence() {
         </div>
         <div className="section-3">
           <div className="cta-sec-2">
-            <div className={`button ${selectedButton2 === "konzentration" ? "active-button" : ""}`} onClick={() => handleButtonClick2("konzentration")}>
+            <div
+              className={`button ${
+                selectedButton2 === "konzentration" ? "active-button" : ""
+              }`}
+              onClick={() => handleButtonClick2("konzentration")}
+            >
               {t("tab1Title")}
             </div>
-            <div className={`button ${selectedButton2 === "kreativität" ? "active-button" : ""}`} onClick={() => handleButtonClick2("kreativität")}>
+            <div
+              className={`button ${
+                selectedButton2 === "kreativität" ? "active-button" : ""
+              }`}
+              onClick={() => handleButtonClick2("kreativität")}
+            >
               {t("tab2Title")}
             </div>
-            <div className={`button ${selectedButton2 === "klarheit" ? "active-button" : ""}`} onClick={() => handleButtonClick2("klarheit")}>
+            <div
+              className={`button ${
+                selectedButton2 === "klarheit" ? "active-button" : ""
+              }`}
+              onClick={() => handleButtonClick2("klarheit")}
+            >
               {t("tab3Title")}
             </div>
           </div>
