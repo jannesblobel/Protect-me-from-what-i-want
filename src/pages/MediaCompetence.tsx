@@ -1,5 +1,5 @@
 import clearityMinimal from "@/assets/klarheit.png";
-import creativityMinimal from "@/assets/kreativität.png";
+import creativityMinimal from "@/assets/kreativitaet.png";
 import spotlight from "@/assets/spotlight.png";
 import spotlightMinimal from "@/assets/spotlightMinimal.png";
 import { useState } from "react";

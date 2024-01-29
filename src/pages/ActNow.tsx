@@ -8,7 +8,7 @@ import LegoBricks from "../components/3D-Storytelling/LegoBricks";
 // import forestApp from "@/assets/forestAppPreview.png";
 // import gehirnGehoert from "@/assets/gehirnGehoert.png";
 import Prozent from "@/assets/Prozent.gif";
-import kreativität from "@/assets/kreativität.gif";
+import kreativität from "@/assets/kreativitaet.gif";
 import nixxen from "@/assets/nixxen.gif";
 import OneSec from "@/assets/oneSec.gif";
 
