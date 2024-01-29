@@ -9,15 +9,26 @@ import SpotLightScene from "../components/SpotLightScene";
 import "../components/styles/MediaCompetence.css";
 import "../components/styles/global.css";
 
+import aufmerksamkeitImage from "../assets/aufmerksamkeit.png";
+import selbstManagementImage from "../assets/selbstManagement.png";
+
 export default function MediaCompetence() {
   const { t } = useTranslation();
-  const [selectedButton, setSelectedButton] = useState("konzentration");
-
-  const handleButtonClick = (
-    buttonType: "konzentration" | "kreativität" | "klarheit"
+  const [selectedButton1, setSelectedButton1] = useState("aufmerksamkeit");
+  const [selectedButton2, setSelectedButton2] = useState("konzentration");
+ 
+  const handleButtonClick1 = (
+    buttonType1: "aufmerksamkeit" | "selbstmanagement"
   ) => {
-    setSelectedButton(buttonType);
+    setSelectedButton1(buttonType1);
   };
+
+  const handleButtonClick2 = (
+    buttonType2: "konzentration" | "kreativität" | "klarheit" 
+  ) => {
+    setSelectedButton2(buttonType2);
+  };
+
 
   return (
     <div>
@@ -49,7 +60,7 @@ export default function MediaCompetence() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="scroll-down-cta-text">
+            <div style={{width: "250px;"}} className="scroll-down-cta-text">
               <p>{t("cta1")}</p>
             </div>
           </div>
@@ -59,41 +70,33 @@ export default function MediaCompetence() {
             <h3>{t("quoteText")}</h3>
             <p>{t("quoteAuthor")}</p>
           </div>
-          <div className="text-column-section">
-            <h4>{t("column1Title")}</h4>
-            <h4>{t("column2Title")}</h4>
-            <p className="text">{t("column1Text")}</p>
-            <p className="text">{t("column2Text")}</p>
+          <h4>{t("mediaLiteracy")}</h4>
+          <div className="cta-sec-1">
+            <div className={`button ${selectedButton1 === "aufmerksamkeit" ? "active-button" : ""}`} onClick={() => handleButtonClick1("aufmerksamkeit")}>
+              {t("column1Title")}
+            </div>
+            <div className={`button ${selectedButton1 === "selbstmanagement" ? "active-button" : ""}`} onClick={() => handleButtonClick1("selbstmanagement")}>
+              {t("column2Title")}
+            </div>
           </div>
-          <div className="arrow-block">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="52"
-              height="50"
-              viewBox="0 0 52 50"
-              fill="none"
-            >
-              <path
-                d="M1.5 0.999998L50.5 49M50.5 49H8.5M50.5 49V5.8"
-                stroke="#E7E7E7"
-                strokeWidth="2"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="51"
-              height="51"
-              viewBox="0 0 51 51"
-              fill="none"
-            >
-              <path
-                d="M49.5 1L1.5 50M1.5 50V6.5M1.5 50H44.7"
-                stroke="#E7E7E7"
-                strokeWidth="2"
-              />
-            </svg>
+          {selectedButton1 === "aufmerksamkeit" && (
+            <div className="text-column-section">
+            <div className="tab-content-column">
+              <h4>{t("column1Title")}</h4>
+              <p className="text">{t("column1Text")}</p>
+            </div>
+            <img src={aufmerksamkeitImage} style={{"width":"200px"}}/>
           </div>
-          <h3>Medienmündigkeit</h3>
+          )}
+          {selectedButton1 === "selbstmanagement" && (
+            <div className="text-column-section">
+            <div className="tab-content-column">
+              <h4>{t("column2Title")}</h4>
+              <p className="text">{t("column2Text")}</p>
+            </div>
+            <img src={selbstManagementImage} style={{"width":"200px"}}/>
+          </div>
+          )}
         </div>
         <div className="section-3">
           <div className="content-block">
@@ -116,44 +119,17 @@ export default function MediaCompetence() {
         </div>
         <div className="section-3">
           <div className="cta-sec-2">
-            <div
-              className={`button-outline ${
-                selectedButton === "konzentration" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("konzentration")}
-              >
-                {t("tab1Title")}
-              </div>
+            <div className={`button ${selectedButton2 === "konzentration" ? "active-button" : ""}`} onClick={() => handleButtonClick2("konzentration")}>
+              {t("tab1Title")}
             </div>
-            <div
-              className={`button-outline ${
-                selectedButton === "kreativität" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("kreativität")}
-              >
-                {t("tab2Title")}
-              </div>
+            <div className={`button ${selectedButton2 === "kreativität" ? "active-button" : ""}`} onClick={() => handleButtonClick2("kreativität")}>
+              {t("tab2Title")}
             </div>
-            <div
-              className={`button-outline ${
-                selectedButton === "klarheit" ? "active-button" : ""
-              }`}
-            >
-              <div
-                className="button-outline-text"
-                onClick={() => handleButtonClick("klarheit")}
-              >
-                {t("tab3Title")}
-              </div>
+            <div className={`button ${selectedButton2 === "klarheit" ? "active-button" : ""}`} onClick={() => handleButtonClick2("klarheit")}>
+              {t("tab3Title")}
             </div>
           </div>
-          {selectedButton === "konzentration" && (
+          {selectedButton2 === "konzentration" && (
             <div className="column-block-2">
               <div className="content-block-2">
                 <h4>{t("tab1Title")}</h4>
@@ -166,7 +142,7 @@ export default function MediaCompetence() {
               <img width={"350px"} src={spotlightMinimal} />
             </div>
           )}
-          {selectedButton === "kreativität" && (
+          {selectedButton2 === "kreativität" && (
             <div className="column-block-2">
               <div className="content-block-2">
                 <h4>{t("tab2Title")}</h4>
@@ -179,7 +155,7 @@ export default function MediaCompetence() {
               <img width={"500px"} src={creativityMinimal} />
             </div>
           )}
-          {selectedButton === "klarheit" && (
+          {selectedButton2 === "klarheit" && (
             <div className="column-block-2">
               <div className="content-block-2">
                 <h4>{t("tab3Title")}</h4>

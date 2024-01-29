@@ -24,6 +24,28 @@ export default function DigitalReflection() {
     setCurrentQuestion(randomQuestion);
   };
 
+  const [showOptions, setShowOptions] = useState(false);
+  
+  const handleShare = (method) => {
+      const introText = 'Check out this interesting question from the website "Protect me from what I want":';
+      const imageUrl = 'http://localhost:5173/src/assets/logo2.png'; 
+      const shareUrl = window.location.href;
+      const fullMessage = `${introText}\n\n${imageUrl}\n\n${currentQuestion}\n\n${shareUrl}`;
+
+      switch (method) {
+        case 'whatsapp':
+          window.open(`whatsapp://send?text=${encodeURIComponent(fullMessage)}`);
+          break;
+        case 'email':
+          window.location.href = `mailto:?subject=Check%20out%20this%20question&body=${encodeURIComponent(fullMessage)}`;
+          break;
+        default:
+          navigator.share({ title: 'Question', text: currentQuestion, url: shareUrl });
+          break;
+      }
+  };
+  
+
   return (
     <div>
       <div className="scroll-container" dir="ltr">
@@ -51,36 +73,42 @@ export default function DigitalReflection() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="scroll-down-cta-text">
+            <div style={{width: "250px;"}} className="scroll-down-cta-text">
               <p>{t("digitalReflectionP2")}</p>
             </div>
           </div>
         </div>
 
-        <div className="section-2">
+        <div className="section-2" style={{justifyContent: "start", paddingTop: "290px"}}>
           <div className="question-section">
             <h2>{currentQuestion}</h2>
           </div>
           <div className="cta-section">
-            <div className="button-outline" onClick={getRandomQuestion}>
-              <div className="button-outline-text">shuffle</div>
+            <div className="button" onClick={getRandomQuestion}>
+              Shuffle
             </div>
-            <div className="button-outline">
-              <div className="button-outline-text">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="17"
-                  viewBox="0 0 17 17"
-                  fill="none"
-                >
-                  <path
-                    d="M17 1C17 0.447715 16.5523 -2.52353e-10 16 -2.53133e-07L7 5.47657e-07C6.44772 2.10482e-07 6 0.447716 6 1C6 1.55228 6.44772 2 7 2L15 2L15 10C15 10.5523 15.4477 11 16 11C16.5523 11 17 10.5523 17 10L17 1ZM1.70711 16.7071L16.7071 1.70711L15.2929 0.292893L0.292893 15.2929L1.70711 16.7071Z"
-                    fill="white"
-                  />
-                </svg>
+            <div className={`button ${showOptions ? 'different' : ''}`} onClick={() => setShowOptions(!showOptions)}>
+              <svg className={`${showOptions ? 'hide' : 'show'}`}
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+              >
+                <path
+                  d="M17 1C17 0.447715 16.5523 -2.52353e-10 16 -2.53133e-07L7 5.47657e-07C6.44772 2.10482e-07 6 0.447716 6 1C6 1.55228 6.44772 2 7 2L15 2L15 10C15 10.5523 15.4477 11 16 11C16.5523 11 17 10.5523 17 10L17 1ZM1.70711 16.7071L16.7071 1.70711L15.2929 0.292893L0.292893 15.2929L1.70711 16.7071Z"
+                  fill="white"
+                />
+              </svg>
+              {showOptions && (
+              <div className={`text ${showOptions ? 'show fade-in' : 'hide fade-out'}`}>
+                <div onClick={() => handleShare('link')} style={{letterSpacing: "2.4px;"}}>Share Link</div>
+                <div onClick={() => handleShare('whatsapp')} style={{letterSpacing: "2.4px;"}}>Share via WhatsApp</div>
+                <div onClick={() => handleShare('email')} style={{letterSpacing: "2.4px;"}}>Share via Email</div>
               </div>
+            )}
             </div>
+            
           </div>
         </div>
       </div>

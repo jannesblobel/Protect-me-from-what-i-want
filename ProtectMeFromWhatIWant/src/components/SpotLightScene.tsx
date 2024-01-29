@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import "./styles/SpotLight.css";
+import { useTranslation } from "react-i18next";
 
 // Function to map one range of numbers to another range
 const mapRange = (
@@ -85,6 +86,7 @@ function IsometricRoom() {
 }
 
 export default function SpotLightScene() {
+  const { t } = useTranslation();
   // State for spotlight parameters
   const [intensity, setIntensity] = useState(50);
   const [angle, setAngle] = useState(Math.PI / 8);
@@ -146,8 +148,8 @@ export default function SpotLightScene() {
               );
             }}
           />
-           <label>Fokus </label>
-           <div className="label-improvement">Konzentration</div>
+           <label>{t("focus")}</label>
+           <div className="label-improvement">{t("concentration")}</div>
         </div>
         <div className="slider-block">
           
@@ -159,8 +161,8 @@ export default function SpotLightScene() {
             value={penumbra}
             onChange={(e) => setPenumbra(Number(e.target.value))}
           />
-          <label>Streulicht </label>
-          <div className="label-improvement">Selbstmanagement</div>
+          <label>{t("light")}</label>
+          <div className="label-improvement">{t("self-management")}</div>
         </div>
         <div className="slider-block">
           
@@ -172,8 +174,8 @@ export default function SpotLightScene() {
             value={distance}
             onChange={(e) => setDistance(Number(e.target.value))}
           />
-          <label>Aufmerksamkeit </label>
-          <div className="label-improvement">Klarheit</div>
+          <label>{t("clearness")}</label>
+          <div className="label-improvement">{t("attention")}</div>
         </div>
       </div>
     </div>

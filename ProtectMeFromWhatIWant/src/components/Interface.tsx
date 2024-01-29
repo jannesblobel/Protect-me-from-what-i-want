@@ -39,13 +39,49 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="landingpage-column">
-          <h4 style={{"color":"#ffffff"}}>"The Magic Maybe," a concept by Robert Sapolsky, reveals the magnetic appeal of incomplete information, like a partially visible message or an incoming notification's "ping," triggering heightened curiosity and driving impulsive smartphone use in the quest for anticipated rewards.</h4>
+          <h4 style={{"color":"#ffffff"}}>{t("magicMaybe")}</h4>
           {/* <p>{t("hook-model-p")}</p> */}
+          <div className="scroll-down-cta">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="51"
+              height="50"
+              viewBox="0 0 51 50"
+              fill="none"
+            >
+              <path
+                d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+                stroke="#E7E7E7"
+                strokeWidth="2"
+              />
+            </svg>
+            <div className="scroll-down-cta-text">
+              <a href="/focus-mode"><p style={{ width: "140%" }}>{t("focusMode")}</p></a>
+            </div>
+          </div>
         </div>
       </Section>
       <Section>
         <div className="landingpage-column">
           <h4 style={{"color":"#ffffff"}}>{t("one-sec-h2")}</h4>
+          <div className="scroll-down-cta">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="51"
+              height="50"
+              viewBox="0 0 51 50"
+              fill="none"
+            >
+              <path
+                d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+                stroke="#E7E7E7"
+                strokeWidth="2"
+              />
+            </svg>
+            <div className="scroll-down-cta-text">
+              <a href="https://one-sec.app" target="_blank"><p>{t("oneSec")}</p></a>
+            </div>
+          </div>
         </div>
       </Section>
     </div>

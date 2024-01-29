@@ -3,9 +3,13 @@
   "navTab2": "Spotlight",
   "navTab3": "Act now",
   "navTab4": "Who else?",
+  "navTab5": "Focus mode",
 
   "interfaceSection1h1": "Our love for consuming media is an evolution masterpiece, seamlessly connected with the primal reward circuit of our brains.",
   "interfaceSection1content": "The simple expectation of personal information triggers a dopamine rush that sparks our passion for new and exciting things. And precisely this is what all the big players in the app industry capitalize on, keeping us hooked and engaged in the game.",
+  "magicMaybe": "'The Magic Maybe' a concept by Robert Sapolsky, reveals the magnetic appeal of incomplete information, like a partially visible message or an incoming notification's 'ping' triggering heightened curiosity and driving impulsive smartphone use in the quest for anticipated rewards.",
+  "focusMode": "Learn more about the focus mode",
+  "oneSec": "Learn more about One Sec",
 
   "digitalReflectionH1": "Step into the Digital Detox Reflection Zone",
   "digitalReflectionP1": "A space where we navigate the art of conscious living in a digital world. Join us on this mindful journey as we unplug and reflect on the tapestry of our digital experiences. It's a movement to amidst the noise of screen time, sharing insights and creating a collective atmosphere of mindful connection and balance. Take a pause, reflect, and let's flow with the positive energy. Never stop questioning!",
@@ -23,6 +27,7 @@
   "cta1": "Become media literate",
   "quoteText": ">> Attention control is therefore one of the most valuable mental skills that you can develop, cultivate and train <<",
   "quoteAuthor": "- Volker Busch",
+  "mediaLiteracy": "Media literacy can be achieved through the following activities",
   "column1Title": "Attention",
   "column2Title": "Self-management",
   "column1Text": "To direct attention to something means to take mental possession of it, be it our own perception, our thoughts, feelings or actions. Attention is a form of inward and outward mental engagement that allows us to sift through the multitude of information, analyze it or organize our thoughts and feelings. Controlling our attention is crucial to becoming media literate. In a world dominated by information overload and distractions, we often forget how to direct our own attention. The ability to direct attention is invaluable and should be developed, nurtured and practiced. Self-regulation can help to reduce everyday stress in a world full of stimuli. However, this is a process that requires mature judgment.",
@@ -50,5 +55,20 @@
 
   "actNowH2": "Let’s get on that journey of improvement",
   "actNowP1": "Discover methods and thought models that not only support you in the here and now, but also improve your relationship with digital media in the long term.",
-  "actNowP2": "Improve your relationship with digital media"
+  "actNowP2": "Improve your relationship with digital media",
+  "shorttermTips": "Shortterm Tipps",
+  "longtermTips": "Longterm Tipps",
+  "books": "Books",
+  "podcasts": "Podcasts",
+  "theory": "Theories",
+  "pauses": "Pauses",
+  "mindfulness": "Mindfulness",
+  "stimuli": "Interfering stimuli",
+
+  "focus": "Focus",
+  "concentration": "Concentration",
+  "light": "Scattered light",
+  "self-management": "Self-management",
+  "attention": "Attention",
+  "clearness": "Clearness"
 }

@@ -19,8 +19,20 @@
 }
 
 @font-face {
-  font-family: "NeueHaas-bold";
+  font-family: "NeueHaas-medium";
   font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Medium/NeueHaasDisplay-Mediu.woff");
+}
+
+@font-face {
+  font-family: "NeueHaas-roman";
+  font-style: light;
+  src: url("./fonts/Neue-Haas/Neue-Haas-Roman/NeueHaasDisplay-Roman.woff");
+}
+
+@font-face {
+  font-family: "NeueHaas-bold";
+  font-style: bold;
   src: url("./fonts/Neue-Haas/Neue-Haas-Bold/NeueHaasDisplay-Bold.woff");
 }
 

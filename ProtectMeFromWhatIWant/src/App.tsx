@@ -5,7 +5,12 @@ import DigitalReflection from "./pages/DigitalReflection";
 import MediaCompetence from "./pages/MediaCompetence";
 // import WhoElse from "./pages/WhoElse";
 import ActNow from "./pages/ActNow";
-import FocusMode from "./pages/shorttermtips/FocusMode"
+import FocusMode from "./pages/FocusMode"
+// import Forest from "./pages/shorttermtips/Forest"
+// import GehirnGehoert from "./pages/shorttermtips/GehirnGehoert"
+// import AtomicHabits from "./pages/shorttermtips/AtomicHabits"
+// import ProzentMethode from "./pages/shorttermtips/1ProzentMethode"
+
 
 // import { useState } from "react";
 // import ScrollManager from "./components/ScrollManager";
@@ -27,8 +32,14 @@ function App() {
           <Route path="/digital-reflection" element={<DigitalReflection />} />
           <Route path="/media-competence" element={<MediaCompetence />} />
           <Route path="/act-now" element={<ActNow />} />
-          {/* <Route path="/who-else" element={<WhoElse />} /> */}
           <Route path="/focus-mode" element={<FocusMode />} />
+          {/* <Route path="/who-else" element={<WhoElse />} /> */}
+          {/* <Route path="/focus-mode" element={<FocusMode />} />
+          <Route path="/forest-app" element={<Forest />} />
+          <Route path="/gehirn-gehoert" element={<GehirnGehoert />} />
+          <Route path="/atomic-habits" element={<AtomicHabits />} />
+          <Route path="/gehirn-gehoert" element={<GehirnGehoert />} />
+          <Route path="/ein-prozenz-methode" element={<ProzentMethode />} /> */}
         </Routes>
       </I18nextProvider>
     </Router>

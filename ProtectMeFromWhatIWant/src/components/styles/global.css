@@ -46,6 +46,10 @@ p {
   letter-spacing: 2.4px;
 }
 
+img {
+  max-width: fit-content !important;
+}
+
 /* hero-section */
 
 .hero-section {
@@ -85,19 +89,58 @@ p {
   line-height: 2em; /* Line height */
   height: 4em; /* Twice the line height for two lines */
   /* overflow: hidden; */
-  width: 300px;
+  width: 250px;
   word-wrap: break-word;
-  /* display: -webkit-box; */
 }
 
 /* button */
 
-button {
-  font: "NeueHaas-light";
-  color: #ffffff;
-  font-size: 20px;
+.button {
+  display: flex;
+  padding: 12px 24px;
   cursor: pointer;
-  text-transform: lowercase;
+  border: 2px solid #FFF;
+  border-radius: 54px;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  height: 57px;
+  font-family: "NeueHaas-roman";
+  color: #ffffff !important;
+  font-size: 20px;
+  letter-spacing: 2.4px;
+  cursor: pointer !important;
+}
+
+.active-button {
+  color: #121212 !important;
+  border: 2px solid #9A5DFF !important;
+  background: #9A5DFF !important;
+}
+
+/* underline button */
+
+.button-underline {
+  display: flex;
+  height: 63px;
+  padding: 8px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0px;
+  background-color: none;
+  cursor: pointer;
+  color: #FFF;
+  font-family: "NeueHaas-roman";
+  font-size: 20px;
+  letter-spacing: 1.68px;
+}
+
+.active-underline-button {
+  border-bottom: 2px solid var(--white, #FFF);
+  border-radius: 0px;
+  cursor: pointer;
 }
 
 /* scroll container */
