@@ -11,7 +11,7 @@ const rsqw = (t: number, delta = 0.1, a = 1, f = 1 / (2 * Math.PI)) =>
   (a / Math.atan(1 / delta)) * Math.atan(Math.sin(2 * Math.PI * t * f) / delta);
 
 const degToRad = (deg: number) => (deg * Math.PI) / 180;
-//1.0 * Math.PI/180; // to convert from Deg to Rad
+
 type headProps = {
   pages: number;
   position?: [number, number, number];
@@ -142,8 +142,6 @@ export function Head(props: headProps) {
     }
     group.current.rotation.y = rsqw(r1);
     group.current.position.z = r0 * 3.5 + r1 * 3.5;
-    //10:25
-    // group.current.position.x = r1 * 0.5;
     groupZPos = group.current.position.z;
 
     amLight.current.intensity = r1;
@@ -160,9 +158,7 @@ export function Head(props: headProps) {
       apps.current.visible = false;
     }
     if (r4 > 0 && apps.current !== null) {
-      // console.log(r4);
       group.current.position.x += r4 * 2;
-      //2501
       apps.current.position.x = r4 * -13;
       apps.current.position.z = r4 * -20;
 
@@ -173,7 +169,6 @@ export function Head(props: headProps) {
       amLight.current.intensity = 1 * r4;
 
       if (frameCount >= addNotificationInterval && r4 !== 1) {
-        // amLight.current.intensity = 2 * r4;
         if (notifications.length < 10) {
           setNotifications((prev) => {
             return [
@@ -217,7 +212,6 @@ export function Head(props: headProps) {
                 decay={2} // adjust for a realistic falloff
               />
               <mesh ref={phonePlane} visible={false} />
-              {/* THESE LINES HAVE CHANGED FOR POSITIONING */}
               <PhoneSpotLight x={5} y={0} z={groupZPos} />
               <mesh
                 castShadow
@@ -302,8 +296,6 @@ export function Head(props: headProps) {
             material={appMaterials.Snap}
             pages={pages}
           />
-          {/* Only Render one Sec if last part of Site is visible */}
-
           <OneSec
             material={appMaterials.OneSec}
             materialFill={appMaterials.OneSecFill}
@@ -373,7 +365,6 @@ function PhoneSpotLight(spotProps: PhoneSpotLightProps) {
     <SpotLight
       ref={lightRef}
       position={[0, 0, -0.2]}
-      // rotation={[0, Math.PI / 2, 0]}
       intensity={200}
       color="#B499FF"
       castShadow

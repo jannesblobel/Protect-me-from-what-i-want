@@ -1,12 +1,15 @@
 import {
   Float,
   MeshPortalMaterial,
+  MeshWobbleMaterial,
   OrbitControls,
   Sparkles,
+  Sphere,
+  Trail,
   useGLTF,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { degToRad } from "three/src/math/MathUtils.js";
@@ -53,6 +56,33 @@ function DigitalMirrorPortal() {
           <Float speed={1}>
             <Model />
           </Float>
+          <FlyingData color="white" position={new THREE.Vector3(2, 5, -10)} />
+          <FlyingData color="#9A5DFF" position={new THREE.Vector3(0, 7, -10)} />
+          <FlyingData
+            color="#B3A1FF"
+            position={new THREE.Vector3(-5, 6, -10)}
+          />
+          <FlyingData
+            color="#9A5DFF"
+            position={new THREE.Vector3(-4, 0, -10)}
+          />
+          <FlyingData
+            color="#B3A1FF"
+            position={new THREE.Vector3(0, -7, -10)}
+          />
+          <FlyingData
+            color="#9A5DFF"
+            position={new THREE.Vector3(3, -5, -10)}
+          />
+          <FlyingData
+            color="#B3A1FF"
+            position={new THREE.Vector3(3, -5, -10)}
+          />
+          <FlyingData color="#B3A1FF" position={new THREE.Vector3(1, 2, -10)} />
+          <FlyingData
+            color="#B3A1FF"
+            position={new THREE.Vector3(-1, -1, -10)}
+          />
         </Mirror>
         <OrbitControls
           enableZoom={false}
@@ -102,6 +132,43 @@ function Mirror({ children, id }: MirrorProps) {
     </group>
   );
 }
+
+type DataPacketProps = {
+  color: string; // Color of the data packet, e.g., 'grey', 'white', 'purple'
+  position: THREE.Vector3; // Initial position of the data packet
+};
+
+const FlyingData = ({ color, position }: DataPacketProps) => {
+  const meshRef = useRef<THREE.Group>(null);
+
+  return (
+    <Float
+      rotationIntensity={20}
+      floatIntensity={30}
+      floatingRange={[-1, 3]}
+      speed={1.5}
+      position={position}
+      ref={meshRef}
+    >
+      <Trail
+        width={2}
+        length={10}
+        color={color}
+        decay={1}
+        attenuation={(width) => width}
+      >
+        <Sphere args={[0.2, 32]}>
+          <MeshWobbleMaterial
+            attach="material"
+            color={color}
+            speed={3}
+            factor={3}
+          />
+        </Sphere>
+      </Trail>
+    </Float>
+  );
+};
 
 useGLTF.preload("models/scenePhoneLila.glb");
 export default DigitalMirrorPortal;
