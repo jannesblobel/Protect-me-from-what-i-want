@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import Spot from "../components/3D-Storytelling/Spot";
 import SpotLightScene from "../components/SpotLightScene";
 import "../components/styles/MediaCompetence.css";
-import "../components/styles/global.css";
+import "../components/styles/global.scss";
 
 import aufmerksamkeitImage from "@/assets/aufmerksamkeit.png";
 import selbstManagementImage from "@/assets/selbstManagement.png";

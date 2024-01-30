@@ -1,73 +1,73 @@
 .question-section {
-    width: 1024px;
-    height: 162px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 130px;
-    text-align: center;
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 130px;
+  text-align: center;
 }
 
 .cta-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .button:active {
-    background-color: #9A5DFF !important;
-    color: black !important;
-    border: 2px solid #9A5DFF !important;
+  background-color: #9a5dff !important;
+  color: black !important;
+  border: 2px solid #9a5dff !important;
 }
 
 .button:hover {
-    border: 2px solid #D8C0FF;
-    color: #D8C0FF;
+  border: 2px solid #d8c0ff;
+  color: #d8c0ff;
 }
 
 .share-options {
-    display: flex;
-    flex-direction: column;
-    border-radius: 25px;
-    padding: 10px;
-    z-index: 1;
-    font-family: "NeueHaas-roman";
-    color: #ffffff !important;
-    font-size: 20px;
-    letter-spacing: 2.3px !important;
-    cursor: pointer !important;
-    align-items: flex-start;
-    padding: 12px 24px;
-    background-color: #845CC6;
-  }
-  
-  .share-options button {
-    margin-bottom: 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  padding: 10px;
+  z-index: 1;
+  font-family: "NeueHaas-roman";
+  color: #ffffff !important;
+  font-size: 20px;
+  letter-spacing: 2.3px !important;
+  cursor: pointer !important;
+  align-items: flex-start;
+  padding: 12px 24px;
+  background-color: #845cc6;
+}
 
-  .button {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .show {
-    transform: translateY(0);
-  }
-  
-  .hide {
-    display: none;
-  }
+.share-options button {
+  margin-bottom: 5px;
+}
 
-  .fade-in {
-    opacity: 1;
-  }
-  
-  .fade-out {
-    opacity: 0;
-  }
+.button {
+  transition: transform 0.3s ease-in-out;
+}
 
-  .different {
-    align-items: start;
-    height: auto;
-    border-radius: 25px;
-    border: 2px solid #ffffff;
-  }
+.show {
+  transform: translateY(0);
+}
+
+.hide {
+  display: none;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.different {
+  align-items: start;
+  height: auto;
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+}

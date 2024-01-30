@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../components/styles/ActNow.css";
-import "../components/styles/global.css";
+import "../components/styles/global.scss";
 
 import focusMode from "@/assets/focusMode.gif";
 import LegoBricks from "../components/3D-Storytelling/LegoBricks";

@@ -1,3 +1,4 @@
+@import "./scss/breakpoints";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,4 +65,16 @@
   background-color: #b3a1ff;
   border-radius: 20px;
   border: 3px solid #202020;
+}
+
+h2 {
+  font-family: "PxGrotesk-bold";
+  font-size: 40px;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+
+  @include mobile {
+    font-size: 24px;
+  }
 }

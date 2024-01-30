@@ -1,11 +1,11 @@
-import focusMode1 from "../assets/focusModeGIF1.gif";
+import focusMode1 from "@/assets/focusModeGIF1.gif";
 import "../components/styles/FocusMode.css";
-import "../components/styles/global.css";
+import "../components/styles/global.scss";
 // import { useState } from 'react';
 // import { useTranslation } from 'react-i18next';
 
-import focusMode from "../assets/focusMode.gif";
-import focusMode2 from "../assets/focusModeGIF2.gif";
+import focusMode from "@/assets/focusMode.gif";
+import focusMode2 from "@/assets/focusModeGIF2.gif";
 
 export default function FocusMode() {
   return (
@@ -26,7 +26,10 @@ export default function FocusMode() {
           >
             <img width="300px;" src={focusMode} />
           </div>
-          <div className="hero-section-content" style={{gridColumn: "1 / 2", maxWidth: "800px",}}>
+          <div
+            className="hero-section-content"
+            style={{ gridColumn: "1 / 2", maxWidth: "800px" }}
+          >
             <h2 style={{ paddingBlockEnd: "24px" }}>
               Der Fokus-Modus für ungestörte Produktivität und Kontrolle
             </h2>

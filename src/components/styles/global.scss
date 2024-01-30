@@ -1,3 +1,5 @@
+@import "../../scss/breakpoints.scss";
+
 /* font styles */
 
 h1 {
@@ -8,13 +10,14 @@ h1 {
   color: #fff;
 }
 
-h2 {
-  font-family: "PxGrotesk-bold";
-  font-size: 40px !important;
-  line-height: normal;
-  letter-spacing: 1.2px;
-  color: #ffffff;
-}
+//Ausgelagert nach index.scss
+// h2 {
+//   font-family: "PxGrotesk-bold";
+//   font-size: 40px;
+//   line-height: normal;
+//   letter-spacing: 1.2px;
+//   color: #ffffff;
+// }
 
 h3 {
   font-family: "NeueHaas-bold";
@@ -34,14 +37,14 @@ h4 {
 
 p {
   font-family: "NeueHaas-light";
-  font-size: 24px;
+  font-size: 18px;
   color: #ffffff;
   letter-spacing: 2.4px;
 }
 
 .text {
   font-family: "NeueHaas-light";
-  font-size: 20px;
+  font-size: 16px;
   color: #ffffff;
   letter-spacing: 2.4px;
 }
@@ -60,14 +63,23 @@ img {
   flex-direction: column;*/
   align-items: flex-start;
   gap: 40px;
-  padding: 250px 80px 50px 80px;
+  padding: 12% 4% 50px 8%;
   scroll-snap-align: center;
   height: 100vh;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
 }
 
 .hero-section-visual {
   grid-row: span 2;
-  max-height: 1fr;
+  grid-column: span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures content does not overflow */
 }
 
 .hero-section-content {
@@ -99,7 +111,7 @@ img {
   display: flex;
   padding: 12px 24px;
   cursor: pointer;
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
   border-radius: 54px;
   gap: 8px;
   align-items: center;
@@ -114,8 +126,8 @@ img {
 
 .active-button {
   color: #121212 !important;
-  border: 2px solid #9A5DFF !important;
-  background: #9A5DFF !important;
+  border: 2px solid #9a5dff !important;
+  background: #9a5dff !important;
 }
 
 /* underline button */
@@ -131,14 +143,14 @@ img {
   border-radius: 0px;
   background-color: none;
   cursor: pointer;
-  color: #FFF;
+  color: #fff;
   font-family: "NeueHaas-roman";
   font-size: 20px;
   letter-spacing: 1.68px;
 }
 
 .active-underline-button {
-  border-bottom: 2px solid var(--white, #FFF);
+  border-bottom: 2px solid var(--white, #fff);
   border-radius: 0px;
   cursor: pointer;
 }
@@ -162,3 +174,15 @@ img {
   align-items: center;
   gap: 80px;
 }
+
+//Old
+// .section-2 {
+//   scroll-snap-align: start;
+//   height: 100vh;
+//   background: radial-gradient(80% 45% at 50% 50%, #9a5dff 0%, #121212 50%);
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 80px;
+// }

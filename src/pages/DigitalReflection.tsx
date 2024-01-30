@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DigitalMirrorPortal from "../components/3D-Storytelling/DigitalMirrorPortal";
 import "../components/styles/DigitalReflection.css";
-import "../components/styles/global.css";
+import "../components/styles/global.scss";
 
 export default function DigitalReflection() {
   const { t } = useTranslation();
@@ -25,26 +25,32 @@ export default function DigitalReflection() {
   };
 
   const [showOptions, setShowOptions] = useState(false);
-  
-  const handleShare = (method) => {
-      const introText = 'Check out this interesting question from the website "Protect me from what I want":';
-      const imageUrl = 'http://localhost:5173/src/assets/logo2.png'; 
-      const shareUrl = window.location.href;
-      const fullMessage = `${introText}\n\n${imageUrl}\n\n${currentQuestion}\n\n${shareUrl}`;
 
-      switch (method) {
-        case 'whatsapp':
-          window.open(`whatsapp://send?text=${encodeURIComponent(fullMessage)}`);
-          break;
-        case 'email':
-          window.location.href = `mailto:?subject=Check%20out%20this%20question&body=${encodeURIComponent(fullMessage)}`;
-          break;
-        default:
-          navigator.share({ title: 'Question', text: currentQuestion, url: shareUrl });
-          break;
-      }
+  const handleShare = (method) => {
+    const introText =
+      'Check out this interesting question from the website "Protect me from what I want":';
+    const imageUrl = "http://localhost:5173/src/assets/logo2.png";
+    const shareUrl = window.location.href;
+    const fullMessage = `${introText}\n\n${imageUrl}\n\n${currentQuestion}\n\n${shareUrl}`;
+
+    switch (method) {
+      case "whatsapp":
+        window.open(`whatsapp://send?text=${encodeURIComponent(fullMessage)}`);
+        break;
+      case "email":
+        window.location.href = `mailto:?subject=Check%20out%20this%20question&body=${encodeURIComponent(
+          fullMessage
+        )}`;
+        break;
+      default:
+        navigator.share({
+          title: "Question",
+          text: currentQuestion,
+          url: shareUrl,
+        });
+        break;
+    }
   };
-  
 
   return (
     <div>
@@ -73,13 +79,13 @@ export default function DigitalReflection() {
                 strokeWidth="2"
               />
             </svg>
-            <div style={{width: "250px;"}} className="scroll-down-cta-text">
+            <div style={{ width: "250px;" }} className="scroll-down-cta-text">
               <p>{t("digitalReflectionP2")}</p>
             </div>
           </div>
         </div>
 
-        <div className="section-2" style={{justifyContent: "start", paddingTop: "290px"}}>
+        <div className="section-2">
           <div className="question-section">
             <h2>{currentQuestion}</h2>
           </div>
@@ -87,8 +93,12 @@ export default function DigitalReflection() {
             <div className="button" onClick={getRandomQuestion}>
               Shuffle
             </div>
-            <div className={`button ${showOptions ? 'different' : ''}`} onClick={() => setShowOptions(!showOptions)}>
-              <svg className={`${showOptions ? 'hide' : 'show'}`}
+            <div
+              className={`button ${showOptions ? "different" : ""}`}
+              onClick={() => setShowOptions(!showOptions)}
+            >
+              <svg
+                className={`${showOptions ? "hide" : "show"}`}
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
                 height="17"
@@ -101,14 +111,32 @@ export default function DigitalReflection() {
                 />
               </svg>
               {showOptions && (
-              <div className={`text ${showOptions ? 'show fade-in' : 'hide fade-out'}`}>
-                <div onClick={() => handleShare('link')} style={{letterSpacing: "2.4px;"}}>Share Link</div>
-                <div onClick={() => handleShare('whatsapp')} style={{letterSpacing: "2.4px;"}}>Share via WhatsApp</div>
-                <div onClick={() => handleShare('email')} style={{letterSpacing: "2.4px;"}}>Share via Email</div>
-              </div>
-            )}
+                <div
+                  className={`text ${
+                    showOptions ? "show fade-in" : "hide fade-out"
+                  }`}
+                >
+                  <div
+                    onClick={() => handleShare("link")}
+                    style={{ letterSpacing: "2.4px;" }}
+                  >
+                    Share Link
+                  </div>
+                  <div
+                    onClick={() => handleShare("whatsapp")}
+                    style={{ letterSpacing: "2.4px;" }}
+                  >
+                    Share via WhatsApp
+                  </div>
+                  <div
+                    onClick={() => handleShare("email")}
+                    style={{ letterSpacing: "2.4px;" }}
+                  >
+                    Share via Email
+                  </div>
+                </div>
+              )}
             </div>
-            
           </div>
         </div>
       </div>

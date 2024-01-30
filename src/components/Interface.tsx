@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./styles/Interface.css";
-import "./styles/global.css";
+import "./styles/global.scss";
 
 type SectionProps = {
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="landingpage-column">
-          <h4 style={{"color":"#ffffff"}}>{t("magicMaybe")}</h4>
+          <h4 style={{ color: "#ffffff" }}>{t("magicMaybe")}</h4>
           {/* <p>{t("hook-model-p")}</p> */}
           <div className="scroll-down-cta">
             <svg
@@ -56,14 +56,16 @@ export default function Interface() {
               />
             </svg>
             <div className="scroll-down-cta-text">
-              <a href="/focus-mode"><p style={{ width: "140%" }}>{t("focusMode")}</p></a>
+              <a href="/focus-mode">
+                <p style={{ width: "140%" }}>{t("focusMode")}</p>
+              </a>
             </div>
           </div>
         </div>
       </Section>
       <Section>
         <div className="landingpage-column">
-          <h4 style={{"color":"#ffffff"}}>{t("one-sec-h2")}</h4>
+          <h4 style={{ color: "#ffffff" }}>{t("one-sec-h2")}</h4>
           <div className="scroll-down-cta">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +81,9 @@ export default function Interface() {
               />
             </svg>
             <div className="scroll-down-cta-text">
-              <a href="https://one-sec.app" target="_blank"><p>{t("oneSec")}</p></a>
+              <a href="https://one-sec.app" target="_blank">
+                <p>{t("oneSec")}</p>
+              </a>
             </div>
           </div>
         </div>

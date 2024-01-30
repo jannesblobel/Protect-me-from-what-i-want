@@ -54,7 +54,7 @@ export default function Spot() {
     <div>
       <Canvas
         shadows
-        style={{ width: "600px", height: "700px" }}
+        style={{ width: "100%", height: "100%" }}
         camera={{
           position: [4, 4, -4],
           fov: 100,
@@ -70,7 +70,7 @@ export default function Spot() {
         {/* A spinning box */}
         <Model />
         <Ground />
-        <group>
+        {/* <group>
           <FlyingData color="#E87686" position={new THREE.Vector3(0, 2, 0)} />
           <FlyingData color="#fff" position={new THREE.Vector3(4, 2, 0)} />
           <FlyingData color="#E87686" position={new THREE.Vector3(-2, 2, 0)} />
@@ -79,7 +79,7 @@ export default function Spot() {
           <FlyingData color="#B3A1FF" position={new THREE.Vector3(6, 2, -6)} />
           <FlyingData color="#9A5DFF" position={new THREE.Vector3(3, 2, -8)} />
           <FlyingData color="#B3A1FF" position={new THREE.Vector3(-2, 2, 3)} />
-        </group>
+        </group> */}
       </Canvas>
     </div>
   );
@@ -114,7 +114,6 @@ type DataPacketProps = {
   color: string; // Color of the data packet, e.g., 'grey', 'white', 'purple'
   position: THREE.Vector3; // Initial position of the data packet
 };
-
 const FlyingData = ({ color, position }: DataPacketProps) => {
   const meshRef = useRef<THREE.Mesh>(null);
 
