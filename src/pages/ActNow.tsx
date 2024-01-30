@@ -18,6 +18,9 @@ import arrow from "@/assets/arrowStraight.svg";
 import grauStufenGIF from "@/assets/grauStufen.gif";
 import handyFrei from "@/assets/handyFrei.gif";
 
+import { motion } from "framer-motion";
+import animation from "../components/animations/divAnim";
+
 export default function ActNow() {
   const { t } = useTranslation();
   const [selectedTip, setSelectedTip] = useState("shortterm");
@@ -156,7 +159,7 @@ export default function ActNow() {
   return (
     <div>
       <div className="scroll-container" dir="ltr">
-        <div className="hero-section">
+        <motion.div className="hero-section" {...animation}>
           <h2>{t("actNowH2")}</h2>
           <div className="hero-section-visual">
             <LegoBricks />
@@ -182,9 +185,9 @@ export default function ActNow() {
               <p>{t("actNowP2")}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="section-3-actNow">
+        <motion.div className="section-3-actNow" {...animation}>
           <div className="cta-sec">
             <div
               className={`button ${
@@ -259,63 +262,61 @@ export default function ActNow() {
               </div>
             </div>
           )}
-
-          <div className="section-3-actNow">
-            <div className="hero-section" style={{ gap: "200px" }}>
-              <div className="hero-section-headline">
-                <h2 style={{ color: "#B3A1FF" }}>
-                  Entdecke den Fokus Modus für ungestörte Produktivität und
-                  Kontrolle
-                </h2>
-                <br />
-                <p className="text" style={{ width: "100%" }}>
-                  Dein persönliches Werkzeug für ungestörte Produktivität und
-                  wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-                  arbeiten, dich entspannen oder einfach den digitalen Trubel
-                  ausblenden möchtest – der Fokus-Modus bietet dir die
-                  Kontrolle. Hier erfährst du, wie du ihn direkt im
-                  Kontrollzentrum aktivierst oder clever planst, damit er sich
-                  automatisch zu den Zeiten einschaltet, die für dich am besten
-                  passen.
-                </p>
-                <br />
-                <br />
-                <br />
-                <div className="scroll-down-cta">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="51"
-                    height="50"
-                    viewBox="0 0 51 50"
-                    fill="none"
-                  >
-                    <path
-                      d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                      stroke="#E7E7E7"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                  <a href="/focus-mode" style={{ cursor: "pointer" }}>
-                    <div className="scroll-down-cta-text">
-                      <p>Im Handumdrehen einrichten</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className="hero-section-visual"
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  gridRow: "1 / span 1",
-                  gridColumn: "2 / span 1",
-                }}
-              >
-                <img width="300px;" src={focusMode} />
+        </motion.div>
+        <motion.div className="section-3-actNow" {...animation}>
+          <div className="hero-section" style={{ gap: "200px" }}>
+            <div className="hero-section-headline">
+              <h2 style={{ color: "#B3A1FF" }}>
+                Entdecke den Fokus Modus für ungestörte Produktivität und
+                Kontrolle
+              </h2>
+              <br />
+              <p className="text" style={{ width: "100%" }}>
+                Dein persönliches Werkzeug für ungestörte Produktivität und
+                wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
+                arbeiten, dich entspannen oder einfach den digitalen Trubel
+                ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
+                Hier erfährst du, wie du ihn direkt im Kontrollzentrum
+                aktivierst oder clever planst, damit er sich automatisch zu den
+                Zeiten einschaltet, die für dich am besten passen.
+              </p>
+              <br />
+              <br />
+              <br />
+              <div className="scroll-down-cta">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="51"
+                  height="50"
+                  viewBox="0 0 51 50"
+                  fill="none"
+                >
+                  <path
+                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+                    stroke="#E7E7E7"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <a href="/focus-mode" style={{ cursor: "pointer" }}>
+                  <div className="scroll-down-cta-text">
+                    <p>Im Handumdrehen einrichten</p>
+                  </div>
+                </a>
               </div>
             </div>
+            <div
+              className="hero-section-visual"
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                gridRow: "1 / span 1",
+                gridColumn: "2 / span 1",
+              }}
+            >
+              <img width="300px;" src={focusMode} />
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

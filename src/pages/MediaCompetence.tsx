@@ -2,10 +2,12 @@ import clearityMinimal from "@/assets/klarheit.png";
 import creativityMinimal from "@/assets/kreativitaet.png";
 import spotlight from "@/assets/spotlight.png";
 import spotlightMinimal from "@/assets/spotlightMinimal.png";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Spot from "../components/3D-Storytelling/Spot";
 import SpotLightScene from "../components/SpotLightScene";
+import animation from "../components/animations/divAnim";
 import "../components/styles/MediaCompetence.css";
 import "../components/styles/global.scss";
 
@@ -32,7 +34,7 @@ export default function MediaCompetence() {
   return (
     <div>
       <div className="scroll-container" dir="ltr">
-        <div className="hero-section">
+        <motion.div className="hero-section" {...animation}>
           <div className="hero-section-headline">
             <h2>{t("mediaCompetenceH1")}</h2>
           </div>
@@ -63,15 +65,15 @@ export default function MediaCompetence() {
               <p>{t("cta1")}</p>
             </div>
           </div>
-        </div>
-        <div className="section-quote">
+        </motion.div>
+        <motion.div className="section-quote" {...animation}>
           <div className="quote">
             <h2>{t("quoteText")}</h2>
             <p>{t("quoteAuthor")}</p>
           </div>
-        </div>
+        </motion.div>
         {/* Muss später unter dem Spotlight kommen */}
-        <div className="section-3">
+        <motion.div className="section-3" {...animation}>
           <h3>{t("mediaLiteracy")}</h3>
           <div className="topic-switch">
             <div
@@ -113,8 +115,8 @@ export default function MediaCompetence() {
               </div>
             </div>
           )}
-        </div>
-        <div className="section-4">
+        </motion.div>
+        <motion.div className="section-4" {...animation}>
           <div className="content-block">
             <h4>{t("section3Headline")}</h4>
             <div className="thin">
@@ -129,11 +131,11 @@ export default function MediaCompetence() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="section-3">
+        </motion.div>
+        <motion.div className="section-3" {...animation}>
           <SpotLightScene />
-        </div>
-        <div className="section-3">
+        </motion.div>
+        <motion.div className="section-3" {...animation}>
           <div className="cta-sec-2">
             <div
               className={`button ${
@@ -199,7 +201,7 @@ export default function MediaCompetence() {
               <img width={"500px"} src={clearityMinimal} />
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

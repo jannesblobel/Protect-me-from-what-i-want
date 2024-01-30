@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DigitalMirrorPortal from "../components/3D-Storytelling/DigitalMirrorPortal";
+import animation from "../components/animations/divAnim";
 import "../components/styles/DigitalReflection.css";
 import "../components/styles/global.scss";
 
@@ -55,7 +57,7 @@ export default function DigitalReflection() {
   return (
     <div>
       <div className="scroll-container" dir="ltr">
-        <div className="hero-section">
+        <motion.div className="hero-section" {...animation}>
           <div className="hero-section-headline">
             <h2>{t("digitalReflectionH1")}</h2>
           </div>
@@ -83,9 +85,8 @@ export default function DigitalReflection() {
               <p>{t("digitalReflectionP2")}</p>
             </div>
           </div>
-        </div>
-
-        <div className="section-2">
+        </motion.div>
+        <motion.div className="section-2" {...animation}>
           <div className="question-section">
             <h2>{currentQuestion}</h2>
           </div>
@@ -138,7 +139,7 @@ export default function DigitalReflection() {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
