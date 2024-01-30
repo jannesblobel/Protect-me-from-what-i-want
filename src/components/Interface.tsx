@@ -15,7 +15,7 @@ export default function Interface() {
   const { t } = useTranslation();
 
   return (
-    <div className="container-section">
+    <div className="container-section" id="scroll-container">
       <Section>
         <h1 className="h1-pxgrotesk"></h1>
       </Section>

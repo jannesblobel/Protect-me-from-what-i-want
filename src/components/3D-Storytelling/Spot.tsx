@@ -51,26 +51,25 @@ function ControlledSpotLight() {
 
 export default function Spot() {
   return (
-    <div>
-      <Canvas
-        shadows
-        style={{ width: "100%", height: "100%" }}
-        camera={{
-          position: [4, 4, -4],
-          fov: 100,
-          near: 0.1,
-          far: 1000,
-        }}
-      >
-        {/* <pointLight position={[3, 7, 0]} intensity={10} /> */}
-        {/* <fog attach="fog" args={["#171720", 60, 90]} /> */}
-        <ambientLight intensity={0.1} />
-        <SoftShadows samples={30} size={100} focus={1} />
-        <ControlledSpotLight />
-        {/* A spinning box */}
-        <Model />
-        <Ground />
-        {/* <group>
+    <Canvas
+      shadows
+      style={{ height: "100%", width: "100%" }}
+      camera={{
+        position: [4, 4, -4],
+        fov: 100,
+        near: 0.1,
+        far: 1000,
+      }}
+    >
+      {/* <pointLight position={[3, 7, 0]} intensity={10} /> */}
+      {/* <fog attach="fog" args={["#171720", 60, 90]} /> */}
+      <ambientLight intensity={0.1} />
+      <SoftShadows samples={30} size={100} focus={1} />
+      <ControlledSpotLight />
+      {/* A spinning box */}
+      <Model />
+      <Ground />
+      {/* <group>
           <FlyingData color="#E87686" position={new THREE.Vector3(0, 2, 0)} />
           <FlyingData color="#fff" position={new THREE.Vector3(4, 2, 0)} />
           <FlyingData color="#E87686" position={new THREE.Vector3(-2, 2, 0)} />
@@ -80,8 +79,7 @@ export default function Spot() {
           <FlyingData color="#9A5DFF" position={new THREE.Vector3(3, 2, -8)} />
           <FlyingData color="#B3A1FF" position={new THREE.Vector3(-2, 2, 3)} />
         </group> */}
-      </Canvas>
-    </div>
+    </Canvas>
   );
 }
 

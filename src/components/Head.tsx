@@ -449,7 +449,6 @@ function MovingSpotApp(props: MovingSpotProps) {
     if (r4 > 0) {
       setPointIntensity(1 - r4);
 
-      console.log(material.name);
       if (material.name === "Tinder") {
         parentRef.current.position.x = initialPos.x + 1 - r4 * 2;
         parentRef.current.position.y = initialPos.y - r4 * 3;

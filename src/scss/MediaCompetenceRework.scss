@@ -1,0 +1,158 @@
+@import "./breakpoints.scss"; // _variables.scss
+$grid-gap: 24px;
+$grid-columns: 12;
+
+.container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-template-rows: 0.5fr repeat(4, minmax(100px, 1fr));
+  gap: $grid-gap;
+  height: 91vh; // At least the height of the viewport
+  min-width: 100vw;
+  // Adjust padding or margin if necessary for layout
+  padding: $grid-gap 24px;
+}
+.container-long {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-template-rows: 0.5fr repeat(4, minmax(100px, 1fr));
+  gap: $grid-gap;
+  height: 450vh; // At least the height of the viewport
+  min-width: 100vw;
+  // Adjust padding or margin if necessary for layout
+  padding: $grid-gap 24px;
+}
+
+.left-col {
+  grid-column: span 2;
+  grid-row: 2 / span 3;
+  position: sticky;
+  top: 88px; /* Adjust this value as needed */
+  align-self: start; /* This ensures that the sticky positioning works correctly within a grid layout */
+
+  h3 {
+    font-family: "NeueHaas-roman";
+    font-size: 1.47rem;
+    color: #ffffff;
+    margin-top: 0; /* You may want to reset the margin to ensure the sticky position works from the very top */
+  }
+  p {
+    padding-top: 8px;
+    font-family: "NeueHaas-roman";
+    font-size: 0.9rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+}
+
+.hero-header {
+  grid-column: 4 / span 4;
+  grid-row: 2 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  h3 {
+    font-family: "NeueHaas-light";
+    font-size: 28px;
+    color: #ffffff;
+  }
+  h1 {
+    font-family: "NeueHaas-roman";
+    font-size: 44px;
+    padding-bottom: 8%;
+    @include desktop {
+      font-size: 36px;
+    }
+  }
+  p {
+    color: #ffffff;
+    // letter-spacing: 2px;
+  }
+}
+
+.hero-visual {
+  grid-column: 9 / span 4;
+  grid-row: 2 / span 3;
+}
+
+.text-content {
+  gap: 12px;
+  grid-column: 4 / span 4;
+  grid-row: span 2;
+  h3 {
+    font-family: "NeueHaas-roman";
+    font-size: 24px;
+    color: #ffffff;
+    padding-bottom: 10px;
+  }
+  p {
+    grid-column: span 2;
+    color: #ffffff;
+    line-height: 135%; /* 0.85738rem */
+    letter-spacing: 0.05rem;
+  }
+}
+.text-content-2 {
+  gap: 12px;
+  grid-column: 8 / span 4;
+  grid-row: span 2;
+  h3 {
+    font-family: "NeueHaas-roman";
+    font-size: 24px;
+    color: #ffffff;
+    padding-bottom: 10px;
+  }
+  p {
+    grid-column: span 2;
+    color: #ffffff;
+    line-height: 135%; /* 0.85738rem */
+    letter-spacing: 0.05rem;
+  }
+}
+.text-quote {
+  grid-column: 4 / span 8;
+
+  text-align: center;
+  grid-row: 5 / span 1;
+  span {
+    color: white;
+    font-family: "NeueHaas-roman";
+    font-size: 24px;
+    line-height: 116%; /* 1.71469rem */
+  }
+}
+
+.spotlight-visual {
+  grid-column: 4 / span 4;
+  position: sticky;
+  top: 12vh;
+}
+.spotlight-controls {
+  grid-column: 9 / span 3;
+  grid-row: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  z-index: 1;
+
+  h3 {
+    font-family: "NeueHaas-roman";
+    font-size: 28px;
+  }
+  p {
+    font-family: "NeueHaas-roman";
+    font-size: 14px;
+  }
+}
+
+.section-textblock {
+  grid-column: span 4;
+
+  h2 {
+    font-family: "NeueHaas-light";
+    font-size: 28px;
+    color: #ffffff;
+    padding-bottom: 10px;
+  }
+}

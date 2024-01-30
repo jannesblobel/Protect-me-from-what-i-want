@@ -1,23 +1,23 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
+import Navbar from "./components/Navbar";
 import DigitalReflection from "./pages/DigitalReflection";
 import MediaCompetence from "./pages/MediaCompetence";
 // import WhoElse from "./pages/WhoElse";
 import ActNow from "./pages/ActNow";
-import FocusMode from "./pages/FocusMode"
+import FocusMode from "./pages/FocusMode";
 // import Forest from "./pages/shorttermtips/Forest"
 // import GehirnGehoert from "./pages/shorttermtips/GehirnGehoert"
 // import AtomicHabits from "./pages/shorttermtips/AtomicHabits"
 // import ProzentMethode from "./pages/shorttermtips/1ProzentMethode"
 
-
 // import { useState } from "react";
 // import ScrollManager from "./components/ScrollManager";
 // import React from "react";
 
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
+import MediaCompetenceRework from "./pages/MediaCompetenceRework";
 
 function App() {
   // const [section, setSection] = useState(0);
@@ -30,7 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Experience pages={pages} />} />
           <Route path="/digital-reflection" element={<DigitalReflection />} />
-          <Route path="/media-competence" element={<MediaCompetence />} />
+          <Route path="/media-competence" element={<MediaCompetenceRework />} />
           <Route path="/act-now" element={<ActNow />} />
           <Route path="/focus-mode" element={<FocusMode />} />
           {/* <Route path="/who-else" element={<WhoElse />} /> */}

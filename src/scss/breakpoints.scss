@@ -1,5 +1,6 @@
-$breakpoint-mobile: 768px; // Mobile devices
+$breakpoint-mobile: 769px; // Mobile devices
 $breakpoint-desktop: 1024px; // Desktop devices
+$breakpoint-xl: 1450px; // Desktop devices
 
 @mixin mobile {
   @media (max-width: $breakpoint-mobile) {
@@ -9,6 +10,11 @@ $breakpoint-desktop: 1024px; // Desktop devices
 
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: 1440px) {
     @content;
   }
 }

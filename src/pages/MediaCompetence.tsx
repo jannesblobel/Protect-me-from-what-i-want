@@ -66,14 +66,15 @@ export default function MediaCompetence() {
             </div>
           </div>
         </motion.div>
+        {/* Zitat Volker */}
         <motion.div className="section-quote" {...animation}>
           <div className="quote">
             <h2>{t("quoteText")}</h2>
             <p>{t("quoteAuthor")}</p>
           </div>
         </motion.div>
-        {/* Muss später unter dem Spotlight kommen */}
-        <motion.div className="section-3" {...animation}>
+        {/* Muss später unter dem Spotlight kommen (aufmerksamketi/selbstmanagement) */}
+        <motion.div className="section-content-switch" {...animation}>
           <h3>{t("mediaLiteracy")}</h3>
           <div className="topic-switch">
             <div
@@ -116,10 +117,11 @@ export default function MediaCompetence() {
             </div>
           )}
         </motion.div>
-        <motion.div className="section-4" {...animation}>
+        {/*  */}
+        <motion.div className="section-spotlight" {...animation}>
           <div className="content-block">
             <h4>{t("section3Headline")}</h4>
-            <div className="thin">
+            <div>
               <p className="text">{t("section3Text")}</p>
             </div>
           </div>
@@ -135,7 +137,7 @@ export default function MediaCompetence() {
         <motion.div className="section-3" {...animation}>
           <SpotLightScene />
         </motion.div>
-        <motion.div className="section-3" {...animation}>
+        <motion.div className="section-content-switch" {...animation}>
           <div className="cta-sec-2">
             <div
               className={`button ${

@@ -57,11 +57,13 @@
 }
 
 .content-block {
-  padding: 80px 80px 30px 80px;
-  display: flex;
-  flex-direction: column;
+  grid-row: span 6;
   align-items: flex-start;
-  gap: 50px;
+  grid-column: span 4;
+  grid-row: span 3;
+}
+.content-block > h4 {
+  grid-row: span 1;
 }
 
 .column-block-2 {

@@ -14,7 +14,7 @@ export default function LegoBricks() {
   return (
     <Canvas
       dpr={[1, 2]}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "60vh" }}
       shadows
       camera={{ position: [-20, 20, 20], fov: 25, near: 1, far: 100 }}
     >

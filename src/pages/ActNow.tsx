@@ -161,7 +161,7 @@ export default function ActNow() {
       <div className="scroll-container" dir="ltr">
         <motion.div className="hero-section" {...animation}>
           <h2>{t("actNowH2")}</h2>
-          <div className="hero-section-visual">
+          <div className="hero-section-three">
             <LegoBricks />
           </div>
           <div className="hero-section-content">

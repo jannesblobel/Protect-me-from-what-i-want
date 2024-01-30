@@ -4,7 +4,7 @@
 
 h1 {
   font-family: "PxGrotesk-screen";
-  font-size: 64px !important;
+  font-size: 64px;
   line-height: normal;
   letter-spacing: 1.92px;
   color: #fff;
@@ -36,9 +36,19 @@ h1 {
 
 p {
   font-family: "NeueHaas-light";
-  font-size: 18px;
-  color: #ffffff;
-  letter-spacing: 2.4px;
+  font-size: 14px;
+  color: #e7e7e7;
+  letter-spacing: 2px;
+
+  @include mobile {
+    font-size: 14px;
+  }
+  @include desktop {
+    font-size: 14px;
+  }
+  @include xl {
+    font-size: 14px;
+  }
 }
 
 .text {
@@ -66,10 +76,9 @@ img {
   scroll-snap-align: center;
   height: 100vh;
 
-  @include mobile {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
+  // @include mobile {
+  //   grid-template-columns: 1fr;
+  // }
 }
 
 .hero-section-visual {
@@ -79,6 +88,15 @@ img {
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Ensures content does not overflow */
+}
+.hero-section-three {
+  grid-row: span 2;
+  grid-column: span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures content does not overflow */
+  min-height: 200px;
 }
 
 .hero-section-content {
@@ -175,6 +193,25 @@ img {
   align-items: center;
   gap: 80px;
 }
+.section-content-switch {
+  scroll-snap-align: start;
+  padding: 12% 8% 4% 8%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8%;
+}
+.section-spotlight {
+  display: grid;
+  height: 100vh;
+  padding: 8% 8% 4% 8%;
+  gap: 4%;
+  scroll-snap-align: start;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
 .section-3 {
   scroll-snap-align: start;
   padding: 12% 8% 4% 8%;
@@ -185,6 +222,7 @@ img {
   align-items: center;
   gap: 8%;
 }
+
 .section-4 {
   scroll-snap-align: start;
   padding: 10% 4%;

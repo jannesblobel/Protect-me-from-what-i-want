@@ -39,7 +39,7 @@ function DigitalMirrorPortal() {
   return (
     <Canvas
       shadows
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "60vh" }}
       camera={{
         position: [0, 0, 0.9],
         fov: 100,

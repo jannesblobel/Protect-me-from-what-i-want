@@ -56,7 +56,7 @@ export default function DigitalReflection() {
 
   return (
     <div>
-      <div className="scroll-container" dir="ltr">
+      <div className="scroll-container" dir="ltr" id="scroll-container">
         <motion.div className="hero-section" {...animation}>
           <div className="hero-section-headline">
             <h2>{t("digitalReflectionH1")}</h2>
@@ -81,7 +81,7 @@ export default function DigitalReflection() {
                 strokeWidth="2"
               />
             </svg>
-            <div style={{ width: "250px;" }} className="scroll-down-cta-text">
+            <div style={{ width: "250px" }} className="scroll-down-cta-text">
               <p>{t("digitalReflectionP2")}</p>
             </div>
           </div>

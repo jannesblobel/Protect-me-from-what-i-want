@@ -13,7 +13,7 @@ const animation: MotionProps = {
     amount: 0.8,
     once: false,
   },
-  transition: { type: "spring", duration: 2, bounce: 0 },
+  transition: { type: "spring", duration: 1, bounce: 0 },
 };
 
 export default animation;
