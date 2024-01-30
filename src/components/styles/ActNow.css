@@ -6,15 +6,33 @@
       transform: translateX(-5px);
     }
     50% {
-      transform: translateX(5px);
+      transform: translateX(-10px);
     }
     75% {
-      transform: translateX(-5px);
+      transform: translateX(-15px);
     }
     100% {
       transform: translateX(0);
     }
   }
+
+  /* @keyframes shakeLeft {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(15px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  } */
 
 .section-2-actNow {
     scroll-snap-align: start;
@@ -131,6 +149,10 @@
 .shake {
     animation: shake 0.5s ease-in-out infinite;
 }
+
+/* .shakeLeft {
+    animation: shakeLeft 0.5s ease-in-out infinite;
+} */
 
 .arrow-white {
     width: 21px !important;

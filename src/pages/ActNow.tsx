@@ -82,18 +82,10 @@ export default function ActNow() {
     }
   };
 
-  const totalCards = 6; // Anzahl der Karten insgesamt
-  const totalCards2 = 3; // Anzahl der Karten insgesamt
+  const totalCards = 4; // Anzahl der Karten insgesamt
+  const totalCards2 = 5; // Anzahl der Karten insgesamt
 
   const cards = [
-    {
-      title: "Handyfreie Zonen",
-      content:
-        "Erschaffe Räume in deinem Zuhause, in denen das Handy Pause macht. Diese handyfreien Zonen fördern bewusste Auszeiten, stärken echte Verbindungen und schenken dir kostbare Momente der Achtsamkeit.",
-      content2:
-        "Das könnte zum Beispiel dein Bett, gesamtes Schlafzimmer oder dein Sessel sein.",
-      gif: handyFrei,
-    },
     {
       title: "Stelle dein Handy auf Graustufen",
       content:
@@ -109,12 +101,6 @@ export default function ActNow() {
       content2:
         "Wähle „Einstellungen“ → „Bildschirmzeit“. Tippe auf → „App-Limits“ und danach auf → „App-Limit“. Wähle eine oder mehrere Apps oder App-Kategorien aus. Tippe oben rechts auf → „Weiter“ und lege die erlaubte Zeitspanne fest. Wenn du mit dem Festlegen von Limits fertig bist, tippst du auf → „Hinzufügen“.",
       gif: appLimitsGIF,
-    },
-    {
-      title: "Innehalten am Morgen",
-      content:
-        "Nimm dir morgens bewusst 10 Minuten ohne Handy, bevor du in den digitalen Trubel startest. Nutze diese Zeit, um deine Prioritäten für den Tag zu setzen, statt direkt in den Strudel der Nachrichten und Social-Media-Updates gezogen zu werden. Ein klarer Start kann dir helfen, den Tag fokussierter und stressfreier anzugehen.",
-      gif: InnehaltenBlack,
     },
     {
       title: "OneSec herunterladen",
@@ -144,6 +130,20 @@ export default function ActNow() {
       content:
         "Im hektischen Alltag hilft bewusstes Innehalten, Stressfaktoren zu erkennen und effektive Lösungsansätze zu finden. Medienkonsum in freien Momenten kann diese wichtige Reflexionszeit beeinträchtigen. Eine Studie zeigt, dass viele lieber zum Smartphone greifen, anstatt sich mit ihren Gedanken auseinanderzusetzen. Zeit für bewusstes Innehalten kann transformative Wirkung haben.",
       content2: "",
+      gif: handyFrei,
+    },
+    {
+      title: "Innehalten am Morgen",
+      content:
+        "Nimm dir morgens bewusst 10 Minuten ohne Handy, bevor du in den digitalen Trubel startest. Nutze diese Zeit, um deine Prioritäten für den Tag zu setzen, statt direkt in den Strudel der Nachrichten und Social-Media-Updates gezogen zu werden. Ein klarer Start kann dir helfen, den Tag fokussierter und stressfreier anzugehen.",
+      gif: InnehaltenBlack,
+    },
+    {
+      title: "Handyfreie Zonen",
+      content:
+        "Erschaffe Räume in deinem Zuhause, in denen das Handy Pause macht. Diese handyfreien Zonen fördern bewusste Auszeiten, stärken echte Verbindungen und schenken dir kostbare Momente der Achtsamkeit.",
+      content2:
+        "Das könnte zum Beispiel dein Bett, gesamtes Schlafzimmer oder dein Sessel sein.",
       gif: handyFrei,
     },
     {
@@ -183,6 +183,109 @@ export default function ActNow() {
             </svg>
             <div style={{ width: "40%" }} className="scroll-down-cta-text">
               <p>{t("actNowP2")}</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div className="section-3-actNow">
+          <div className="hero-section" style={{ gap: "200px" }}>
+            <div className="hero-section-headline">
+              <h2 style={{ color: "#B3A1FF" }}>
+                Entdecke die App OneSec für bewusste Pausen während deiner Appbenutzung
+              </h2>
+              <br />
+              <p className="text" style={{ width: "100%" }}>
+                One Sec enhances awareness and intentional usage by introducing a 10-second delay/friction, disrupting the instant gratification associated with social media apps.
+              </p>
+              <br />
+              <br />
+              <br />
+              <div className="scroll-down-cta">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="51"
+                  height="50"
+                  viewBox="0 0 51 50"
+                  fill="none"
+                >
+                  <path
+                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+                    stroke="#E7E7E7"
+                    stroke-width="2"
+                  />
+                </svg>
+                <a href="/focus-mode" style={{ cursor: "pointer" }}>
+                  <div className="scroll-down-cta-text">
+                    <p>Im Handumdrehen einrichten</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="hero-section-visual"
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                gridRow: "1 / span 1",
+                gridColumn: "2 / span 1",
+              }}
+            >
+              <img width="300px;" src={OneSec} />
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div className="section-3-actNow" {...animation}>
+          <div className="hero-section" style={{ gap: "200px" }}>
+            <div className="hero-section-headline">
+              <h2 style={{ color: "#B3A1FF" }}>
+                Entdecke den Fokus Modus für ungestörte Produktivität und
+                Kontrolle
+              </h2>
+              <br />
+              <p className="text" style={{ width: "100%" }}>
+                Dein persönliches Werkzeug für ungestörte Produktivität und
+                wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
+                arbeiten, dich entspannen oder einfach den digitalen Trubel
+                ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
+                Hier erfährst du, wie du ihn direkt im Kontrollzentrum
+                aktivierst oder clever planst, damit er sich automatisch zu den
+                Zeiten einschaltet, die für dich am besten passen.
+              </p>
+              <br />
+              <br />
+              <br />
+              <div className="scroll-down-cta">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="51"
+                  height="50"
+                  viewBox="0 0 51 50"
+                  fill="none"
+                >
+                  <path
+                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+                    stroke="#E7E7E7"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <a href="/focus-mode" style={{ cursor: "pointer" }}>
+                  <div className="scroll-down-cta-text">
+                    <p>Im Handumdrehen einrichten</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="hero-section-visual"
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                gridRow: "1 / span 1",
+                gridColumn: "2 / span 1",
+              }}
+            >
+              <img width="300px;" src={focusMode} />
             </div>
           </div>
         </motion.div>
@@ -262,60 +365,6 @@ export default function ActNow() {
               </div>
             </div>
           )}
-        </motion.div>
-        <motion.div className="section-3-actNow" {...animation}>
-          <div className="hero-section" style={{ gap: "200px" }}>
-            <div className="hero-section-headline">
-              <h2 style={{ color: "#B3A1FF" }}>
-                Entdecke den Fokus Modus für ungestörte Produktivität und
-                Kontrolle
-              </h2>
-              <br />
-              <p className="text" style={{ width: "100%" }}>
-                Dein persönliches Werkzeug für ungestörte Produktivität und
-                wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-                arbeiten, dich entspannen oder einfach den digitalen Trubel
-                ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
-                Hier erfährst du, wie du ihn direkt im Kontrollzentrum
-                aktivierst oder clever planst, damit er sich automatisch zu den
-                Zeiten einschaltet, die für dich am besten passen.
-              </p>
-              <br />
-              <br />
-              <br />
-              <div className="scroll-down-cta">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="51"
-                  height="50"
-                  viewBox="0 0 51 50"
-                  fill="none"
-                >
-                  <path
-                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                    stroke="#E7E7E7"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <a href="/focus-mode" style={{ cursor: "pointer" }}>
-                  <div className="scroll-down-cta-text">
-                    <p>Im Handumdrehen einrichten</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div
-              className="hero-section-visual"
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                gridRow: "1 / span 1",
-                gridColumn: "2 / span 1",
-              }}
-            >
-              <img width="300px;" src={focusMode} />
-            </div>
-          </div>
         </motion.div>
       </div>
     </div>

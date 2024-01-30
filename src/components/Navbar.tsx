@@ -38,12 +38,12 @@ export default function Navbar() {
         >
           {t('navTab3')}
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/focus-mode"
           className={({ isActive }) => (isActive ? "tab active" : "tab")}
         >
           {t('navTab5')}
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink
           to="/who-else"
           className={({ isActive }) => (isActive ? "tab active" : "tab")}

@@ -35,6 +35,10 @@ export default function Interface() {
         <div className="landingpage-column">
           <h2>{t("information-realm-h2")}</h2>
           <p>{t("information-realm-p")}</p>
+          <p>{t("information-realm-p1")}</p>
+          <p>{t("information-realm-p2")}</p>
+          <p>{t("information-realm-p3")}</p>
+          <p>{t("information-realm-p4")}</p>
         </div>
       </Section>
       <Section>
