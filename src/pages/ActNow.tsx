@@ -175,7 +175,7 @@ export default function ActNow() {
               <path
                 d="M1 0.999998L50 49M50 49H8M50 49V5.8"
                 stroke="#E7E7E7"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </svg>
             <div style={{ width: "40%" }} className="scroll-down-cta-text">
@@ -292,7 +292,7 @@ export default function ActNow() {
                     <path
                       d="M1 0.999998L50 49M50 49H8M50 49V5.8"
                       stroke="#E7E7E7"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                   </svg>
                   <a href="/focus-mode" style={{ cursor: "pointer" }}>

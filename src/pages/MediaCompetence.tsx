@@ -59,18 +59,21 @@ export default function MediaCompetence() {
                 strokeWidth="2"
               />
             </svg>
-            <div style={{ width: "250px;" }} className="scroll-down-cta-text">
+            <div style={{ width: "250px" }} className="scroll-down-cta-text">
               <p>{t("cta1")}</p>
             </div>
           </div>
         </div>
-        <div className="section-2-center">
+        <div className="section-quote">
           <div className="quote">
-            <h3>{t("quoteText")}</h3>
+            <h2>{t("quoteText")}</h2>
             <p>{t("quoteAuthor")}</p>
           </div>
-          <h4>{t("mediaLiteracy")}</h4>
-          <div className="cta-sec-1">
+        </div>
+        {/* Muss später unter dem Spotlight kommen */}
+        <div className="section-3">
+          <h3>{t("mediaLiteracy")}</h3>
+          <div className="topic-switch">
             <div
               className={`button ${
                 selectedButton1 === "aufmerksamkeit" ? "active-button" : ""
@@ -94,7 +97,9 @@ export default function MediaCompetence() {
                 <h4>{t("column1Title")}</h4>
                 <p className="text">{t("column1Text")}</p>
               </div>
-              <img src={aufmerksamkeitImage} style={{ width: "200px" }} />
+              <div className="image-column-section">
+                <img className="illustration-img" src={aufmerksamkeitImage} />
+              </div>
             </div>
           )}
           {selectedButton1 === "selbstmanagement" && (
@@ -103,11 +108,13 @@ export default function MediaCompetence() {
                 <h4>{t("column2Title")}</h4>
                 <p className="text">{t("column2Text")}</p>
               </div>
-              <img src={selbstManagementImage} style={{ width: "200px" }} />
+              <div className="image-column-section">
+                <img className="illustration-img" src={selbstManagementImage} />
+              </div>
             </div>
           )}
         </div>
-        <div className="section-3">
+        <div className="section-4">
           <div className="content-block">
             <h4>{t("section3Headline")}</h4>
             <div className="thin">

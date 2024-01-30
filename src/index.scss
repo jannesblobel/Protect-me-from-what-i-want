@@ -71,10 +71,24 @@ h2 {
   font-family: "PxGrotesk-bold";
   font-size: 40px;
   line-height: normal;
-  letter-spacing: 1.2px;
+  // letter-spacing: 0.9px;
   color: #ffffff;
 
   @include mobile {
     font-size: 24px;
   }
+}
+h3 {
+  font-family: "NeueHaas-bold";
+  font-size: 28px !important;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+}
+h4 {
+  font-family: "PxGrotesk-bold";
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  color: #fff;
 }
