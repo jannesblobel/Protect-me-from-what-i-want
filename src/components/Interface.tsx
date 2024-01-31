@@ -59,9 +59,12 @@ export default function Interface() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="scroll-down-cta-text">
+            <div
+              className="scroll-down-cta-text"
+              style={{ display: "flex", alignItems: "center" }}
+            >
               <a href="/focus-mode">
-                <p style={{ width: "140%" }}>{t("focusMode")}</p>
+                <p style={{ width: "80%" }}>{t("focusMode")}</p>
               </a>
             </div>
           </div>
@@ -84,9 +87,12 @@ export default function Interface() {
                 strokeWidth="2"
               />
             </svg>
-            <div className="scroll-down-cta-text">
+            <div
+              className="scroll-down-cta-text"
+              style={{ display: "flex", alignItems: "center" }}
+            >
               <a href="https://one-sec.app" target="_blank">
-                <p>{t("oneSec")}</p>
+                <p style={{ width: "70%" }}>{t("oneSec")}</p>
               </a>
             </div>
           </div>
