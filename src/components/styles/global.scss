@@ -2,13 +2,13 @@
 
 /* font styles */
 
-h1 {
-  font-family: "PxGrotesk-screen";
-  font-size: 64px;
-  line-height: normal;
-  letter-spacing: 1.92px;
-  color: #fff;
-}
+// h1 {
+//   font-family: "PxGrotesk-screen";
+//   font-size: 64px;
+//   line-height: normal;
+//   letter-spacing: 1.92px;
+//   color: #fff;
+// }
 
 //Ausgelagert nach index.scss
 // h2 {
@@ -34,22 +34,22 @@ h1 {
 //   color: #b3a1ff;
 // }
 
-p {
-  font-family: "NeueHaas-light";
-  font-size: 14px;
-  color: #e7e7e7;
-  letter-spacing: 2px;
+// p {
+//   font-family: "NeueHaas-light";
+//   font-size: 14px;
+//   color: #e7e7e7;
+//   letter-spacing: 2px;
 
-  @include mobile {
-    font-size: 14px;
-  }
-  @include desktop {
-    font-size: 14px;
-  }
-  @include xl {
-    font-size: 14px;
-  }
-}
+//   @include mobile {
+//     font-size: 14px;
+//   }
+//   @include desktop {
+//     font-size: 14px;
+//   }
+//   @include xl {
+//     font-size: 14px;
+//   }
+// }
 
 .text {
   font-family: "NeueHaas-light";

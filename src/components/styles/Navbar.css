@@ -1,11 +1,11 @@
 .navbar {
   position: sticky;
   top: 0;
-  padding: 0px 80px;
+  padding: 0px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #111111b3; /* Adjust the alpha value for desired transparency */
+  background-color: #0e0e0eb3; /* Adjust the alpha value for desired transparency */
   backdrop-filter: blur(10px); /* Adjust the px value for desired blur amount */
 
   /* width: calc(100vw - 160px); Adjust width considering the padding */

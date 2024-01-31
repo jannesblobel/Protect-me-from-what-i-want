@@ -1,20 +1,11 @@
-import { Plane, SpotLight } from "@react-three/drei";
+import { Float, Plane, SpotLight, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 import * as THREE from "three";
+import { GLTF } from "three-stdlib";
+import { degToRad } from "three/src/math/MathUtils.js";
 import "./styles/SpotLight.css";
 
-// Function to map one range of numbers to another range
-const mapRange = (
-  value: number,
-  inMin: number,
-  inMax: number,
-  outMin: number,
-  outMax: number
-) => {
-  return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-};
 type ControlledSpotLightProps = {
   intensity: number;
   angle: number;
@@ -90,10 +81,10 @@ type SpotLightSceneProps = {
   angle: number;
   penumbra: number;
   distance: number;
+  rot: number;
 };
 export default function SpotLightScene(props: SpotLightSceneProps) {
-  const { intensity, angle, penumbra, distance } = props;
-  // State for spotlight parameters
+  const { intensity, angle, penumbra, distance, rot } = props;
 
   const cameraPosition = new THREE.Vector3(8, 8, 8);
   const cameraZoom = 55; // Increase or decrease this value to adjust the size of the view
@@ -126,57 +117,83 @@ export default function SpotLightScene(props: SpotLightSceneProps) {
           distance={distance}
         />
         <IsometricRoom />
+        <Float
+          floatIntensity={1 - rot}
+          rotationIntensity={1 - rot}
+          speed={rot > 0.7 ? 0 : 2}
+        >
+          <ImpossibleTetris
+            scale={[1.5, 1.5, 1.5]}
+            position={[0, 1, 0]}
+            rotation={[degToRad(0), degToRad(-90) * rot, degToRad(0)]}
+          />
+        </Float>
       </Canvas>
-      {/* Sliders rendered outside of Canvas */}
-      {/* <div className="slider-section">
-        <div className="slider-block">
-          <input
-            type="range"
-            min="0.10"
-            max={Math.PI / 2 - 0.1}
-            step="0.01"
-            value={Math.PI / 2 - angle}
-            onChange={(e) => {
-              setAngle(Math.PI / 2 - Number(e.target.value));
-              setIntensity(
-                mapRange(
-                  Number(e.target.value),
-                  0.1,
-                  Math.PI / 2 - 0.1,
-                  30,
-                  500
-                )
-              );
-            }}
-          />
-          <label>{t("focus")}</label>
-          <div className="label-improvement">{t("concentration")}</div>
-        </div>
-        <div className="slider-block">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={penumbra}
-            onChange={(e) => setPenumbra(Number(e.target.value))}
-          />
-          <label>{t("light")}</label>
-          <div className="label-improvement">{t("self-management")}</div>
-        </div>
-        <div className="slider-block">
-          <input
-            type="range"
-            min="6"
-            max="7"
-            step="0.1"
-            value={distance}
-            onChange={(e) => setDistance(Number(e.target.value))}
-          />
-          <label>{t("clearness")}</label>
-          <div className="label-improvement">{t("attention")}</div>
-        </div>
-      </div> */}
     </>
   );
 }
+
+type GLTFResult = GLTF & {
+  nodes: {
+    Object_4: THREE.Mesh;
+    Object_5: THREE.Mesh;
+    Object_6: THREE.Mesh;
+    Object_7: THREE.Mesh;
+    Object_8: THREE.Mesh;
+  };
+  materials: {
+    blue: THREE.MeshStandardMaterial;
+    green: THREE.MeshStandardMaterial;
+    yellow: THREE.MeshStandardMaterial;
+    orange: THREE.MeshStandardMaterial;
+    material: THREE.MeshStandardMaterial;
+  };
+};
+
+function ImpossibleTetris(props: JSX.IntrinsicElements["group"]) {
+  const { nodes, materials } = useGLTF(
+    "/models/ImpossibleTetris.glb"
+  ) as GLTFResult;
+  return (
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.105}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <group position={[0.5, 0, 0]} scale={[0.5, 4, 1]}>
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Object_4.geometry}
+              material={materials.blue}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Object_5.geometry}
+              material={materials.green}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Object_6.geometry}
+              material={materials.yellow}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Object_7.geometry}
+              material={materials.orange}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Object_8.geometry}
+              material={materials.material}
+            />
+          </group>
+        </group>
+      </group>
+    </group>
+  );
+}
+
+useGLTF.preload("/models/ImpossibleTetris.glb");

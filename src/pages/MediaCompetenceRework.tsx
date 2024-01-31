@@ -19,13 +19,14 @@ export default function MediaCompetenceRework() {
   const [angle, setAngle] = useState(Math.PI / 8);
   const [penumbra, setPenumbra] = useState(0.1);
   const [distance, setDistance] = useState(7);
+  const [rot, setRot] = useState(1);
 
   return (
     <>
       <div className="container">
-        <div className="left-col" style={{ gridRow: "4 / span 1" }}>
+        <aside className="left-col" style={{ gridRow: "3" }}>
           <h3>Friction</h3>
-        </div>
+        </aside>
         <div className="hero-header">
           <h1>
             Medienmündig ist, wer Medien möglichst beherrscht und sich wenig von
@@ -53,15 +54,18 @@ export default function MediaCompetenceRework() {
         </div>
       </div>
       <div className="container">
-        <div className="left-col" style={{ gridRow: "span 4", height: "20vh" }}>
-          <h3>Begriffserklärung</h3>
-        </div>
-        <div
+        <aside
           className="left-col"
-          style={{ gridRow: "5 / span 1", height: "90vh" }}
+          style={{ gridRow: "span 4", height: "22vh" }}
+        >
+          <h3>Begriffserklärung</h3>
+        </aside>
+        <aside
+          className="left-col"
+          style={{ gridRow: "5 / span 1", height: "78vh" }}
         >
           <h3>Volker Busch, 2021</h3>
-        </div>
+        </aside>
         <div className="text-content">
           <h3>Aufmerksamkeit</h3>
           <p>
@@ -108,33 +112,29 @@ export default function MediaCompetenceRework() {
         </div>
       </div>
       <div className="container-long">
-        <div className="left-col" style={{ gridRow: "1", top: "12vh" }}>
+        <aside className="left-col" style={{ gridRow: "1", top: "12vh" }}>
           <h3>Spotlight</h3>
           <p>
             Das Zusammenspiel zwischen Aufmerksamkeit und Selbstregulierung kann
             wie ein Scheinwerfer verstanden werden.
           </p>
-        </div>
+        </aside>
         <div className="spotlight-visual">
           <p>Darstellung Spotlight</p>
           <SpotLightScene
+            rot={rot}
             intensity={intensity}
             angle={angle}
             distance={distance}
             penumbra={penumbra}
           />
         </div>
+
         <div
-          style={{
-            position: "sticky",
-            top: "12vh",
-            gridColumn: "9 / span 2",
-            gridRow: "1/ span 1",
-          }}
+          className="spotlight-controls"
+          style={{ gridRow: "1", justifyContent: "start" }}
         >
-          <p>Begriffe</p>
-        </div>
-        <div className="spotlight-controls" style={{ gridRow: "1" }}>
+          <p style={{ paddingBlockEnd: "24vh" }}>Begriffe</p>
           <h3>Fokus</h3>
           <p>
             Unsere Aufmerksamkeit entspricht einem Lichtkegel. Sie ermöglicht
@@ -207,9 +207,22 @@ export default function MediaCompetenceRework() {
             Kreativität eröffnet Lösungsmöglichkeiten und schafft Raum für neue
             Ideen.
           </p>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={rot}
+            onChange={(e) => {
+              setRot(Number(e.target.value));
+            }}
+          />
         </div>
 
-        <div className="spotlight-controls" style={{ zIndex: 2 }}>
+        <div
+          className="spotlight-controls"
+          style={{ zIndex: 2, paddingBlockEnd: "20vh" }}
+        >
           <div className="slider-block">
             <input
               type="range"
@@ -230,7 +243,9 @@ export default function MediaCompetenceRework() {
                 );
               }}
             />
-            <label>Fokus</label>
+            <label>
+              Fokus <p style={{ color: "#C6B7FF" }}>Konzentration</p>
+            </label>
             {/* <div className="label-improvement">self-management</div> */}
           </div>
           <div className="slider-block">
@@ -242,7 +257,9 @@ export default function MediaCompetenceRework() {
               value={penumbra}
               onChange={(e) => setPenumbra(Number(e.target.value))}
             />
-            <label>Streulicht</label>
+            <label>
+              Streulicht<p style={{ color: "#C6B7FF" }}>Selbstmanagement</p>
+            </label>
             {/* <div className="label-improvement">self-management</div> */}
           </div>
           <div className="slider-block">
@@ -254,17 +271,35 @@ export default function MediaCompetenceRework() {
               value={distance}
               onChange={(e) => setDistance(Number(e.target.value))}
             />
-            <label>Funktion</label>
+            <label>
+              Funktion <p style={{ color: "#C6B7FF" }}>Klarheit</p>
+            </label>
             {/* <div className="label-improvement">attention</div> */}
+          </div>
+          <div className="slider-block">
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={rot}
+              onChange={(e) => {
+                setRot(Number(e.target.value));
+              }}
+            />
+            <label>
+              Mehrwert <p style={{ color: "#C6B7FF" }}>Kreativität</p>
+            </label>
           </div>
         </div>
       </div>
-      <div className="container" style={{ height: "175vh" }}>
-        <div
+      <div className="text-container">
+        <aside
           className="left-col"
           style={{ gridRow: "1", gridColumn: "1 / span 3" }}
         >
-          <h3>Ziel: Klarheit</h3>
+          <h4>Ziel</h4>
+          <h3>Klarheit</h3>
           <p>
             Klarheit ist für unsere kognitiven Prozesse von großer Bedeutung.
             Klare Gedanken verbessern unsere Aufmerksamkeit,
@@ -272,8 +307,11 @@ export default function MediaCompetenceRework() {
             beschleunigten Zeitalter den besten Nutzen aus Technologien ziehen
             zu können.
           </p>
-        </div>
-        <div className="section-textblock" style={{ gridColumn: "4 /span 4" }}>
+        </aside>
+        <div
+          className="section-textblock section-sticky"
+          style={{ gridColumn: "4 /span 4" }}
+        >
           <p>Problem </p>
           <h2>Informationsdichte</h2>
           <p>
@@ -298,7 +336,8 @@ export default function MediaCompetenceRework() {
             Umwelt gerät in Mitleidenschaft.
           </p>
           <br />
-          <p>Quicktipp - Präsenz und Wahrnehmung statt Konsum</p>
+          <h5>Quicktipp</h5>
+          <p>↘ Präsenz und Wahrnehmung statt Konsum</p>
         </div>
         <div
           className="section-textblock"
@@ -323,13 +362,15 @@ export default function MediaCompetenceRework() {
             Überführung in das Langzeitgedächtnis findet weniger häufig statt.
           </p>
           <br />
+          <h5>Quicktipp</h5>
           <p>
-            Quicktipp Merkfähigkeit trainieren. - Zahlen, Adressen, Geburtstage
+            ↘ Merkfähigkeit trainieren.
+            <br />↘ Zahlen, Adressen, Geburtstage
           </p>
         </div>
         <div
           className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "4" }}
+          style={{ gridColumn: "8 /span 4", gridRow: "3" }}
         >
           <h2>Arbeitsgedächtnis</h2>
           <p>
@@ -350,17 +391,20 @@ export default function MediaCompetenceRework() {
             Überführung in das Langzeitgedächtnis findet weniger häufig statt.
           </p>
           <br />
+          <h5>Quicktipp</h5>
           <p>
-            Quicktipp - Menge an Informationen reduzieren - Denkpausen einlegen
+            ↘ Menge an Informationen reduzieren <br />
+            ↘Denkpausen einlegen
           </p>
         </div>
       </div>
-      <div className="container" style={{ height: "125vh" }}>
-        <div
+      <div className="text-container">
+        <aside
           className="left-col"
           style={{ gridRow: "1", gridColumn: "1 / span 3" }}
         >
-          <h3>Ziel: Konzentration</h3>
+          <h4>Ziel</h4>
+          <h3> Konzentration</h3>
           <p>
             Konzentration ist ein vorübergehender geistiger Zustand und eine
             Voraussetzung dafür, dass wir kritisch reflektieren, logisch denken
@@ -379,8 +423,11 @@ export default function MediaCompetenceRework() {
             steigert unsere Fähigkeiten in Bezug auf Intelligenzleistungen wie
             logisches Denken, Abstraktionsvermögen und das Gedächtnis.
           </p>
-        </div>
-        <div className="section-textblock" style={{ gridColumn: "4 /span 4" }}>
+        </aside>
+        <div
+          className="section-textblock  section-sticky"
+          style={{ gridColumn: "4 /span 4" }}
+        >
           <p>Problem </p>
           <h2>Ablenkungsdichte</h2>
           <p>
@@ -418,11 +465,11 @@ export default function MediaCompetenceRework() {
             erfordern Kontrolle und geistige Zuwendung.
           </p>
           <br />
+          <h5>Quicktipp</h5>
           <p>
-            Quicktipp - Bündle ähnliche Aufgaben. Der Wechsel benötigt bei
-            ähnlichen Aufgaben kaum geistige Ressourcen. Ist der wechsel
-            zwischen Verschiedenen Aufgaben unumgänglich... - Lege kurze Pausen
-            ein
+            ↘ Bündle ähnliche Aufgaben. Der Wechsel benötigt bei ähnlichen
+            Aufgaben kaum geistige Ressourcen. Ist der wechsel zwischen
+            Verschiedenen Aufgaben unumgänglich... - Lege kurze Pausen ein
           </p>
         </div>
         <div
@@ -446,8 +493,192 @@ export default function MediaCompetenceRework() {
             Geduld.
           </p>
           <br />
+          <h5>Quicktipp</h5>
+          <p>↘ Realitätscheck Schafft in vielen Situation eine Distanz</p>
+        </div>
+        <div
+          className="section-textblock"
+          style={{ gridColumn: "8 /span 4", gridRow: "3" }}
+        >
+          <h2>Störreize</h2>
           <p>
-            Quicktipp - Realitätscheck Schafft in vielen Situation eine Distanz
+            Das ständige Störfeuer um uns herum beeinflusst, wie lange wir die
+            Konzentration aufrechterhalten können. Ist sie einmal abhanden
+            gekommen, fällt es oft sehr schwer, sie wiederzugewinnen. Die
+            Fähigkeit, Störungen zu unterdrücken und die Konzentration selbst
+            sind zwei voneinander getrennte Systeme, die jeweils viel Energie
+            benötigen und unterschiedlich stark ausgeprägt sein können.
+            Störungen können nicht einfach kognitiv unterdrückt werden – der
+            allseits bekannte rosa Elefant, an den es nicht zu denken gilt, ist
+            ein gutes Beispiel: der Versuch kognitiver Unterdrückung führt zum
+            Gegenteil. Stattdessen sollten wir uns an Kindern orientieren, die
+            sich zum Spielen in eine Ecke setzen: sie reduzieren instinktiv
+            Ablenkungen, um konzentrierter denken zu können.
+          </p>
+          <br />
+          <h5>Quicktipp</h5>
+          <p>
+            ↘ Innehalten und Realitätscheck Sind mir die Informationen nun
+            wirklich wichtig?
+          </p>
+        </div>
+        <div
+          className="section-textblock"
+          style={{ gridColumn: "8 /span 4", gridRow: "4" }}
+        >
+          <h2>Störreize mit emotionalen Bezug</h2>
+          <p>
+            Die ausgeprägtesten Störungen sind oft dien, zu denen wir einen
+            emotionalen Bezug haben oder die persönlich an uns gerichtet sind.
+            Wenn wir uns einmal über eine laut telefonierende Person in der Bahn
+            geärgert haben, fällt es uns ab diesem Moment noch schwerer, den
+            Störreiz zu ignorieren.
+          </p>
+          <br />
+          <h5>
+            Quicktipp <br />
+          </h5>
+          <p>
+            ↘ Ablenkende Reize reduzierenm ist die effektivste Methode,
+            Störungen zu unterdrücken. Gutes Selbstmanagement umfasst, die
+            Störreize um sich herum zu minimieren.
+            <br /> ↘ Noise-Cancelling-Kopfhörer oder Ohropads, sind eine gute
+            Lösung, für den Öffentlichen Raum.
+          </p>
+        </div>
+      </div>
+      <div className="text-container">
+        <aside
+          className="left-col"
+          style={{ gridRow: "1", gridColumn: "1 / span 3" }}
+        >
+          <h4>Ziel</h4>
+          <h3>Kreativität</h3>
+          <p>
+            Kreativität ist die Lebenskunst, mit der wir an Herausforderungen
+            herangehen. Kreativ zu sein bedeutet, sich fantasievolle Lösungen
+            für Probleme einfallen zu lassen und Antworten auf relevante Fragen
+            im Alltag zu finden. Sie geben uns das Gefühl der Kontrolle, denn
+            sie helfen uns das Leben zu meistern. Kreativität stärkt unser
+            Selbstvertrauen, stimmt zuversichtlich und beruhigt unser
+            Stresssystem.
+          </p>
+        </aside>
+
+        <div
+          className="section-textblock section-sticky"
+          style={{ gridColumn: "4 /span 4" }}
+        >
+          <p>Problem </p>
+          <h2>Medialer Dauerkonsum</h2>
+          <p>
+            Arbeitnehmer*innen klagen über deutlich weniger Stress im Alltag,
+            wenn sie über die Fähigkeit verfügen, ihre Probleme durch Reflexion
+            und konsequentes Handeln zu lösen (188). Leider geraten die
+            genannten Aspekte durch den von Dauerkonsum erzeugten Stress in
+            Mitleidenschaft. Dabei wären diese Fähigkeit zum Belastungszeitpunkt
+            von unschätzbarem Wert und eine große Hilfe, um die Ursachen zu
+            bekämpfen und die resultierenden Beschwerden zu reduzieren(s). Die
+            Komplexität der Arbeitsabläufe wird immer höher und geistige
+            Leerlaufphasen werden mit digitalen Konsum gefüllt. Jugendliche
+            beschweren sich über geringe Selbstwirksamkeit und geringe mentale
+            Autonomie(s). Es wird erwartet, zu jeder Zeit in jedem Ort präsent
+            zu sein - Wir entkoppeln kaum von der digitalen Welt. Es fehlt an
+            Freiräumen für den Geist, um über bestimmte Dinge in Ruhe
+            nachzudenken - in in sich selbst hinein zu spüren. Es fällt Menschen
+            durch diese Dauerbelastung schwer, nichts zu tun. Langeweile ist für
+            viele kaum mehr aushaltbar - und der Kontakt zu uns selbst bricht
+            ab.
+          </p>
+        </div>
+
+        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+          <p>Wissenswert </p>
+          <h2>Assoziation</h2>
+          <p>
+            Kreativität entsteht durch Assoziation. Assoziation ist die
+            Fähigkeit des Gehirns, Informationen miteinander zu verknüpfen und
+            in Beziehung zu setzen. Aus aktuellen Sinneseindrücken, Erfahrungen
+            und vorhandenem Wissen formen sich unsere Gedanken und Gefühle. Dass
+            uns etwas einfällt, ist das Ergebnis einer Verknüpfung von
+            Informationen, die größtenteils bereits vorhanden sind. <br />
+            Thomas Edison formulierte es so: "Genie bedeutet nur 1% Inspiration,
+            aber 99% Transpiration." <br /> Um assoziieren zu können, benötigen
+            wir lediglich eine überschaubare Menge an Informationen. Denken wir
+            an unsere Kindheitstage zurück: Wie viele Legosteine brauchten wir,
+            um kreativ zu sein? Eine gewisse Anzahl war nötig, doch zu viele
+            Steine steigerten nicht unbedingt unsere Kreativität. Heutzutage
+            mangelt es nicht an Steinen (Informationen), sondern an Zeit und
+            Ruhe, um mit ihnen zu arbeiten. Um den ersten Einfall einer
+            brauchbaren und realitätsnahen Idee zu entwickeln zu können,
+            erfordert es Grübeln. Dabei denken wir konkret über das Problem und
+            mögliche Lösungsansätze nach, ergänzen Perspektiven und stellen
+            Pläne zur Umsetzung auf. Manche Erfinder*innen sehen kreatives
+            Denken als wichtigsten Bestandteil für den persönlichen Erfolg.
+          </p>
+        </div>
+        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+          <h2>Kreativität und mentale Gesundheit</h2>
+          <p>
+            Das Lösen von Problemen ist eine effektive Form der
+            Stressbewältigung im Alltag(s). Stress erhöht die innere Anspannung,
+            die nicht allein durch muskuläre Entspannung gelöst werden kann.
+            Lang anhaltender Stress erfordert eine Wendung nach innen. Der
+            gesamte kreative Lösungsprozess umfasst nicht nur die Entwicklung
+            von Ideen, sondern auch das Überwinden gedanklicher Hürden,
+            Durchspielen von Alternativen und das Ableiten konkreter
+            Handlungsschritte. Freies Assoziieren und sorgfältiges,
+            angestrengtes Denken sind unverzichtbare Bestandteile dessen.
+          </p>
+        </div>
+        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+          <h2>Innehalten</h2>
+          <p>
+            Innehalten ist ein essenzieller Bestandteil jeder Problemlösung.
+            Unabhängig von Problemen oder Nöten, mit denen man im Alltag
+            konfrontiert ist, stellt Innehalten oft eine kluge Entscheidung dar.
+            Probleme lassen sich nicht lösen, indem man sie auf Eis legt. Die
+            Bereitschaft angesichts äußerer Belastungen innezuhalten, nimmt ab -
+            obwohl gerade das nötig wäre um Belastungsfaktoren und
+            Verhaltensmuster zu erkennen. In einer australischen Studie gaben
+            16% der Männer und 26% der Frauen an, sich lieber mit ihrem
+            Smartphone zu beschäftigen, als sich gedanklich mit einem Problem
+            auseinanderzusetzen. Medienkonsum füllt die wenigen freien Phasen
+            zwischen eng getakteten Arbeitsabläufen. Der Blick nach Innen findet
+            in heutigen Tagesabläufen kaum noch Platz.
+          </p>
+        </div>
+        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+          <h2>Zertreuung/ Wendung nach Innen</h2>
+          <p>
+            Die Wendung nach Innen und das Wandern der Gedanken ist ein
+            besonderer Geisteszustand, der zunächst vielleicht unbedeutend
+            erscheint, aber viel für unser Leben bedeutet. In diesem Zustand
+            wird unsere Aufmerksamkeit wenig von äußeren Reizen beeinflusst. Das
+            Scheinwerferlicht unserer Wahrnehmung ist gedimmt; wir beginnen zu
+            träumen und zu fantasieren, gehen Empfindungen nach, reflektieren,
+            hinterfragen, wägen ab und entwickeln Verständnis für andere. Wir
+            sind nicht zwangsläufig unaufmerksam, sondern vielmehr von unserer
+            Umwelt entkoppelt (reizunabhängige Gedanken). Das Abschweifen der
+            Gedanken fällt uns leicht und erfordert keine besondere Anstrengung.
+          </p>
+        </div>
+        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+          <h2>Ruhestandsnetzwerk</h2>
+          <p>
+            Das Ruhenetzwerk des Gehirns wird aktiviert, sobald wir nichts tun.
+            Interessanterweise nimmt die Hirnaktivität in bestimmten Regionen
+            sogar zu, wenn wir geistig in Leerlauf sind. Die Funktionen dieser
+            Hirnbereiche sind vielfältig und umfassen unter anderem auch die
+            Beteiligung an klassischen, kreativen Denkprozessen. Es wurde
+            festgestellt, dass kreative Menschen in ihrem Ruhenetzwerk eine
+            höhere Konnektivität aufweisen(s). Das deutet darauf hin, dass unser
+            kreatives Denken eng mit Phasen des Tagträumens und der Zerstreuung
+            verbunden ist. Einige Forscher nehmen an, dass das
+            Ruhezustandsnetzwerk maßgeblich zur Identitätsbildung beiträgt(s).
+            Es bereichert uns durch innere Entspannung, Erholung,
+            Selbsterkenntnis und ein Bewusstsein für unsere Umwelt und innere
+            Welt.
           </p>
         </div>
       </div>

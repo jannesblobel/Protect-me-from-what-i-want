@@ -1,6 +1,7 @@
 @import "./breakpoints.scss"; // _variables.scss
 $grid-gap: 24px;
 $grid-columns: 12;
+$gap-top: 8rem;
 
 .container {
   display: grid;
@@ -12,6 +13,17 @@ $grid-columns: 12;
   // Adjust padding or margin if necessary for layout
   padding: $grid-gap 24px;
 }
+.text-container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gap;
+  min-height: 100vh;
+  min-width: 100vw;
+  // Adjust padding or margin if necessary for layout
+  padding: $grid-gap 24px;
+  grid-template-rows: repeat(5, auto);
+}
+
 .container-long {
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
@@ -27,21 +39,24 @@ $grid-columns: 12;
   grid-column: span 2;
   grid-row: 2 / span 3;
   position: sticky;
-  top: 88px; /* Adjust this value as needed */
+  top: $gap-top; /* Adjust this value as needed */
   align-self: start; /* This ensures that the sticky positioning works correctly within a grid layout */
-
+  // overline
+  h4 {
+    font-family: "NeueHaas-light";
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: "#e7e7e7";
+    padding-bottom: 8px;
+  }
   h3 {
     font-family: "NeueHaas-roman";
-    font-size: 1.47rem;
+    font-size: 1.75rem;
     color: #ffffff;
     margin-top: 0; /* You may want to reset the margin to ensure the sticky position works from the very top */
   }
   p {
     padding-top: 8px;
-    font-family: "NeueHaas-roman";
-    font-size: 0.9rem;
-    color: #ffffff;
-    letter-spacing: 1px;
   }
 }
 
@@ -63,10 +78,6 @@ $grid-columns: 12;
     @include desktop {
       font-size: 36px;
     }
-  }
-  p {
-    color: #ffffff;
-    // letter-spacing: 2px;
   }
 }
 
@@ -148,11 +159,26 @@ $grid-columns: 12;
 
 .section-textblock {
   grid-column: span 4;
-
+  grid-row: auto;
   h2 {
     font-family: "NeueHaas-light";
     font-size: 28px;
     color: #ffffff;
     padding-bottom: 10px;
+  }
+  h5 {
+    font-family: "NeueHaas-light";
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.1rem;
+    padding-bottom: 4px;
+  }
+}
+.section-textblock.section-sticky {
+  position: sticky;
+  top: $gap-top;
+
+  p {
+    padding-block-end: 6px;
   }
 }

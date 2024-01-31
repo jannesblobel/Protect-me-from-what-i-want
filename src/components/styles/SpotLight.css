@@ -12,27 +12,34 @@
 canvas {
   height: 600px;
 }
-
+/* 
 .canvas-container {
-  width: 50%;
-}
+  /* width: 50%; 
+} */
 
 label {
   font-style: normal;
-  width: 70%;
-  font-family: "Poppins";
+  font-family: "NeueHaas-light";
   font-weight: 200;
-  font-size: 24px;
+  font-size: 20px;
+  padding: 12px;
   color: #ffffff;
-  margin-inline-start: 24px;
+  text-align: right;
+  /* margin-inline-start: 24px; */
 }
 
-.slider-section {
+/* .slider-section {
   margin-block-start: 160px;
-}
+} */
 
 .slider-block {
-  margin-block-end: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  input[type="range"] {
+    width: 50%;
+  }
 }
 
 .label-improvement {
@@ -51,6 +58,7 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   cursor: pointer;
+  width: 100%;
 }
 
 /***** Track Styles *****/
