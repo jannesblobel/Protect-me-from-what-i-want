@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import DigitalReflection from "./pages/DigitalReflection";
-import MediaCompetence from "./pages/MediaCompetence";
+// import MediaCompetence from "./pages/MediaCompetence";
 // import WhoElse from "./pages/WhoElse";
 import ActNow from "./pages/ActNow";
 import FocusMode from "./pages/FocusMode";

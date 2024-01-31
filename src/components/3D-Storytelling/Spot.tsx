@@ -1,8 +1,5 @@
 import {
-  Box,
-  Float,
   MeshReflectorMaterial,
-  MeshWobbleMaterial,
   Plane,
   SoftShadows,
   SpotLight,
@@ -108,46 +105,46 @@ const Ground = () => {
   );
 };
 
-type DataPacketProps = {
-  color: string; // Color of the data packet, e.g., 'grey', 'white', 'purple'
-  position: THREE.Vector3; // Initial position of the data packet
-};
-const FlyingData = ({ color, position }: DataPacketProps) => {
-  const meshRef = useRef<THREE.Mesh>(null);
+// type DataPacketProps = {
+//   color: string; // Color of the data packet, e.g., 'grey', 'white', 'purple'
+//   position: THREE.Vector3; // Initial position of the data packet
+// };
+// const FlyingData = ({ color, position }: DataPacketProps) => {
+//   const meshRef = useRef<THREE.Mesh>(null);
 
-  // Use the useFrame hook to update the position of the data packet every frame
-  useFrame((state, delta) => {
-    if (meshRef.current) {
-      //  Move the data packet around by modifying its position over time
-      meshRef.current.position.x +=
-        Math.sin(state.clock.getElapsedTime()) * delta;
-      meshRef.current.position.y +=
-        Math.cos(state.clock.getElapsedTime()) * delta;
-      meshRef.current.rotation.x += delta;
-      meshRef.current.rotation.y += delta;
-    }
-  });
+//   // Use the useFrame hook to update the position of the data packet every frame
+//   useFrame((state, delta) => {
+//     if (meshRef.current) {
+//       //  Move the data packet around by modifying its position over time
+//       meshRef.current.position.x +=
+//         Math.sin(state.clock.getElapsedTime()) * delta;
+//       meshRef.current.position.y +=
+//         Math.cos(state.clock.getElapsedTime()) * delta;
+//       meshRef.current.rotation.x += delta;
+//       meshRef.current.rotation.y += delta;
+//     }
+//   });
 
-  return (
-    <Float
-      rotationIntensity={1}
-      floatIntensity={1}
-      speed={1.5}
-      floatingRange={[0.1, 3]}
-      position={position}
-    >
-      <Box ref={meshRef} args={[0.2, 0.2, 0.2]}>
-        {/* <pointLight position={[0, 3, 0]} intensity={1} /> */}
-        <MeshWobbleMaterial
-          attach="material"
-          color={color}
-          speed={1}
-          factor={0.5}
-        />
-      </Box>
-    </Float>
-  );
-};
+//   return (
+//     <Float
+//       rotationIntensity={1}
+//       floatIntensity={1}
+//       speed={1.5}
+//       floatingRange={[0.1, 3]}
+//       position={position}
+//     >
+//       <Box ref={meshRef} args={[0.2, 0.2, 0.2]}>
+//         {/* <pointLight position={[0, 3, 0]} intensity={1} /> */}
+//         <MeshWobbleMaterial
+//           attach="material"
+//           color={color}
+//           speed={1}
+//           factor={0.5}
+//         />
+//       </Box>
+//     </Float>
+//   );
+// };
 
 type GLTFResult = GLTF & {
   nodes: {
