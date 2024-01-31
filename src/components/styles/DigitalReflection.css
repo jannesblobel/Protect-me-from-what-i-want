@@ -1,16 +1,18 @@
 .question-section {
-  width: 80%;
-  height: auto;
+  grid-column: 3 / span 8;
+  grid-row: 3 / span 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 130px;
+  align-items: flex-end;
   text-align: center;
 }
 
 .cta-section {
+  grid-column: 5 / span 4;
+  grid-row: 4 / span 1;
+  justify-content: center;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 32px;
 }
 

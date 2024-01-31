@@ -7,15 +7,15 @@ import focusMode from "@/assets/focusMode.gif";
 import LegoBricks from "../components/3D-Storytelling/LegoBricks";
 // import forestApp from "@/assets/forestAppPreview.png";
 // import gehirnGehoert from "@/assets/gehirnGehoert.png";
-import Prozent from "@/assets/Prozent.gif";
+// import Prozent from "@/assets/Prozent.gif";
 import kreativität from "@/assets/kreativitaet.gif";
 import nixxen from "@/assets/nixxen.gif";
 import OneSec from "@/assets/oneSec.gif";
 
 import InnehaltenBlack from "@/assets/InnehaltenBlack.gif";
-import appLimitsGIF from "@/assets/appLimits.gif";
+// import appLimitsGIF from "@/assets/appLimits.gif";
 import arrow from "@/assets/arrowStraight.svg";
-import grauStufenGIF from "@/assets/grauStufen.gif";
+// import grauStufenGIF from "@/assets/grauStufen.gif";
 import handyFrei from "@/assets/handyFrei.gif";
 
 import { motion } from "framer-motion";
@@ -23,13 +23,13 @@ import animation from "../components/animations/divAnim";
 
 export default function ActNow() {
   const { t } = useTranslation();
-  const [selectedTip, setSelectedTip] = useState("shortterm");
+  // const [selectedTip, setSelectedTip] = useState("shortterm");
   //   const [selectedTab, setSelectedTab] = useState("apps");
 
-  const handleTipButtonClick = (tipType: "longterm" | "shortterm") => {
-    setSelectedTip(tipType);
-    // setSelectedTab(tipType === "shortterm" ? "apps" : "pauses");
-  };
+  // const handleTipButtonClick = (tipType: "longterm" | "shortterm") => {
+  //   setSelectedTip(tipType);
+  //   // setSelectedTab(tipType === "shortterm" ? "apps" : "pauses");
+  // };
 
   //   const handleTabButtonClick = (
   //     tabType:
@@ -44,78 +44,78 @@ export default function ActNow() {
   //     setSelectedTab(tabType);
   //   };
 
-  const [currentCard, setCurrentCard] = useState(1); // Initialisiere mit der ersten Karte
+  // const [currentCard, setCurrentCard] = useState(1); // Initialisiere mit der ersten Karte
   const [currentCard2, setCurrentCard2] = useState(1); // Initialisiere mit der ersten Karte
-  const [isShaking, setIsShaking] = useState(false);
+  // const [isShaking, setIsShaking] = useState(false);
 
-  const handleArrowClick = (direction) => {
-    // Überprüfe, ob die nächste Karte existiert
-    if (direction === "next" && currentCard < totalCards) {
-      setCurrentCard((currentCard + 1) % totalCards);
-      setIsShaking(true);
-      setTimeout(() => {
-        setIsShaking(false);
-      }, 500);
-    } else if (direction === "prev" && currentCard > 0) {
-      setCurrentCard((currentCard - 1) % totalCards);
-      setIsShaking(true);
-      setTimeout(() => {
-        setIsShaking(false);
-      }, 500);
-    }
-  };
+  // const handleArrowClick = (direction) => {
+  //   // Überprüfe, ob die nächste Karte existiert
+  //   if (direction === "next" && currentCard < totalCards) {
+  //     setCurrentCard((currentCard + 1) % totalCards);
+  //     setIsShaking(true);
+  //     setTimeout(() => {
+  //       setIsShaking(false);
+  //     }, 500);
+  //   } else if (direction === "prev" && currentCard > 0) {
+  //     setCurrentCard((currentCard - 1) % totalCards);
+  //     setIsShaking(true);
+  //     setTimeout(() => {
+  //       setIsShaking(false);
+  //     }, 500);
+  //   }
+  // };
 
   const handleArrowClick2 = (direction) => {
     // Überprüfe, ob die nächste Karte existiert
     if (direction === "next" && currentCard2 < totalCards2) {
       setCurrentCard2((currentCard2 + 1) % totalCards2);
-      setIsShaking(true);
+      // setIsShaking(true);
       setTimeout(() => {
-        setIsShaking(false);
+        // setIsShaking(false);
       }, 500);
     } else if (direction === "prev" && currentCard2 > 0) {
       setCurrentCard2((currentCard2 - 1) % totalCards2);
-      setIsShaking(true);
+      // setIsShaking(true);
       setTimeout(() => {
-        setIsShaking(false);
+        // setIsShaking(false);
       }, 500);
     }
   };
 
-  const totalCards = 4; // Anzahl der Karten insgesamt
+  // const totalCards = 4; // Anzahl der Karten insgesamt
   const totalCards2 = 5; // Anzahl der Karten insgesamt
 
-  const cards = [
-    {
-      title: "Stelle dein Handy auf Graustufen",
-      content:
-        "Dein Handy besitzt die Funktion, den Bildschirm nur noch in Graustufen darzustellen. Dadurch wird die Benutzung auf Dauer anstrengend für die Augen und somit unattraktiver. Ein gutes Mittel also, um die Handysucht zu bekämpfen.",
-      content2:
-        "iPhone: Einstellungen → Allgemein → Bedienungshilfen → Display-Anpassungen → Farbfilter einschalten.",
-      gif: grauStufenGIF,
-    },
-    {
-      title: "Limits für die App-Nutzung festlegen",
-      content:
-        "Du kannst ein Zeitlimit für eine Kategorie von Apps (z. B: „Spiele“ oder „Soziale Netzwerke“) und für einzelne Apps festlegen.",
-      content2:
-        "Wähle „Einstellungen“ → „Bildschirmzeit“. Tippe auf → „App-Limits“ und danach auf → „App-Limit“. Wähle eine oder mehrere Apps oder App-Kategorien aus. Tippe oben rechts auf → „Weiter“ und lege die erlaubte Zeitspanne fest. Wenn du mit dem Festlegen von Limits fertig bist, tippst du auf → „Hinzufügen“.",
-      gif: appLimitsGIF,
-    },
-    {
-      title: "OneSec herunterladen",
-      content:
-        "Jedes Mal, wenn du versuchst, deine Lieblingsapp zu öffnen, warte. Atme tief ein und langsam wieder aus. Eine Sekunde gibt dir die Möglichkeit, innezuhalten und zweimal nachzudenken - bevor du in ein endloses Schlupfloch gesogen werden, das dich wieder stundenlang in den Bann zieht.",
-      gif: OneSec,
-    },
-    {
-      title: "1% Methode",
-      content:
-        "Indem wir täglich nur 1% unserer Bildschirmzeit für bewusste Pausen oder produktive Aktivitäten reservieren, können wir langfristig unsere digitale Medienroutine verbessern. Dies könnte bedeuten, dass wir uns 1% der Zeit für informative Podcasts oder Bücher statt endloses Scrollen auf Social Media widmen. Kleine digitale Anpassungen können zu einer nachhaltigeren und bewussteren Nutzung führen.",
-      gif: Prozent,
-    },
-    // ...
-  ];
+  // const cards = [
+  //   {
+  //     title: "Stelle dein Handy auf Graustufen",
+  //     content:
+  //       "Dein Handy besitzt die Funktion, den Bildschirm nur noch in Graustufen darzustellen. Dadurch wird die Benutzung auf Dauer anstrengend für die Augen und somit unattraktiver. Ein gutes Mittel also, um die Handysucht zu bekämpfen.",
+  //     content2:
+  //       "iPhone: Einstellungen → Allgemein → Bedienungshilfen → Display-Anpassungen → Farbfilter einschalten.",
+  //     gif: grauStufenGIF,
+  //   },
+  //   {
+  //     title: "Limits für die App-Nutzung festlegen",
+  //     content:
+  //       "Du kannst ein Zeitlimit für eine Kategorie von Apps (z. B: „Spiele“ oder „Soziale Netzwerke“) und für einzelne Apps festlegen.",
+  //     content2:
+  //       "Wähle „Einstellungen“ → „Bildschirmzeit“. Tippe auf → „App-Limits“ und danach auf → „App-Limit“. Wähle eine oder mehrere Apps oder App-Kategorien aus. Tippe oben rechts auf → „Weiter“ und lege die erlaubte Zeitspanne fest. Wenn du mit dem Festlegen von Limits fertig bist, tippst du auf → „Hinzufügen“.",
+  //     gif: appLimitsGIF,
+  //   },
+  //   {
+  //     title: "OneSec herunterladen",
+  //     content:
+  //       "Jedes Mal, wenn du versuchst, deine Lieblingsapp zu öffnen, warte. Atme tief ein und langsam wieder aus. Eine Sekunde gibt dir die Möglichkeit, innezuhalten und zweimal nachzudenken - bevor du in ein endloses Schlupfloch gesogen werden, das dich wieder stundenlang in den Bann zieht.",
+  //     gif: OneSec,
+  //   },
+  //   {
+  //     title: "1% Methode",
+  //     content:
+  //       "Indem wir täglich nur 1% unserer Bildschirmzeit für bewusste Pausen oder produktive Aktivitäten reservieren, können wir langfristig unsere digitale Medienroutine verbessern. Dies könnte bedeuten, dass wir uns 1% der Zeit für informative Podcasts oder Bücher statt endloses Scrollen auf Social Media widmen. Kleine digitale Anpassungen können zu einer nachhaltigeren und bewussteren Nutzung führen.",
+  //     gif: Prozent,
+  //   },
+  //   // ...
+  // ];
 
   const cards2 = [
     {
@@ -157,216 +157,180 @@ export default function ActNow() {
   ];
 
   return (
-    <div>
-      <div className="scroll-container" dir="ltr">
-        <motion.div className="hero-section" {...animation}>
-          <h2>{t("actNowH2")}</h2>
-          <div className="hero-section-three">
-            <LegoBricks />
-          </div>
-          <div className="hero-section-content">
-            <p>{t("actNowP1")}</p>
-          </div>
-          <div className="scroll-down-cta">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="51"
-              height="50"
-              viewBox="0 0 51 50"
-              fill="none"
-            >
-              <path
-                d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                stroke="#E7E7E7"
-                strokeWidth="2"
-              />
-            </svg>
-            <div style={{ width: "40%" }} className="scroll-down-cta-text">
-              <p>{t("actNowP2")}</p>
-            </div>
-          </div>
-        </motion.div>
+    <>
+      <motion.div
+        className="container"
+        style={{ height: "94vh" }}
+        {...animation}
+      >
+        <aside className="left-col" style={{ gridRow: "2" }}>
+          <h3>Tu es jetzt</h3>
+        </aside>
 
-        <motion.div className="section-3-actNow">
-          <div className="hero-section" style={{ gap: "200px" }}>
-            <div className="hero-section-headline">
-              <h2 style={{ color: "#B3A1FF" }}>
-                Entdecke die App OneSec für bewusste Pausen während deiner Appbenutzung
-              </h2>
-              <br />
-              <p className="text" style={{ width: "100%" }}>
-                One Sec enhances awareness and intentional usage by introducing a 10-second delay/friction, disrupting the instant gratification associated with social media apps.
+        <div className="hero-header">
+          <h1>{t("actNowH2")}</h1>
+          <p>{t("actNowP1")}</p>
+        </div>
+        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="51"
+            height="50"
+            viewBox="0 0 51 50"
+            fill="none"
+          >
+            <path
+              d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+              stroke="#E7E7E7"
+              strokeWidth="2"
+            />
+          </svg>
+          <div>
+            <p className="scroll-down-cta-text">{t("actNowP2")}</p>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <LegoBricks />
+        </div>
+      </motion.div>
+      <motion.div className="container" {...animation}>
+        <aside className="left-col" style={{ gridRow: "2" }}>
+          <h3>One Sec</h3>
+          <p>
+            One Sec fungiert als Starthilfe um deinen Weg zu einer
+            medienmündigen Person einzuschlagen.
+          </p>
+        </aside>
+
+        <div className="hero-header">
+          <h1 style={{ color: "rgb(179, 161, 255)" }}>
+            Entdecke die App OneSec für bewusste Pausen vor deiner Appbenutzung
+          </h1>
+          <p>
+            One Sec steigert das Bewusstsein und die absichtliche Nutzung durch
+            die Einführung einer Verzögerung von 10 Sekunden, wodurch die
+            sofortige Befriedigung, die mit Social-Media-Apps verbunden ist,
+            unterbrochen wird.
+          </p>
+        </div>
+        <div className="hero-visual-img">
+          <img src={OneSec} />
+        </div>
+        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="51"
+            height="50"
+            viewBox="0 0 51 50"
+            fill="none"
+          >
+            <path
+              d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+              stroke="#E7E7E7"
+              strokeWidth="2"
+            />
+          </svg>
+          <a href="/focus-mode" style={{ cursor: "pointer" }}>
+            <div>
+              <p className="scroll-down-cta-text" style={{ maxWidth: "300px" }}>
+                Im Handumdrehen einrichten
               </p>
-              <br />
-              <br />
-              <br />
-              <div className="scroll-down-cta">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="51"
-                  height="50"
-                  viewBox="0 0 51 50"
-                  fill="none"
-                >
-                  <path
-                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                    stroke="#E7E7E7"
-                    stroke-width="2"
-                  />
-                </svg>
-                <a href="/focus-mode" style={{ cursor: "pointer" }}>
-                  <div className="scroll-down-cta-text">
-                    <p>Im Handumdrehen einrichten</p>
-                  </div>
-                </a>
-              </div>
             </div>
-            <div
-              className="hero-section-visual"
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                gridRow: "1 / span 1",
-                gridColumn: "2 / span 1",
-              }}
-            >
-              <img width="300px;" src={OneSec} />
-            </div>
-          </div>
-        </motion.div>
+          </a>
+        </div>
+      </motion.div>
+      <motion.div className="container" {...animation}>
+        <aside className="left-col" style={{ gridRow: "2" }}>
+          <h3>Fokus Modus</h3>
+          <p>Fokus Modi erlauben es dir äußere Störreize zu minimieren.</p>
+        </aside>
 
-        <motion.div className="section-3-actNow" {...animation}>
-          <div className="hero-section" style={{ gap: "200px" }}>
-            <div className="hero-section-headline">
-              <h2 style={{ color: "#B3A1FF" }}>
-                Entdecke den Fokus Modus für ungestörte Produktivität und
-                Kontrolle
-              </h2>
-              <br />
-              <p className="text" style={{ width: "100%" }}>
-                Dein persönliches Werkzeug für ungestörte Produktivität und
-                wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-                arbeiten, dich entspannen oder einfach den digitalen Trubel
-                ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle.
-                Hier erfährst du, wie du ihn direkt im Kontrollzentrum
-                aktivierst oder clever planst, damit er sich automatisch zu den
-                Zeiten einschaltet, die für dich am besten passen.
+        <div className="hero-header">
+          <h1 style={{ color: "rgb(179, 161, 255)" }}>
+            Entdecke den Fokus Modus für ungestörte Produktivität und Kontrolle
+          </h1>
+          <p>
+            Dein persönliches Werkzeug für ungestörte Produktivität und
+            wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
+            arbeiten, dich entspannen oder einfach den digitalen Trubel
+            ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle. Hier
+            erfährst du, wie du ihn direkt im Kontrollzentrum aktivierst oder
+            clever planst, damit er sich automatisch zu den Zeiten einschaltet,
+            die für dich am besten passen.
+          </p>
+        </div>
+        <div className="hero-visual-img">
+          <img src={focusMode} />
+        </div>
+        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="51"
+            height="50"
+            viewBox="0 0 51 50"
+            fill="none"
+          >
+            <path
+              d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+              stroke="#E7E7E7"
+              strokeWidth="2"
+            />
+          </svg>
+          <a href="/focus-mode" style={{ cursor: "pointer" }}>
+            <div>
+              <p className="scroll-down-cta-text" style={{ maxWidth: "300px" }}>
+                Im Handumdrehen einrichten
               </p>
-              <br />
-              <br />
-              <br />
-              <div className="scroll-down-cta">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="51"
-                  height="50"
-                  viewBox="0 0 51 50"
-                  fill="none"
-                >
-                  <path
-                    d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                    stroke="#E7E7E7"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <a href="/focus-mode" style={{ cursor: "pointer" }}>
-                  <div className="scroll-down-cta-text">
-                    <p>Im Handumdrehen einrichten</p>
-                  </div>
-                </a>
-              </div>
             </div>
-            <div
-              className="hero-section-visual"
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                gridRow: "1 / span 1",
-                gridColumn: "2 / span 1",
-              }}
-            >
-              <img width="300px;" src={focusMode} />
-            </div>
+          </a>
+        </div>
+      </motion.div>
+
+      <motion.div className="container" {...animation}>
+        <aside className="left-col" style={{ gridRow: "1" }}>
+          <h3>Handlungsoptionen</h3>
+          <p>
+            Ob kurz– oder mittelfristig, hier findest du Handlungstipps um deine
+            Medienmündigkeit zu steigern.
+          </p>
+        </aside>
+        {/* <div className="topic-switcher">
+          <div
+            className={`button ${
+              selectedTip === "shortterm" ? "active-button" : ""
+            }`}
+            onClick={() => handleTipButtonClick("shortterm")}
+          >
+            {t("shorttermTips")}
           </div>
-        </motion.div>
-
-        <motion.div className="section-3-actNow" {...animation}>
-          <div className="cta-sec">
-            <div
-              className={`button ${
-                selectedTip === "shortterm" ? "active-button" : ""
-              }`}
-              onClick={() => handleTipButtonClick("shortterm")}
-            >
-              {t("shorttermTips")}
-            </div>
-            <div
-              className={`button ${
-                selectedTip === "longterm" ? "active-button" : ""
-              }`}
-              onClick={() => handleTipButtonClick("longterm")}
-            >
-              {t("longtermTips")}
-            </div>
+          <div
+            className={`button ${
+              selectedTip === "longterm" ? "active-button" : ""
+            }`}
+            onClick={() => handleTipButtonClick("longterm")}
+          >
+            {t("longtermTips")}
           </div>
-
-          {/* Shortterm */}
-          {selectedTip === "shortterm" && (
-            <div className="card-rotation-section">
-              <div className="button" onClick={() => handleArrowClick("prev")}>
-                <img src={arrow} className="arrow-white left" />
-              </div>
-              <div className={`card-component ${isShaking ? "shake" : ""}`}>
-                <div className="column-view">
-                  <div className="text-block">
-                    <h2 className="black">{cards[currentCard].title}</h2>
-                    <br />
-                    <div className="text black">
-                      {cards[currentCard].content}
-                    </div>
-                    <br />
-                    <div className="text black">
-                      {cards[currentCard].content2}
-                    </div>
-                  </div>
-                  <img src={cards[currentCard].gif} className="gif-style" />
-                </div>
-              </div>
-              <div className="button" onClick={() => handleArrowClick("next")}>
-                <img src={arrow} className="arrow-white" />
-              </div>
-            </div>
-          )}
-
-          {/* Longterm */}
-          {selectedTip === "longterm" && (
-            <div className="card-rotation-section">
-              <div className="button" onClick={() => handleArrowClick2("prev")}>
-                <img src={arrow} className="arrow-white left" />
-              </div>
-              <div className={`card-component ${isShaking ? "shake" : ""}`}>
-                <div className="column-view">
-                  <div className="text-block">
-                    <h2 className="black">{cards2[currentCard2].title}</h2>
-                    <br />
-                    <div className="text black">
-                      {cards2[currentCard2].content}
-                    </div>
-                    <br />
-                    <div className="text black">
-                      {cards2[currentCard2].content2}
-                    </div>
-                  </div>
-                  <img src={cards2[currentCard2].gif} className="gif-style" />
-                </div>
-              </div>
-              <div className="button" onClick={() => handleArrowClick2("next")}>
-                <img src={arrow} className="arrow-white" />
-              </div>
-            </div>
-          )}
-        </motion.div>
-      </div>
-    </div>
+        </div> */}
+        <div className="carousel-arrow-left">
+          <div className="button" onClick={() => handleArrowClick2("prev")}>
+            <img src={arrow} className="arrow-white left" />
+          </div>
+        </div>
+        <div className="carousel-content">
+          {/* Neu bauen mitframer motion */}
+          <h2 className="">{cards2[currentCard2].title}</h2>
+          <p className="">
+            {cards2[currentCard2].content + cards2[currentCard2].content2}
+          </p>
+          <img src={cards2[currentCard2].gif} />
+        </div>
+        <div className="carousel-arrow-right">
+          <div className="button" onClick={() => handleArrowClick2("next")}>
+            <img src={arrow} className="arrow-white" />
+          </div>
+        </div>
+      </motion.div>
+    </>
   );
 }

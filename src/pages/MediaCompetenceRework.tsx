@@ -2,6 +2,7 @@ import { useState } from "react";
 import Spot from "../components/3D-Storytelling/Spot";
 import SpotLightScene from "../components/SpotLightSceneNew";
 import "../scss/MediaCompetenceRework.scss";
+import "../scss/PageLayout.scss";
 
 // Function to map one range of numbers to another range
 const mapRange = (
@@ -24,7 +25,7 @@ export default function MediaCompetenceRework() {
   return (
     <>
       <div className="container">
-        <aside className="left-col" style={{ gridRow: "3" }}>
+        <aside className="left-col">
           <h3>Friction</h3>
         </aside>
         <div className="hero-header">

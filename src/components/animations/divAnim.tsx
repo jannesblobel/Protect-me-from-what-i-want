@@ -10,7 +10,7 @@ const animation: MotionProps = {
   whileInView: ["visible", "slideEnd"],
   exit: ["hidden", "slideStart"],
   viewport: {
-    amount: 0.8,
+    amount: 0.2,
     once: false,
   },
   transition: { type: "spring", duration: 1, bounce: 0 },

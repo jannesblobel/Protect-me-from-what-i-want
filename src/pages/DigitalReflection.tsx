@@ -5,6 +5,7 @@ import DigitalMirrorPortal from "../components/3D-Storytelling/DigitalMirrorPort
 import animation from "../components/animations/divAnim";
 import "../components/styles/DigitalReflection.css";
 import "../components/styles/global.scss";
+import "../scss/PageLayout.scss";
 
 export default function DigitalReflection() {
   const { t } = useTranslation();
@@ -55,92 +56,103 @@ export default function DigitalReflection() {
   };
 
   return (
-    <div>
-      <div className="scroll-container" dir="ltr" id="scroll-container">
-        <motion.div className="hero-section" {...animation}>
-          <div className="hero-section-headline">
-            <h2>{t("digitalReflectionH1")}</h2>
+    <div className="scroll-container">
+      <motion.div
+        className="container"
+        style={{ scrollSnapAlign: "start" }}
+        {...animation}
+      >
+        <aside className="left-col" style={{ gridRow: "2" }}>
+          <h3>Digitale Reflektion</h3>
+        </aside>
+        <div className="hero-header">
+          <h1>{t("digitalReflectionH1")}</h1>
+          <p>{t("digitalReflectionP1")}</p>
+        </div>
+        <div className="scroll-down-cta">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="51"
+            height="50"
+            viewBox="0 0 51 50"
+            fill="none"
+          >
+            <path
+              d="M1 0.999998L50 49M50 49H8M50 49V5.8"
+              stroke="#E7E7E7"
+              strokeWidth="2"
+            />
+          </svg>
+          <div style={{ width: "250px" }}>
+            <p className="scroll-down-cta-text">{t("digitalReflectionP2")}</p>
           </div>
-          <div className="hero-section-visual">
-            <DigitalMirrorPortal />
+        </div>
+        <div className="hero-visual">
+          <DigitalMirrorPortal />
+        </div>
+      </motion.div>
+      <motion.div
+        className="container"
+        style={{
+          background:
+            "radial-gradient(80% 45% at 50% 50%, #9a5dff, #0e0e0e 50%)",
+          scrollSnapAlign: "end",
+        }}
+        {...animation}
+      >
+        <div className="question-section">
+          <h2>{currentQuestion}</h2>
+        </div>
+        <div className="cta-section">
+          <div className="button" onClick={getRandomQuestion}>
+            Shuffle
           </div>
-          <div className="hero-section-content">
-            <p>{t("digitalReflectionP1")}</p>
-          </div>
-          <div className="scroll-down-cta">
+          <div
+            className={`button ${showOptions ? "different" : ""}`}
+            onClick={() => setShowOptions(!showOptions)}
+          >
             <svg
+              className={`${showOptions ? "hide" : "show"}`}
               xmlns="http://www.w3.org/2000/svg"
-              width="51"
-              height="50"
-              viewBox="0 0 51 50"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
               fill="none"
             >
               <path
-                d="M1 0.999998L50 49M50 49H8M50 49V5.8"
-                stroke="#E7E7E7"
-                strokeWidth="2"
+                d="M17 1C17 0.447715 16.5523 -2.52353e-10 16 -2.53133e-07L7 5.47657e-07C6.44772 2.10482e-07 6 0.447716 6 1C6 1.55228 6.44772 2 7 2L15 2L15 10C15 10.5523 15.4477 11 16 11C16.5523 11 17 10.5523 17 10L17 1ZM1.70711 16.7071L16.7071 1.70711L15.2929 0.292893L0.292893 15.2929L1.70711 16.7071Z"
+                fill="white"
               />
             </svg>
-            <div style={{ width: "250px" }} className="scroll-down-cta-text">
-              <p>{t("digitalReflectionP2")}</p>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div className="section-2" {...animation}>
-          <div className="question-section">
-            <h2>{currentQuestion}</h2>
-          </div>
-          <div className="cta-section">
-            <div className="button" onClick={getRandomQuestion}>
-              Shuffle
-            </div>
-            <div
-              className={`button ${showOptions ? "different" : ""}`}
-              onClick={() => setShowOptions(!showOptions)}
-            >
-              <svg
-                className={`${showOptions ? "hide" : "show"}`}
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
+            {showOptions && (
+              <div
+                className={`text ${
+                  showOptions ? "show fade-in" : "hide fade-out"
+                }`}
               >
-                <path
-                  d="M17 1C17 0.447715 16.5523 -2.52353e-10 16 -2.53133e-07L7 5.47657e-07C6.44772 2.10482e-07 6 0.447716 6 1C6 1.55228 6.44772 2 7 2L15 2L15 10C15 10.5523 15.4477 11 16 11C16.5523 11 17 10.5523 17 10L17 1ZM1.70711 16.7071L16.7071 1.70711L15.2929 0.292893L0.292893 15.2929L1.70711 16.7071Z"
-                  fill="white"
-                />
-              </svg>
-              {showOptions && (
                 <div
-                  className={`text ${
-                    showOptions ? "show fade-in" : "hide fade-out"
-                  }`}
+                  onClick={() => handleShare("link")}
+                  style={{ letterSpacing: "2.4px;" }}
                 >
-                  <div
-                    onClick={() => handleShare("link")}
-                    style={{ letterSpacing: "2.4px;" }}
-                  >
-                    Share Link
-                  </div>
-                  <div
-                    onClick={() => handleShare("whatsapp")}
-                    style={{ letterSpacing: "2.4px;" }}
-                  >
-                    Share via WhatsApp
-                  </div>
-                  <div
-                    onClick={() => handleShare("email")}
-                    style={{ letterSpacing: "2.4px;" }}
-                  >
-                    Share via Email
-                  </div>
+                  Share Link
                 </div>
-              )}
-            </div>
+                <div
+                  onClick={() => handleShare("whatsapp")}
+                  style={{ letterSpacing: "2.4px;" }}
+                >
+                  Share via WhatsApp
+                </div>
+                <div
+                  onClick={() => handleShare("email")}
+                  style={{ letterSpacing: "2.4px;" }}
+                >
+                  Share via Email
+                </div>
+              </div>
+            )}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
