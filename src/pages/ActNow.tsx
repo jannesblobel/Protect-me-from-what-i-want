@@ -262,7 +262,7 @@ export default function ActNow() {
         <div className="hero-visual-img">
           <img src={focusMode} />
         </div>
-        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+        <div className="scroll-down-cta" style={{ gridRow: "5" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="51"
