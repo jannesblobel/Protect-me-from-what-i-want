@@ -67,12 +67,28 @@
   border-radius: 20px;
   border: 3px solid #202020;
 }
+
 h1 {
-  font-family: "PxGrotesk-screen";
-  font-size: 64px;
-  line-height: normal;
-  letter-spacing: 1.92px;
-  color: #fff;
+  font-family: "PxGrotesk-bold";
+  font-size: 24px;
+  color: #e7e7e7;
+  padding-bottom: 8%;
+
+  @include mobile {
+    font-size: 24px;
+  }
+  @include tablet {
+    font-size: 26px;
+  }
+  @include desktop {
+    font-size: 28px;
+  }
+  @include xl {
+    font-size: 36px;
+  }
+  @include xxl {
+    font-size: 48px;
+  }
 }
 h2 {
   font-family: "PxGrotesk-bold";

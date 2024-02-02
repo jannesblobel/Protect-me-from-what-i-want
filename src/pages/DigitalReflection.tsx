@@ -67,6 +67,8 @@ export default function DigitalReflection() {
         </aside>
         <div className="hero-header">
           <h1>{t("digitalReflectionH1")}</h1>
+        </div>
+        <div className="hero-text">
           <p>{t("digitalReflectionP1")}</p>
         </div>
         <div className="scroll-down-cta">

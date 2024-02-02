@@ -1,20 +1,39 @@
 $breakpoint-mobile: 769px; // Mobile devices
 $breakpoint-desktop: 1024px; // Desktop devices
-$breakpoint-xl: 1450px; // Desktop devices
+$breakpoint-xl: 1280px; // Desktop devices
+$breakpoint-4k: 1440px;
 
+// add 4k example
+
+// Mixin for mobile devices
 @mixin mobile {
   @media (max-width: $breakpoint-mobile) {
     @content;
   }
 }
-
-@mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
+@mixin tablet {
+  @media (min-width: ($breakpoint-mobile + 1)) and (max-width: $breakpoint-desktop) {
     @content;
   }
 }
+
+// Mixin for desktop/laptop devices
+@mixin desktop {
+  @media (min-width: ($breakpoint-desktop+1)) and (max-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Mixin for XL screens
 @mixin xl {
-  @media (min-width: 1440px) {
+  @media (min-width: ($breakpoint-xl + 1)) and (max-width: $breakpoint-4k) {
+    @content;
+  }
+}
+
+//4k display
+@mixin xxl {
+  @media (min-width: ($breakpoint-4k+1)) {
     @content;
   }
 }

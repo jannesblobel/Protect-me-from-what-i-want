@@ -44,6 +44,7 @@ $gap-top: 8rem;
 .section-textblock.section-sticky {
   position: sticky;
   top: $gap-top;
+  align-self: flex-start;
 
   p {
     padding-block-end: 6px;

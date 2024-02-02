@@ -71,7 +71,7 @@ $gap-top: 8rem;
 
 .hero-header {
   grid-column: 4 / span 4;
-  grid-row: 2 / span 3;
+  grid-row: 2 / span 1;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -80,14 +80,10 @@ $gap-top: 8rem;
     font-size: 28px;
     color: #ffffff;
   }
-  h1 {
-    font-family: "PxGrotesk-bold";
-    font-size: 44px;
-    padding-bottom: 8%;
-    @include desktop {
-      font-size: 36px;
-    }
-  }
+}
+.hero-text {
+  grid-column: 4 / span 4;
+  grid-row: 3 / span 2;
   p {
     font-size: 1rem;
   }
@@ -162,7 +158,13 @@ $gap-top: 8rem;
   gap: 32px;
   display: flex;
 }
-
+.scroll-down-cta svg {
+  transition: transform 0.3s ease-in-out; /* Apply transition to both hover and non-hover states */
+}
+.scroll-down-cta:hover svg {
+  transform: rotate(-45deg); /* Rotate arrow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
 .scroll-down-cta-text {
   line-height: 1.5em; /* Line height */
   font-size: 1.35em; /* Font size */

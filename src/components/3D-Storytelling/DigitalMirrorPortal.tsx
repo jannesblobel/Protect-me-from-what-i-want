@@ -48,7 +48,7 @@ function DigitalMirrorPortal() {
       }}
     >
       <Suspense fallback={null}>
-        <color attach="background" args={["#111"]} />
+        <color attach="background" args={["#0e0e0e"]} />
         <ambientLight intensity={1} />
         <Mirror id="mirror">
           <pointLight intensity={30} position={[0, 4, -3]} decay={2.4} />

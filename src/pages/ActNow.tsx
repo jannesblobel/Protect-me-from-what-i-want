@@ -169,6 +169,8 @@ export default function ActNow() {
 
         <div className="hero-header">
           <h1>{t("actNowH2")}</h1>
+        </div>
+        <div className="hero-text">
           <p>{t("actNowP1")}</p>
         </div>
         <div className="scroll-down-cta" style={{ gridRow: "4" }}>

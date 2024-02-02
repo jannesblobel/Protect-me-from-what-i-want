@@ -41,7 +41,7 @@ export default function MediaCompetence() {
           <div className="hero-section-visual">
             <Spot />
           </div>
-          <div className="hero-section-content">
+          <div className="hero-text">
             <p>{t("mediaCompetenceContent1")}</p>
             <br />
             <br />
