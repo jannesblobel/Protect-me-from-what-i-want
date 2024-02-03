@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "./styles/Interface.css";
+import "./styles/Interface.scss";
 import "./styles/global.scss";
 
 type SectionProps = {
@@ -43,7 +43,7 @@ export default function Interface() {
       </Section>
       <Section>
         <div className="landingpage-column">
-          <h4 style={{ color: "#ffffff" }}>{t("magicMaybe")}</h4>
+          <h2>{t("magicMaybe")}</h2>
           {/* <p>{t("hook-model-p")}</p> */}
           <div className="scroll-down-cta">
             <svg
@@ -71,8 +71,8 @@ export default function Interface() {
         </div>
       </Section>
       <Section>
-        <div className="landingpage-column">
-          <h4 style={{ color: "#ffffff" }}>{t("one-sec-h2")}</h4>
+        <div className="landingpage-column" style={{}}>
+          <h2>{t("one-sec-h2")}</h2>
           <div className="scroll-down-cta">
             <svg
               xmlns="http://www.w3.org/2000/svg"

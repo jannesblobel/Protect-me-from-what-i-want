@@ -1,18 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-body {
-  background-color: color(srgb 0.0667 0.0667 0.0667);
-}
-
+@import "../../scss/breakpoints.scss";
 .container-section {
   background-color: transparent;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   padding: 0px 80px;
-}
-
-.headline-section {
-  width: 30%;
+  @include mobile {
+    padding: 0px 24px;
+  }
 }
 
 .landingpage-column {
@@ -23,8 +17,17 @@ body {
   align-items: flex-start;
   gap: 32px;
 
-  p {
+  // p {
+  //   font-size: 20px;
+  // }
+
+  h2 {
     font-size: 20px;
+    font-weight: 400;
+  }
+
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -42,4 +45,7 @@ body {
   text-align: left;
   color: white;
   scroll-snap-align: center;
+  @include mobile {
+    height: 200vh;
+  }
 }

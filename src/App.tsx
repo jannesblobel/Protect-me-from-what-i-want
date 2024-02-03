@@ -13,14 +13,17 @@ import MediaCompetenceRework from "./pages/MediaCompetenceRework";
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [pages, setPages] = useState(6);
 
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       if (window.innerWidth < 1000) {
+        setPages(12);
         setIsMobile(true);
         console.log("mobile");
       } else {
+        setPages(6);
         setIsMobile(false);
       }
     }
@@ -31,8 +34,6 @@ function App() {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount and unmount
-  // const [section, setSection] = useState(0);
-  const pages: number = 6;
 
   return (
     <Router>
