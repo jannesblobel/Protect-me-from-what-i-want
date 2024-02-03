@@ -130,26 +130,17 @@ export default function MobileNavbar() {
           </motion.aside>
         )}
       </AnimatePresence>
-      {/* <motion.div className="nav-tabs" variants={menuVariants}>
-        <NavLink
-          to="/digital-reflection"
-          className={({ isActive }) => (isActive ? "tab active" : "tab")}
-        >
-          {t("navTab1")}
+      {/* Add Logo */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mobile-logo"
+      >
+        <NavLink to="/">
+          <img src={logo} alt="Logo" />
         </NavLink>
-        <NavLink
-          to="/media-competence"
-          className={({ isActive }) => (isActive ? "tab active" : "tab")}
-        >
-          {t("navTab2")}
-        </NavLink>
-        <NavLink
-          to="/act-now"
-          className={({ isActive }) => (isActive ? "tab active" : "tab")}
-        >
-          {t("navTab3")}
-        </NavLink>
-      </motion.div> */}
+      </motion.div>
     </motion.nav>
   );
 }
