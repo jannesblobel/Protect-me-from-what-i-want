@@ -38,12 +38,12 @@
 }
 
 #root {
-  width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
   height: 100vh;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   color: #3d5373;
   background-color: #0e0e0e;
+  scroll-behavior: smooth;
 }
 
 /* Scrollbar styling */
@@ -76,6 +76,7 @@ h1 {
 
   @include mobile {
     font-size: 24px;
+    padding-bottom: 2%;
   }
   @include tablet {
     font-size: 26px;

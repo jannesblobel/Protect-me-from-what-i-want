@@ -1,0 +1,44 @@
+.mobile-navbar {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #0e0e0efa; /* Adjust the alpha value for desired transparency */
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+  height: 48px;
+}
+.mobile-hamburger-menu {
+  padding: 4px 16px 0px 16px;
+  position: absolute;
+  z-index: 3;
+}
+.mobile-aside {
+  background-color: #0e0e0eb3; /* Adjust the alpha value for desired transparency */
+  backdrop-filter: blur(8px); /* Adjust the px value for desired blur amount */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  height: 100vh;
+  width: 100%; // Ensure full width
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 24px;
+  padding: 5vh 15vw 20vh 15vw;
+}
+.mobile-aside .mobile-tab {
+  color: white;
+  font-size: 1.75rem;
+  font-family: "NeueHaas-roman";
+  text-transform: lowercase;
+
+  text-decoration: none;
+  text-align: flex-start;
+}
+.mobile-tab.active {
+  color: #b3a1ff;
+}
+
+.mobile-logo {
+  height: 40px;
+  width: 40px;
+}

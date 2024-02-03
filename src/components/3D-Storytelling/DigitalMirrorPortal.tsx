@@ -13,6 +13,7 @@ import { Suspense, useRef } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { degToRad } from "three/src/math/MathUtils.js";
+import "../../scss/PageLayout.scss";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -39,7 +40,7 @@ function DigitalMirrorPortal() {
   return (
     <Canvas
       shadows
-      style={{ width: "100%", height: "60vh" }}
+      className="three-canvas"
       camera={{
         position: [0, 0, 0.9],
         fov: 100,

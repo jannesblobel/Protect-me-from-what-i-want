@@ -56,18 +56,6 @@ export default function Navbar() {
         >
           {t("navTab3")}
         </NavLink>
-        {/* <NavLink
-          to="/focus-mode"
-          className={({ isActive }) => (isActive ? "tab active" : "tab")}
-        >
-          {t('navTab5')}
-        </NavLink> */}
-        {/* <NavLink
-          to="/who-else"
-          className={({ isActive }) => (isActive ? "tab active" : "tab")}
-        >
-          {t('navTab4')}
-        </NavLink> */}
         <div className="tab language">
           <button className="tab language" onClick={changeLanguage}>
             {i18n.language === "en" ? "EN" : "DE"}

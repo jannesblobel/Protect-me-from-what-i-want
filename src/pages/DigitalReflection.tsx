@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DigitalMirrorPortal from "../components/3D-Storytelling/DigitalMirrorPortal";
 import animation from "../components/animations/divAnim";
-import "../components/styles/DigitalReflection.css";
+import "../components/styles/DigitalReflection.scss";
 import "../components/styles/global.scss";
 import "../scss/PageLayout.scss";
 
@@ -56,12 +56,8 @@ export default function DigitalReflection() {
   };
 
   return (
-    <div className="scroll-container">
-      <motion.div
-        className="container"
-        style={{ scrollSnapAlign: "start" }}
-        {...animation}
-      >
+    <>
+      <motion.div className="container" {...animation}>
         <aside className="left-col" style={{ gridRow: "2" }}>
           <h3>Digitale Reflektion</h3>
         </aside>
@@ -71,10 +67,10 @@ export default function DigitalReflection() {
         <div className="hero-text">
           <p>{t("digitalReflectionP1")}</p>
         </div>
-        <div className="scroll-down-cta">
+        <a className="scroll-down-cta" href="#scroll-to">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="51"
+            width="50"
             height="50"
             viewBox="0 0 51 50"
             fill="none"
@@ -88,12 +84,13 @@ export default function DigitalReflection() {
           <div style={{ width: "250px" }}>
             <p className="scroll-down-cta-text">{t("digitalReflectionP2")}</p>
           </div>
-        </div>
+        </a>
         <div className="hero-visual">
           <DigitalMirrorPortal />
         </div>
       </motion.div>
       <motion.div
+        id="scroll-to"
         className="container"
         style={{
           background:
@@ -155,6 +152,6 @@ export default function DigitalReflection() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </>
   );
 }

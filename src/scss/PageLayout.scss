@@ -5,21 +5,31 @@ $gap-top: 8rem;
 
 /* scroll container */
 
-.scroll-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
+// .scroll-container {
+//   scroll-snap-type: y mandatory;
+//   overflow-y: scroll;
+//   height: 100vh;
+// }
 
 .container {
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
   grid-template-rows: 0.5fr repeat(4, minmax(100px, 1fr));
   gap: $grid-gap;
-  height: 91vh; // At least the height of the viewport
-  min-width: 100vw;
+  min-height: 91vh; // At least the height of the viewport
+  width: 100vw;
   // Adjust padding or margin if necessary for layout
   padding: $grid-gap 24px;
+  max-width: 100% !important;
+
+  @include mobile {
+    // min-height: 91vh;
+    gap: calc($grid-gap / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 24px 24px 0 24px;
+    // padding: 8px;
+  }
 }
 .text-container {
   display: grid;
@@ -48,7 +58,7 @@ $gap-top: 8rem;
   grid-row: 2 / span 3;
   position: sticky;
   top: $gap-top; /* Adjust this value as needed */
-  align-self: start; /* This ensures that the sticky positioning works correctly within a grid layout */
+  align-self: flex-start; /* This ensures that the sticky positioning works correctly within a grid layout */
   // overline
   h4 {
     font-family: "NeueHaas-light";
@@ -67,6 +77,12 @@ $gap-top: 8rem;
   p {
     padding-top: 8px;
   }
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: none;
+  }
 }
 
 .hero-header {
@@ -74,11 +90,18 @@ $gap-top: 8rem;
   grid-row: 2 / span 1;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  // gap: 18px;
   h3 {
     font-family: "NeueHaas-light";
     font-size: 28px;
     color: #ffffff;
+  }
+  @include mobile {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  @include tablet {
+    grid-column: 2 / span 6;
   }
 }
 .hero-text {
@@ -87,11 +110,36 @@ $gap-top: 8rem;
   p {
     font-size: 1rem;
   }
+  @include mobile {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  @include tablet {
+    grid-column: 2 / span 6;
+  }
 }
 
 .hero-visual {
   grid-column: 9 / span 4;
   grid-row: 2 / span 3;
+
+  @include mobile {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+.three-canvas {
+  width: 100% !important;
+  height: 60vh;
+  @include mobile {
+    height: 40vh !important;
+    width: 80vw !important;
+  }
+  @include tablet {
+    height: 40vh !important;
+  }
 }
 .hero-visual-img {
   grid-column: 9 / span 3;
@@ -157,9 +205,22 @@ $gap-top: 8rem;
   align-items: center;
   gap: 32px;
   display: flex;
+  @include mobile {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    width: 80vw;
+  }
+  @include tablet {
+    grid-column: 2 / span 6;
+  }
 }
 .scroll-down-cta svg {
   transition: transform 0.3s ease-in-out; /* Apply transition to both hover and non-hover states */
+  width: 48px;
+
+  @include mobile {
+    width: 36px;
+  }
 }
 .scroll-down-cta:hover svg {
   transform: rotate(-45deg); /* Rotate arrow */
@@ -172,4 +233,14 @@ $gap-top: 8rem;
   max-width: 400px;
   /* overflow: hidden; */
   word-wrap: break-word;
+  display: inline-block;
+
+  @include mobile {
+    font-size: 1rem;
+  }
 }
+
+// .scroll-down-cta:hover .scroll-down-cta-text {
+//   text-decoration: underline;
+//   text-decoration-color: #7b7b7b;
+// }
