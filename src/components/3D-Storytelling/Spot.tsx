@@ -11,6 +11,7 @@ import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { RGBELoader } from "three/examples/jsm/Addons.js";
 import { degToRad } from "three/src/math/MathUtils.js";
+import "../../scss/PageLayout.scss";
 
 function ControlledSpotLight() {
   const spotLightRef = useRef<THREE.SpotLight>(null);
@@ -50,7 +51,7 @@ export default function Spot() {
   return (
     <Canvas
       shadows
-      style={{ height: "100%", width: "100%" }}
+      className="three-canvas"
       camera={{
         position: [4, 4, -4],
         fov: 100,

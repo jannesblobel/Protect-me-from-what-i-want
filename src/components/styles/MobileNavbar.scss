@@ -1,6 +1,6 @@
 .mobile-navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   background-color: #0e0e0efa; /* Adjust the alpha value for desired transparency */
   position: sticky;
   top: -1px;
@@ -27,8 +27,8 @@
 }
 .mobile-aside .mobile-tab {
   color: white;
-  font-size: 1.75rem;
-  font-family: "NeueHaas-roman";
+  font-size: 1.25rem;
+  font-family: "PxGrotesk-bold";
   text-transform: lowercase;
 
   text-decoration: none;
@@ -40,7 +40,7 @@
 
 .mobile-logo {
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
 }
 .mobile-logo img {

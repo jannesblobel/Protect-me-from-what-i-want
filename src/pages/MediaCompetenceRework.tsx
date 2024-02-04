@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import Spot from "../components/3D-Storytelling/Spot";
 import SpotLightScene from "../components/SpotLightSceneNew";
+import animation from "../components/animations/divAnim";
 import "../scss/MediaCompetenceRework.scss";
 import "../scss/PageLayout.scss";
 
@@ -24,15 +26,20 @@ export default function MediaCompetenceRework() {
 
   return (
     <>
-      <div className="container">
+      <motion.div className="hero-container" {...animation}>
         <aside className="left-col">
-          <h3>Friction</h3>
+          <h3>Medienmündigkeit</h3>
         </aside>
         <div className="hero-header">
           <h1>
             Medienmündig ist, wer Medien möglichst beherrscht und sich wenig von
             ihnen beherrschen lässt
           </h1>
+        </div>
+        <div
+          className="hero-text"
+          style={{ gridRow: "span 3", alignSelf: "flex-end" }}
+        >
           <p>
             Um Medienmündigkeit zu entwickeln, ist es wichtig, ein Bewusstsein
             für unsere Handlungen zu entwickeln, unsere innen- und
@@ -53,20 +60,21 @@ export default function MediaCompetenceRework() {
         <div className="hero-visual">
           <Spot />
         </div>
-      </div>
-      <div className="container">
-        <aside
-          className="left-col"
-          style={{ gridRow: "span 4", height: "22vh" }}
-        >
+      </motion.div>
+      <motion.div
+        className="container"
+        {...animation}
+        style={{ minHeight: "20vh" }}
+      >
+        <aside className="left-col" style={{ gridRow: "1" }}>
           <h3>Begriffserklärung</h3>
         </aside>
-        <aside
+        {/* <aside
           className="left-col"
           style={{ gridRow: "5 / span 1", height: "78vh" }}
         >
           <h3>Volker Busch, 2021</h3>
-        </aside>
+        </aside> */}
         <div className="text-content">
           <h3>Aufmerksamkeit</h3>
           <p>
@@ -110,10 +118,11 @@ export default function MediaCompetenceRework() {
             selbst und anderen machen können. Es lohnt sich, diese wunderbare
             Eigenschaft zu verstehen und vielleicht sogar zu schätzen.”
           </span>
+          <p style={{ paddingBlockStart: "2vh" }}>Volker Busch, 2021</p>
         </div>
-      </div>
+      </motion.div>
       <div className="container-long">
-        <aside className="left-col" style={{ gridRow: "1", top: "12vh" }}>
+        <aside className="left-col-withContent" style={{ gridRow: "1" }}>
           <h3>Spotlight</h3>
           <p>
             Das Zusammenspiel zwischen Aufmerksamkeit und Selbstregulierung kann
@@ -121,7 +130,7 @@ export default function MediaCompetenceRework() {
           </p>
         </aside>
         <div className="spotlight-visual">
-          <p>Darstellung Spotlight</p>
+          <p className="spotlight-controls-title">Darstellung Spotlight</p>
           <SpotLightScene
             rot={rot}
             intensity={intensity}
@@ -131,11 +140,8 @@ export default function MediaCompetenceRework() {
           />
         </div>
 
-        <div
-          className="spotlight-controls"
-          style={{ gridRow: "1", justifyContent: "start" }}
-        >
-          <p style={{ paddingBlockEnd: "24vh" }}>Begriffe</p>
+        <div className="spotlight-controls" style={{ justifyContent: "start" }}>
+          <p className="spotlight-controls-title">Begriffe</p>
           <h3>Fokus</h3>
           <p>
             Unsere Aufmerksamkeit entspricht einem Lichtkegel. Sie ermöglicht
@@ -294,11 +300,9 @@ export default function MediaCompetenceRework() {
           </div>
         </div>
       </div>
+      <hr />
       <div className="text-container">
-        <aside
-          className="left-col"
-          style={{ gridRow: "1", gridColumn: "1 / span 3" }}
-        >
+        <aside className="left-col-withContent">
           <h4>Ziel</h4>
           <h3>Klarheit</h3>
           <p>
@@ -309,10 +313,7 @@ export default function MediaCompetenceRework() {
             zu können.
           </p>
         </aside>
-        <div
-          className="section-textblock section-sticky"
-          style={{ gridColumn: "4 /span 4" }}
-        >
+        <div className="section-textblock section-sticky">
           <p>Problem </p>
           <h2>Informationsdichte</h2>
           <p>
@@ -323,7 +324,7 @@ export default function MediaCompetenceRework() {
             zu können.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <p>Wissenswert </p>
           <h2>Wahrnehmung</h2>
           <p>
@@ -340,10 +341,7 @@ export default function MediaCompetenceRework() {
           <h5>Quicktipp</h5>
           <p>↘ Präsenz und Wahrnehmung statt Konsum</p>
         </div>
-        <div
-          className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "2" }}
-        >
+        <div className="section-textblock scrollable">
           <h2>Gedächtnisfaulheit</h2>
           <p>
             Man kann sich das Arbeitsgedächtnis als eine Art elektrische
@@ -369,10 +367,7 @@ export default function MediaCompetenceRework() {
             <br />↘ Zahlen, Adressen, Geburtstage
           </p>
         </div>
-        <div
-          className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "3" }}
-        >
+        <div className="section-textblock scrollable">
           <h2>Arbeitsgedächtnis</h2>
           <p>
             Man kann sich das Arbeitsgedächtnis als eine Art elektrische
@@ -399,36 +394,25 @@ export default function MediaCompetenceRework() {
           </p>
         </div>
       </div>
+      <hr />
       <div className="text-container">
-        <aside
-          className="left-col"
-          style={{ gridRow: "1", gridColumn: "1 / span 3" }}
-        >
+        <aside className="left-col-withContent">
           <h4>Ziel</h4>
-          <h3> Konzentration</h3>
+          <h3>Konzentration</h3>
           <p>
-            Konzentration ist ein vorübergehender geistiger Zustand und eine
-            Voraussetzung dafür, dass wir kritisch reflektieren, logisch denken
-            und einander Gedankengängen folgen können. Je präziser unsere
-            Konzentration, desto tiefer ist das geistige Durchdringen. Wenn wir
-            uns voll und ganz auf etwas einlassen, steigt die Verarbeitungstiefe
-            und die Menge gespeicherter Inhalte.Konzentrierte Aufmerksamkeit
-            führt in (fast) allen Bereichen des Lebens zu präzisiertem Denken
-            und Handeln. Leistungssteigerung Die durch Konzentration eingehende
-            Leistungssteigerung wird durch Synchronisation der neurologischen
-            Hirnstromfrequenzen verschiedener Hirnareale erreicht. Befinden sie
-            sich auf einer “gemeinsamen Wellenlänge”, wird der Neurotransmitter
-            Acetylcholin vermehrt ausgeschüttet. Das verbessert die
-            Kommunikation und den Informationsaustausch zwischen den
-            Nervenbahnen. (s) Tiefe Konzentration bzw. das Versinken in Aufgaben
-            steigert unsere Fähigkeiten in Bezug auf Intelligenzleistungen wie
-            logisches Denken, Abstraktionsvermögen und das Gedächtnis.
+            Konzentration ist ein mentaler Zustand, der kritisches Denken, Logik
+            und das Verfolgen von Gedanken ermöglicht. Je genauer wir uns
+            konzentrieren, desto tiefer unser Verständnis. Vollständige Hingabe
+            erhöht die Verarbeitung und Speicherung von Informationen.
+            Konzentrierte Aufmerksamkeit schärft Denken und Handeln in vielen
+            Lebensbereichen. Leistungsverbesserung entsteht durch
+            Synchronisation der Hirnstromfrequenzen, was
+            Acetylcholin-Ausschüttung und damit die neuronale Kommunikation
+            fördert. Tiefe Konzentration verbessert Intelligenz, logisches
+            Denken, Abstraktionsfähigkeit und Gedächtnis.
           </p>
         </aside>
-        <div
-          className="section-textblock  section-sticky"
-          style={{ gridColumn: "4 /span 4" }}
-        >
+        <div className="section-textblock section-sticky">
           <p>Problem </p>
           <h2>Ablenkungsdichte</h2>
           <p>
@@ -444,9 +428,9 @@ export default function MediaCompetenceRework() {
             uns längere Zeit ausschließlich einer Sache widmen können.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
-          <p>Wissenswert </p>
-          <h2>Aufmerksamkeitswechsel</h2>
+        <div className="section-textblock scrollable">
+          <p>Wissenswert</p>
+          <h2>Aufmerksamkeits-Wechsel</h2>
           <p>
             Aufmerksamkeitswechsel sind grundsätzlich fehlerbehaftet. Die
             Neuausrichtung auf ein anderes Ziel sowie das Zurückkehren zur
@@ -473,10 +457,7 @@ export default function MediaCompetenceRework() {
             Verschiedenen Aufgaben unumgänglich... - Lege kurze Pausen ein
           </p>
         </div>
-        <div
-          className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "2" }}
-        >
+        <div className="section-textblock scrollable">
           <h2>Menschliche Ungeduld</h2>
           <p>
             Der Hang zum vermeintlichen Multitasking ist oft ein Ausdruck
@@ -497,10 +478,7 @@ export default function MediaCompetenceRework() {
           <h5>Quicktipp</h5>
           <p>↘ Realitätscheck Schafft in vielen Situation eine Distanz</p>
         </div>
-        <div
-          className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "3" }}
-        >
+        <div className="section-textblock scrollable">
           <h2>Störreize</h2>
           <p>
             Das ständige Störfeuer um uns herum beeinflusst, wie lange wir die
@@ -523,10 +501,7 @@ export default function MediaCompetenceRework() {
             wirklich wichtig?
           </p>
         </div>
-        <div
-          className="section-textblock"
-          style={{ gridColumn: "8 /span 4", gridRow: "4" }}
-        >
+        <div className="section-textblock scrollable">
           <h2>Störreize mit emotionalen Bezug</h2>
           <p>
             Die ausgeprägtesten Störungen sind oft dien, zu denen wir einen
@@ -548,11 +523,9 @@ export default function MediaCompetenceRework() {
           </p>
         </div>
       </div>
+      <hr />
       <div className="text-container">
-        <aside
-          className="left-col"
-          style={{ gridRow: "1", gridColumn: "1 / span 3" }}
-        >
+        <aside className="left-col-withContent">
           <h4>Ziel</h4>
           <h3>Kreativität</h3>
           <p>
@@ -565,11 +538,7 @@ export default function MediaCompetenceRework() {
             Stresssystem.
           </p>
         </aside>
-
-        <div
-          className="section-textblock section-sticky"
-          style={{ gridColumn: "4 /span 4" }}
-        >
+        <div className="section-textblock section-sticky">
           <p>Problem </p>
           <h2>Medialer Dauerkonsum</h2>
           <p>
@@ -592,8 +561,7 @@ export default function MediaCompetenceRework() {
             ab.
           </p>
         </div>
-
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <p>Wissenswert </p>
           <h2>Assoziation</h2>
           <p>
@@ -618,7 +586,7 @@ export default function MediaCompetenceRework() {
             Denken als wichtigsten Bestandteil für den persönlichen Erfolg.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <h2>Kreativität und mentale Gesundheit</h2>
           <p>
             Das Lösen von Problemen ist eine effektive Form der
@@ -632,7 +600,7 @@ export default function MediaCompetenceRework() {
             angestrengtes Denken sind unverzichtbare Bestandteile dessen.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <h2>Innehalten</h2>
           <p>
             Innehalten ist ein essenzieller Bestandteil jeder Problemlösung.
@@ -649,7 +617,7 @@ export default function MediaCompetenceRework() {
             in heutigen Tagesabläufen kaum noch Platz.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <h2>Zertreuung/ Wendung nach Innen</h2>
           <p>
             Die Wendung nach Innen und das Wandern der Gedanken ist ein
@@ -664,7 +632,7 @@ export default function MediaCompetenceRework() {
             Gedanken fällt uns leicht und erfordert keine besondere Anstrengung.
           </p>
         </div>
-        <div className="section-textblock" style={{ gridColumn: "8 /span 4" }}>
+        <div className="section-textblock scrollable">
           <h2>Ruhestandsnetzwerk</h2>
           <p>
             Das Ruhenetzwerk des Gehirns wird aktiviert, sobald wir nichts tun.

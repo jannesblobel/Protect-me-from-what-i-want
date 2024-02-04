@@ -159,7 +159,7 @@ export default function ActNow() {
   return (
     <>
       <motion.div
-        className="container"
+        className="hero-container"
         style={{ height: "94vh" }}
         {...animation}
       >

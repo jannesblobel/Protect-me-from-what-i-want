@@ -1,5 +1,5 @@
 @import "./breakpoints.scss"; // _variables.scss
-$grid-gap: 24px;
+$grid-gap: 32px;
 $grid-columns: 12;
 $gap-top: 8rem;
 
@@ -11,12 +11,13 @@ $gap-top: 8rem;
 //   height: 100vh;
 // }
 
-.container {
+.hero-container {
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
   grid-template-rows: 0.5fr repeat(4, minmax(100px, 1fr));
   gap: $grid-gap;
   min-height: 91vh; // At least the height of the viewport
+  max-height: 92vh;
   width: 100vw;
   // Adjust padding or margin if necessary for layout
   padding: $grid-gap 24px;
@@ -24,10 +25,42 @@ $gap-top: 8rem;
 
   @include mobile {
     // min-height: 91vh;
+    max-height: 150vh;
     gap: calc($grid-gap / 2);
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     padding: 24px 24px 0 24px;
+    // padding: 8px;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-template-rows: 0.5fr repeat(4, minmax(100px, 1fr));
+  gap: $grid-gap;
+  min-height: 91vh; // At least the height of the viewport
+  max-height: 92vh;
+  width: 100vw;
+  // Adjust padding or margin if necessary for layout
+  padding: $grid-gap 24px;
+  max-width: 100% !important;
+
+  @include mobile {
+    // min-height: 91vh;
+    max-height: 180vh;
+    gap: calc($grid-gap / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 24px 24px 0 24px;
+    // padding: 8px;
+  }
+  @include tablet {
+    // min-height: 91vh;
+    max-height: 150vh;
+    gap: calc($grid-gap / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 48px 48px 0 48px;
     // padding: 8px;
   }
 }
@@ -40,6 +73,19 @@ $gap-top: 8rem;
   // Adjust padding or margin if necessary for layout
   padding: $grid-gap 24px;
   grid-template-rows: repeat(5, auto);
+
+  @include mobile {
+    gap: calc($grid-gap * 3);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 24px 24px 48px 24px;
+  }
+  @include tablet {
+    gap: calc($grid-gap / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 48px 48px 0 48px;
+  }
 }
 
 .container-long {
@@ -51,6 +97,14 @@ $gap-top: 8rem;
   min-width: 100vw;
   // Adjust padding or margin if necessary for layout
   padding: $grid-gap 24px;
+
+  @include mobile {
+    gap: calc($grid-gap / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: unset;
+    padding: 0px 24px 0 24px;
+  }
 }
 
 .left-col {
@@ -69,10 +123,14 @@ $gap-top: 8rem;
   }
   h3 {
     font-family: "NeueHaas-roman";
-    padding-top: 8px;
-    font-size: 1.7rem;
+    padding-top: 4px;
+    font-size: 1.5rem;
     color: #ffffff;
     margin-top: 0; /* You may want to reset the margin to ensure the sticky position works from the very top */
+
+    @include desktop {
+      font-size: 1.25rem;
+    }
   }
   p {
     padding-top: 8px;
@@ -82,6 +140,40 @@ $gap-top: 8rem;
   }
   @include tablet {
     display: none;
+  }
+}
+.left-col-withContent {
+  grid-column: span 2;
+  grid-row: 1 / span 1;
+  position: sticky;
+  // top: $gap-top; /* Adjust this value as needed */
+  top: 12vh;
+  align-self: flex-start; /* This ensures that the sticky positioning works correctly within a grid layout */
+  // overline
+  h4 {
+    font-family: "NeueHaas-light";
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: "#e7e7e7";
+    padding-bottom: 2px;
+  }
+  h3 {
+    font-family: "NeueHaas-roman";
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 0; /* You may want to reset the margin to ensure the sticky position works from the very top */
+    padding-block-end: 6px;
+  }
+  @include mobile {
+    position: relative;
+    grid-column: span 1;
+    grid-row: span 1;
+    top: 0vh;
+  }
+  @include tablet {
+    position: relative;
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
 
@@ -106,7 +198,7 @@ $gap-top: 8rem;
 }
 .hero-text {
   grid-column: 4 / span 4;
-  grid-row: 3 / span 2;
+  grid-row: 3;
   p {
     font-size: 1rem;
   }
@@ -127,12 +219,13 @@ $gap-top: 8rem;
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
     display: flex;
+    flex-direction: row;
     justify-content: center;
   }
 }
 .three-canvas {
   width: 100% !important;
-  height: 60vh;
+  height: 60vh !important;
   @include mobile {
     height: 40vh !important;
     width: 80vw !important;
@@ -155,7 +248,6 @@ $gap-top: 8rem;
 .text-content {
   gap: 12px;
   grid-column: 4 / span 4;
-  grid-row: span 2;
   h3 {
     font-family: "NeueHaas-roman";
     font-size: 24px;
@@ -167,12 +259,20 @@ $gap-top: 8rem;
     color: #ffffff;
     line-height: 135%; /* 0.85738rem */
     letter-spacing: 0.05rem;
+  }
+  @include mobile {
+    grid-column: 1 / span 1;
+    padding: 2rem 0;
+    // grid-row: 3 / span 1;
+  }
+  @include tablet {
+    grid-column: 1 / span 1;
+    padding: 2rem 0;
   }
 }
 .text-content-2 {
   gap: 12px;
   grid-column: 8 / span 4;
-  grid-row: span 2;
   h3 {
     font-family: "NeueHaas-roman";
     font-size: 24px;
@@ -184,18 +284,41 @@ $gap-top: 8rem;
     color: #ffffff;
     line-height: 135%; /* 0.85738rem */
     letter-spacing: 0.05rem;
+  }
+
+  @include mobile {
+    grid-column: 1 / span 1;
+    padding: 2rem 0;
+  }
+  @include tablet {
+    grid-column: 1 / span 1;
+    padding: 2rem 0;
   }
 }
 .text-quote {
   grid-column: 4 / span 8;
 
   text-align: center;
-  grid-row: 5 / span 1;
+  grid-row: 3 / span 1;
   span {
     color: white;
-    font-family: "NeueHaas-roman";
+    font-family: "NeueHaas-medium";
     font-size: 24px;
     line-height: 116%; /* 1.71469rem */
+    letter-spacing: 0.1rem;
+
+    @include mobile {
+      font-size: 1.25rem;
+      line-height: 126%;
+    }
+  }
+  @include mobile {
+    grid-column: 1 / span 1;
+    padding-block-end: 2rem;
+  }
+  @include tablet {
+    grid-column: 1 / span 1;
+    padding-block-end: 2rem;
   }
 }
 
