@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import "../components/styles/ActNow.css";
+import "../components/styles/ActNow.scss";
 import "../components/styles/global.scss";
 
 import focusMode from "@/assets/focusMode.gif";
 import LegoBricks from "../components/3D-Storytelling/LegoBricks";
 // import forestApp from "@/assets/forestAppPreview.png";
 // import gehirnGehoert from "@/assets/gehirnGehoert.png";
-// import Prozent from "@/assets/Prozent.gif";
+import Prozent from "@/assets/Prozent.gif";
 import kreativität from "@/assets/kreativitaet.gif";
 import nixxen from "@/assets/nixxen.gif";
 import OneSec from "@/assets/oneSec.gif";
 
 import InnehaltenBlack from "@/assets/InnehaltenBlack.gif";
-// import appLimitsGIF from "@/assets/appLimits.gif";
+import appLimitsGIF from "@/assets/appLimits.gif";
 import arrow from "@/assets/arrowStraight.svg";
-// import grauStufenGIF from "@/assets/grauStufen.gif";
+import grauStufenGIF from "@/assets/grauStufen.gif";
 import handyFrei from "@/assets/handyFrei.gif";
 
 import { motion } from "framer-motion";
@@ -83,7 +83,7 @@ export default function ActNow() {
   };
 
   // const totalCards = 4; // Anzahl der Karten insgesamt
-  const totalCards2 = 5; // Anzahl der Karten insgesamt
+  const totalCards2 = 9; // Anzahl der Karten insgesamt
 
   // const cards = [
   //   {
@@ -154,19 +154,43 @@ export default function ActNow() {
         "→ Hol dir unsere App, für Inspiration und kreative Anstöße im Alltag",
       gif: kreativität,
     },
+
+    {
+      title: "Stelle dein Handy auf Graustufen",
+      content:
+        "Dein Handy besitzt die Funktion, den Bildschirm nur noch in Graustufen darzustellen. Dadurch wird die Benutzung auf Dauer anstrengend für die Augen und somit unattraktiver. Ein gutes Mittel also, um die Handysucht zu bekämpfen.",
+      content2:
+        "iPhone: Einstellungen → Allgemein → Bedienungshilfen → Display-Anpassungen → Farbfilter einschalten.",
+      gif: grauStufenGIF,
+    },
+    {
+      title: "Limits für die App-Nutzung festlegen",
+      content:
+        "Du kannst ein Zeitlimit für eine Kategorie von Apps (z. B: „Spiele“ oder „Soziale Netzwerke“) und für einzelne Apps festlegen.",
+      content2:
+        "Wähle „Einstellungen“ → „Bildschirmzeit“. Tippe auf → „App-Limits“ und danach auf → „App-Limit“. Wähle eine oder mehrere Apps oder App-Kategorien aus. Tippe oben rechts auf → „Weiter“ und lege die erlaubte Zeitspanne fest. Wenn du mit dem Festlegen von Limits fertig bist, tippst du auf → „Hinzufügen“.",
+      gif: appLimitsGIF,
+    },
+    {
+      title: "OneSec herunterladen",
+      content:
+        "Jedes Mal, wenn du versuchst, deine Lieblingsapp zu öffnen, warte. Atme tief ein und langsam wieder aus. Eine Sekunde gibt dir die Möglichkeit, innezuhalten und zweimal nachzudenken - bevor du in ein endloses Schlupfloch gesogen werden, das dich wieder stundenlang in den Bann zieht.",
+      gif: OneSec,
+    },
+    {
+      title: "1% Methode",
+      content:
+        "Indem wir täglich nur 1% unserer Bildschirmzeit für bewusste Pausen oder produktive Aktivitäten reservieren, können wir langfristig unsere digitale Medienroutine verbessern. Dies könnte bedeuten, dass wir uns 1% der Zeit für informative Podcasts oder Bücher statt endloses Scrollen auf Social Media widmen. Kleine digitale Anpassungen können zu einer nachhaltigeren und bewussteren Nutzung führen.",
+      gif: Prozent,
+    },
   ];
 
   return (
     <>
-      <motion.div
-        className="hero-container"
-        style={{ height: "94vh" }}
-        {...animation}
-      >
-        <aside className="left-col" style={{ gridRow: "2" }}>
+      <motion.div className="hero-container" {...animation}>
+        <aside className="left-col">
           <h3>Tu es jetzt</h3>
         </aside>
-
         <div className="hero-header">
           <h1>{t("actNowH2")}</h1>
         </div>
@@ -196,7 +220,7 @@ export default function ActNow() {
         </div>
       </motion.div>
       <motion.div className="container" {...animation}>
-        <aside className="left-col" style={{ gridRow: "2" }}>
+        <aside className="left-col">
           <h3>One Sec</h3>
           <p>
             One Sec fungiert als Starthilfe um deinen Weg zu einer
@@ -215,10 +239,11 @@ export default function ActNow() {
             unterbrochen wird.
           </p>
         </div>
+        {/* <div className="hero-text"></div> */}
         <div className="hero-visual-img">
           <img src={OneSec} />
         </div>
-        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+        <div className="scroll-down-cta" style={{ gridRow: "5" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="51"
@@ -232,17 +257,17 @@ export default function ActNow() {
               strokeWidth="2"
             />
           </svg>
-          <a href="/focus-mode" style={{ cursor: "pointer" }}>
+          <a href="https://one-sec.app/" style={{ cursor: "pointer" }}>
             <div>
               <p className="scroll-down-cta-text" style={{ maxWidth: "300px" }}>
-                Im Handumdrehen einrichten
+                Installiere OneSec heute
               </p>
             </div>
           </a>
         </div>
       </motion.div>
       <motion.div className="container" {...animation}>
-        <aside className="left-col" style={{ gridRow: "2" }}>
+        <aside className="left-col">
           <h3>Fokus Modus</h3>
           <p>Fokus Modi erlauben es dir äußere Störreize zu minimieren.</p>
         </aside>
@@ -264,7 +289,7 @@ export default function ActNow() {
         <div className="hero-visual-img">
           <img src={focusMode} />
         </div>
-        <div className="scroll-down-cta" style={{ gridRow: "5" }}>
+        <div className="scroll-down-cta">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="51"
@@ -287,9 +312,8 @@ export default function ActNow() {
           </a>
         </div>
       </motion.div>
-
       <motion.div className="container" {...animation}>
-        <aside className="left-col" style={{ gridRow: "1" }}>
+        <aside className="left-col-withContent">
           <h3>Handlungsoptionen</h3>
           <p>
             Ob kurz– oder mittelfristig, hier findest du Handlungstipps um deine
