@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Pivot as Hamburger } from "hamburger-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo2.png";
@@ -7,7 +8,14 @@ import "./styles/MobileNavbar.scss"; // Make sure to use SCSS
 
 export default function MobileNavbar() {
   // ... your existing code ...
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const changeLanguage = () => {
+    const newLanguage = currentLanguage === "en" ? "de" : "en";
+    setCurrentLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   const sideVariants = {
@@ -126,6 +134,12 @@ export default function MobileNavbar() {
               >
                 {t("navTab3")}
               </NavLink>
+            </motion.div>
+
+            <motion.div className="mobile-tab language" variants={linkVariants}>
+              <button onClick={changeLanguage} style={{ color: "#e87686" }}>
+                {i18n.language === "en" ? "EN" : "DE"}
+              </button>
             </motion.div>
           </motion.aside>
         )}
