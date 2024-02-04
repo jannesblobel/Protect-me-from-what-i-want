@@ -76,6 +76,7 @@
   font-size: 18px;
   @include mobile {
     grid-column: 1 / span 3;
+    font-size: 0.875rem;
   }
 }
 .carousel-content > img {

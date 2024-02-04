@@ -197,7 +197,11 @@ export default function ActNow() {
         <div className="hero-text">
           <p>{t("actNowP1")}</p>
         </div>
-        <div className="scroll-down-cta" style={{ gridRow: "4" }}>
+        <a
+          className="scroll-down-cta"
+          style={{ gridRow: "4" }}
+          href="#scroll-to"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="51"
@@ -214,12 +218,12 @@ export default function ActNow() {
           <div>
             <p className="scroll-down-cta-text">{t("actNowP2")}</p>
           </div>
-        </div>
+        </a>
         <div className="hero-visual">
           <LegoBricks />
         </div>
       </motion.div>
-      <motion.div className="container" {...animation}>
+      <motion.div className="container" {...animation} id="scroll-to">
         <aside className="left-col">
           <h3>One Sec</h3>
           <p>
