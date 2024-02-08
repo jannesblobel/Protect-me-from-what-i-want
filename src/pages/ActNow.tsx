@@ -189,7 +189,7 @@ export default function ActNow() {
     <>
       <motion.div className="hero-container" {...animation}>
         <aside className="left-col">
-          <h3>Tu es jetzt</h3>
+          <h3>{t("actNowChapter")}</h3>
         </aside>
         <div className="hero-header">
           <h1>{t("actNowH2")}</h1>
@@ -225,23 +225,13 @@ export default function ActNow() {
       </motion.div>
       <motion.div className="container" {...animation} id="scroll-to">
         <aside className="left-col">
-          <h3>One Sec</h3>
-          <p>
-            One Sec fungiert als Starthilfe um deinen Weg zu einer
-            medienmündigen Person einzuschlagen.
-          </p>
+          <h3>{t("oneSecChapter")}</h3>
+          <p>{t("oneSecChapterText")}</p>
         </aside>
 
         <div className="hero-header">
-          <h1 style={{ color: "rgb(179, 161, 255)" }}>
-            Entdecke die App OneSec für bewusste Pausen vor deiner Appbenutzung
-          </h1>
-          <p>
-            One Sec steigert das Bewusstsein und die absichtliche Nutzung durch
-            die Einführung einer Verzögerung von 10 Sekunden, wodurch die
-            sofortige Befriedigung, die mit Social-Media-Apps verbunden ist,
-            unterbrochen wird.
-          </p>
+          <h1 style={{ color: "rgb(179, 161, 255)" }}>{t("onseSecH1")}</h1>
+          <p>{t("onseSecP1")}</p>
         </div>
         {/* <div className="hero-text"></div> */}
         <div className="hero-visual-img">
@@ -264,7 +254,7 @@ export default function ActNow() {
           <a href="https://one-sec.app/" style={{ cursor: "pointer" }}>
             <div>
               <p className="scroll-down-cta-text" style={{ maxWidth: "300px" }}>
-                Installiere OneSec heute
+                {t("oneSecCta")}
               </p>
             </div>
           </a>
@@ -272,23 +262,13 @@ export default function ActNow() {
       </motion.div>
       <motion.div className="container" {...animation}>
         <aside className="left-col">
-          <h3>Fokus Modus</h3>
-          <p>Fokus Modi erlauben es dir äußere Störreize zu minimieren.</p>
+          <h3>{t("focusModeChapter")}</h3>
+          <p>{t("focusModeChapterText")}</p>
         </aside>
 
         <div className="hero-header">
-          <h1 style={{ color: "rgb(179, 161, 255)" }}>
-            Entdecke den Fokus Modus für ungestörte Produktivität und Kontrolle
-          </h1>
-          <p>
-            Dein persönliches Werkzeug für ungestörte Produktivität und
-            wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-            arbeiten, dich entspannen oder einfach den digitalen Trubel
-            ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle. Hier
-            erfährst du, wie du ihn direkt im Kontrollzentrum aktivierst oder
-            clever planst, damit er sich automatisch zu den Zeiten einschaltet,
-            die für dich am besten passen.
-          </p>
+          <h1 style={{ color: "rgb(179, 161, 255)" }}>{t("focusModeH1")}</h1>
+          <p>{t("focusModeP1")}</p>
         </div>
         <div className="hero-visual-img">
           <img src={focusMode} />
@@ -310,7 +290,7 @@ export default function ActNow() {
           <a href="/focus-mode" style={{ cursor: "pointer" }}>
             <div>
               <p className="scroll-down-cta-text" style={{ maxWidth: "300px" }}>
-                Im Handumdrehen einrichten
+                {t("focusModeCta")}
               </p>
             </div>
           </a>
@@ -318,11 +298,8 @@ export default function ActNow() {
       </motion.div>
       <motion.div className="container" {...animation}>
         <aside className="left-col-withContent">
-          <h3>Handlungsoptionen</h3>
-          <p>
-            Ob kurz– oder mittelfristig, hier findest du Handlungstipps um deine
-            Medienmündigkeit zu steigern.
-          </p>
+          <h3>{t("actOptionsChapter")}</h3>
+          <p>{t("actOptionsChapterText")}</p>
         </aside>
         {/* <div className="topic-switcher">
           <div
@@ -348,7 +325,7 @@ export default function ActNow() {
           </div>
         </div>
         <div className="carousel-content">
-          {/* Neu bauen mitframer motion */}
+          {/* Neu bauen mit framer motion */}
           <h2 className="">{cards2[currentCard2].title}</h2>
           <p className="">
             {cards2[currentCard2].content + cards2[currentCard2].content2}

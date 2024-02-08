@@ -87,3 +87,9 @@ $gap-top: 6rem;
     grid-column: 1 / span 1;
   }
 }
+.text-big {
+  align-self: flex-end;
+  @include xxl {
+    align-self: center;
+  }
+}

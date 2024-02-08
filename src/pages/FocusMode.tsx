@@ -29,11 +29,9 @@ export default function FocusMode() {
             die für dich am besten passen.
           </p>
         </div>
-        <div className="scroll-down-cta">
+        <a className="scroll-down-cta" href="#scroll-to">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="51"
-            height="50"
             viewBox="0 0 51 50"
             fill="none"
           >
@@ -46,12 +44,12 @@ export default function FocusMode() {
           <div className="scroll-down-cta-text">
             <p>Im Handumdrehen eingerichtet</p>
           </div>
-        </div>
+        </a>
         <div className="hero-visual">
           <img style={{ maxHeight: "80%" }} src={focusMode} />
         </div>
       </motion.div>
-      <motion.div className="container">
+      <motion.div className="container" id="scroll-to">
         <aside className="left-col" style={{ gridRow: "2" }}>
           <h3>Schritt 1</h3>
         </aside>

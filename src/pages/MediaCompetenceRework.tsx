@@ -36,10 +36,7 @@ export default function MediaCompetenceRework() {
             ihnen beherrschen lässt
           </h1>
         </div>
-        <div
-          className="hero-text"
-          style={{ gridRow: "span 3", alignSelf: "flex-end" }}
-        >
+        <div className="hero-text text-big" style={{ gridRow: "span 3" }}>
           <p>
             Um Medienmündigkeit zu entwickeln, ist es wichtig, ein Bewusstsein
             für unsere Handlungen zu entwickeln, unsere innen- und

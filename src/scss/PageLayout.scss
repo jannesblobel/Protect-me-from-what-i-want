@@ -201,6 +201,9 @@ $gap-top: 8rem;
   grid-row: 3;
   p {
     font-size: 1rem;
+    @include xxl {
+      font-size: 1.25rem;
+    }
   }
   @include mobile {
     grid-column: 1 / span 1;
@@ -265,6 +268,9 @@ $gap-top: 8rem;
     color: #ffffff;
     line-height: 135%; /* 0.85738rem */
     letter-spacing: 0.05rem;
+    @include xxl {
+      font-size: 1.15rem;
+    }
   }
   @include mobile {
     grid-column: 1 / span 1;
@@ -290,6 +296,9 @@ $gap-top: 8rem;
     color: #ffffff;
     line-height: 135%; /* 0.85738rem */
     letter-spacing: 0.05rem;
+    @include xxl {
+      font-size: 1.15rem;
+    }
   }
 
   @include mobile {
