@@ -9,6 +9,8 @@ import FocusMode from "./pages/FocusMode";
 import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
+import Datapolicy from "./pages/Datapolicy";
+import Impressum from "./pages/Impressum";
 import MediaCompetenceRework from "./pages/MediaCompetenceRework";
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
           <Route path="/media-competence" element={<MediaCompetenceRework />} />
           <Route path="/act-now" element={<ActNow />} />
           <Route path="/focus-mode" element={<FocusMode />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datapolicy" element={<Datapolicy />} />
         </Routes>
       </I18nextProvider>
     </Router>

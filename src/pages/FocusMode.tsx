@@ -7,27 +7,20 @@ import "../components/styles/global.scss";
 
 import focusMode from "@/assets/focusMode.gif";
 import focusMode2 from "@/assets/focusModeGIF2.gif";
+import { t } from "i18next";
 
 export default function FocusMode() {
   return (
     <>
       <motion.div className="hero-container">
         <aside className="left-col" style={{ gridRow: "2" }}>
-          <h3>Fokus Modus</h3>
+          <h3>{t("focusModeChapter")}</h3>
         </aside>
         <div className="hero-header">
-          <h1>Fokus-Modus für ungestörte Kontrolle</h1>
+          <h1>{t("focusModeH1_1")}</h1>
         </div>
         <div className="hero-text">
-          <p>
-            Dein persönliches Werkzeug für ungestörte Produktivität und
-            wohltuende Auszeiten auf dem iPhone! Egal, ob du konzentriert
-            arbeiten, dich entspannen oder einfach den digitalen Trubel
-            ausblenden möchtest – der Fokus-Modus bietet dir die Kontrolle. Hier
-            erfährst du, wie du ihn direkt im Kontrollzentrum aktivierst oder
-            clever planst, damit er sich automatisch zu den Zeiten einschaltet,
-            die für dich am besten passen.
-          </p>
+          <p>{t("focusModep1")}</p>
         </div>
         <a className="scroll-down-cta" href="#scroll-to">
           <svg
@@ -42,7 +35,7 @@ export default function FocusMode() {
             />
           </svg>
           <div className="scroll-down-cta-text">
-            <p>Im Handumdrehen eingerichtet</p>
+            <p>{t("focusModeCta1")}</p>
           </div>
         </a>
         <div className="hero-visual">

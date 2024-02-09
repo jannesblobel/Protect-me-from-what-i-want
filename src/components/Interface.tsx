@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import hookModel from "../assets/hookmodel.png";
+import Footer from "./Footer";
 import "./styles/Interface.scss";
 import "./styles/global.scss";
 
@@ -100,6 +101,8 @@ export default function Interface() {
           </div>
         </div>
       </Section>
+
+      {/* <Footer /> */}
     </div>
   );
 }
