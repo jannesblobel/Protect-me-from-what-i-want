@@ -102,7 +102,7 @@ export default function Interface() {
         </div>
       </Section>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

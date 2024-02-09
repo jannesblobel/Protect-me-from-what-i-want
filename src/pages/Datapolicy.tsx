@@ -1,6 +1,6 @@
 export default function Datapolicy() {
   return (
-    <>
+    <div className="Imprint-Datapolicy">
       <h1>Datenschutzerklärung</h1>
       <h3>1. Verantwortlicher</h3>
       <p>
@@ -46,6 +46,6 @@ export default function Datapolicy() {
         Datenverarbeitung anzupassen. Wir empfehlen Nutzern, regelmäßig die
         Datenschutzerklärung zu überprüfen.
       </p>
-    </>
+    </div>
   );
 }

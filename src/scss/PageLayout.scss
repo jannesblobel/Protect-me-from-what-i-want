@@ -386,4 +386,32 @@ $gap-top: 8rem;
 footer {
   position: absolute;
   bottom: 0;
+  padding-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.footer-column {
+  a {
+    color: #909090;
+    font-family: "NeueHaas-light";
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+  }
+}
+
+.Imprint-Datapolicy {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 12px;
+
+  h1 {
+    padding-bottom: 0px;
+  }
+  h3 {
+    font-size: 20px;
+    padding-bottom: 4px;
+  }
 }

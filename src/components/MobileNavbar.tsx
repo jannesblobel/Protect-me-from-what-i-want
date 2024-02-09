@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo2.png";
+// import Footer from "./Footer";
 import "./styles/MobileNavbar.scss"; // Make sure to use SCSS
 
 export default function MobileNavbar() {
@@ -141,6 +142,9 @@ export default function MobileNavbar() {
                 {i18n.language === "en" ? "EN" : "DE"}
               </button>
             </motion.div>
+            {/* <motion.div>
+              <Footer />
+            </motion.div> */}
           </motion.aside>
         )}
       </AnimatePresence>
