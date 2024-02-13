@@ -21,24 +21,22 @@ export default function Experience(props: experienceProps) {
   }, [pages]);
 
   return (
-    <>
-      <Canvas
-        shadows
-        dpr={[1, 2]}
-        camera={{ position: [20, -3, 40], fov: fov, near: 5, far: 90 }} //fov 18
-      >
-        <ScrollControls pages={pages} damping={0.1}>
-          <fog attach="fog" args={["#202020", 1, 120]} />
-          <color attach="background" args={["#111"]} />
-          <ambientLight intensity={0.1} />
-          <Physics>
-            <Head pages={5} />
-          </Physics>
-          <Scroll html>
-            <Interface />
-          </Scroll>
-        </ScrollControls>
-      </Canvas>
-    </>
+    <Canvas
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [20, -3, 40], fov: fov, near: 5, far: 90 }} //fov 18
+    >
+      <ScrollControls pages={pages} damping={0.1}>
+        <fog attach="fog" args={["#202020", 1, 120]} />
+        <color attach="background" args={["#111"]} />
+        <ambientLight intensity={0.1} />
+        <Physics>
+          <Head pages={5} />
+        </Physics>
+        <Scroll html>
+          <Interface />
+        </Scroll>
+      </ScrollControls>
+    </Canvas>
   );
 }

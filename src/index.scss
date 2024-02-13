@@ -36,9 +36,11 @@
   font-style: bold;
   src: url("./fonts/Neue-Haas/Neue-Haas-Bold/NeueHaasDisplay-Bold.woff");
 }
-
+body {
+  background-color: #0e0e0e;
+}
 #root {
-  // min-height: 100vh;
+  // height: 100vh;
   height: 100vh;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   color: #3d5373;
@@ -85,7 +87,7 @@ h1 {
     font-size: 28px;
   }
   @include xl {
-    font-size: 36px;
+    font-size: 32px;
   }
   @include xxl {
     font-size: 40px;

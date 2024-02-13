@@ -45,6 +45,9 @@ export default function DigitalReflection() {
           fullMessage
         )}`;
         break;
+      case "link":
+        navigator.clipboard.writeText(shareUrl);
+        break;
       default:
         navigator.share({
           title: "Question",
@@ -135,7 +138,7 @@ export default function DigitalReflection() {
                 >
                   Share Link
                 </div>
-                <div
+                {/* <div
                   onClick={() => handleShare("whatsapp")}
                   style={{ letterSpacing: "2.4px;" }}
                 >
@@ -146,7 +149,7 @@ export default function DigitalReflection() {
                   style={{ letterSpacing: "2.4px;" }}
                 >
                   Share via Email
-                </div>
+                </div> */}
               </div>
             )}
           </div>
